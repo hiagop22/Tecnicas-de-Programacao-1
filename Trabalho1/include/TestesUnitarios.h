@@ -75,5 +75,27 @@ public:
     int run();
 };
 
+class TesteUnitarioCodigoAplicacao{
+private:
+    const static string CODIGO_APLICACAO_VALIDO;
+    const static string CODIGO_APLICACAO_INVALIDO;
+
+    // Ponteiro para o Classe classe que será criado
+    CodigoAplicacao *codigoAplicacao;
+
+    // Estado de teste
+    int estado;
+
+    //Declaração de métodos
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+public:
+    const static int SUCESSO = 1;
+    const static int FALHA = -1;
+
+    int run();
+};
 
 #endif // TESTESUNITARIOS_H

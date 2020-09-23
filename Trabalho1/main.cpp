@@ -10,6 +10,8 @@ int main()
     TesteUnitarioCep testeCep;
     TesteUnitarioClasse testeClasse;
     TesteUnitarioCodigoAgencia testeCodigoAgencia;
+    TesteUnitarioCodigoAplicacao testeCodigoAplicacao;
+
 
     switch (testeCep.run()){
         case TesteUnitarioCep::SUCESSO: cout << "Cep: SUCESSO" << endl;
@@ -30,6 +32,13 @@ int main()
                                                   break;
         case TesteUnitarioCodigoAgencia::FALHA: cout << "Código de Agência: FALHA" << endl;
                                                 break;
+    }
+
+    switch (testeCodigoAplicacao.run()){
+        case TesteUnitarioCodigoAplicacao::SUCESSO: cout << "Codigo de Aplicação: SUCESSO" << endl;
+                                                    break;
+        case TesteUnitarioCodigoAplicacao::FALHA: cout << "Código de Aplicação: FALHA" << endl;
+                                                  break;
     }
 
     return 0;

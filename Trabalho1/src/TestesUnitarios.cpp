@@ -6,9 +6,14 @@
 const string TesteUnitarioClasse::NOME_CLASSE_VALIDO = "CDB";
 const string TesteUnitarioClasse::NOME_CLASSE_INVALIDO = "ETF";
 
-// -> Classe <- //
+// -> Código de Agencia <- //
 const string TesteUnitarioCodigoAgencia::CODIGO_AGENCIA_VALIDO = "1234";
 const string TesteUnitarioCodigoAgencia::CODIGO_AGENCIA_INVALIDO = "0000";
+
+// -> Código de Aplicacão <- //
+const string TesteUnitarioCodigoAplicacao::CODIGO_APLICACAO_VALIDO = "12345";
+const string TesteUnitarioCodigoAplicacao::CODIGO_APLICACAO_INVALIDO = "00000";
+
 
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
@@ -124,6 +129,47 @@ void TesteUnitarioCodigoAgencia::testarCenarioFalha(){
 }
 
 int TesteUnitarioCodigoAgencia::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+
+    return estado;
+}
+
+
+// -> Código de Aplicação <- //
+void TesteUnitarioCodigoAplicacao::setUp(){
+    codigoAplicacao = new CodigoAplicacao();
+    estado = SUCESSO;
+}
+
+void TesteUnitarioCodigoAplicacao::tearDown(){
+    delete codigoAplicacao;
+}
+
+void TesteUnitarioCodigoAplicacao::testarCenarioSucesso(){
+    try{
+        codigoAplicacao->setCodigoAplicacao(CODIGO_APLICACAO_VALIDO);
+        if(codigoAplicacao->getCodigoAplicacao() != CODIGO_APLICACAO_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        estado = FALHA;
+    }
+}
+
+void TesteUnitarioCodigoAplicacao::testarCenarioFalha(){
+    try{
+        codigoAplicacao->setCodigoAplicacao(CODIGO_APLICACAO_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        return;
+    }
+}
+
+int TesteUnitarioCodigoAplicacao::run(){
     setUp();
     testarCenarioSucesso();
     testarCenarioFalha();
