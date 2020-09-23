@@ -1,13 +1,40 @@
 #ifndef DOMINIOS_H
 #define DOMINIOS_H
-#include<string>
+#include <string>
 
 using std::string;
 
 class Cep{
 private:
+    const static int QUANTIDADE_CEPS_DEFAULT = 0;
+    static int minMaxCepsPossiveis[6][2];
+    static string locaisCepsPossiveis[7];
+    int numeroCep;
+    string localCep;
+    static int quantidadeCeps;
+    void validarNumeroCep(int);
 public:
+    Cep();
+    void setCep(int);
+    void setLocalCep(string);
+    int getCep();
+    string getLocalCep();
+    static int getQuantidadeCeps();
+    virtual ~Cep();
 };
+
+inline int Cep::getCep(){
+    return numeroCep;
+}
+
+inline string Cep::getLocalCep(){
+    return localCep;
+}
+
+inline int Cep::getQuantidadeCeps(){
+    return quantidadeCeps;
+}
+
 
 class Classe{
 private:
