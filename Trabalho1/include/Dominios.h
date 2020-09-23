@@ -35,7 +35,6 @@ inline int Cep::getQuantidadeCeps(){
     return quantidadeCeps;
 }
 
-
 class Classe{
 private:
     const static int QUANTIDADE_CLASSES_DEFAULT = 0;
@@ -59,10 +58,28 @@ inline int Classe::getQuantidadeClasses(){
     return quantidadeClasses;
 }
 
-class CodigoDaAgencia{
+class CodigoAgencia{
 private:
+    const static int QUANTIDADE_AGENCIAS_DEFAULT = 0;
+    static string agenciaNaoPossivel;
+    string numeroAgencia;
+    static int quantidadeAgencias;
+    void validar(string);
 public:
+    CodigoAgencia();
+    void setCodigoAgencia(string);
+    string getCodigoAgencia();
+    static int getQuantidadeAgencias();
+    virtual ~CodigoAgencia();
 };
+
+inline string CodigoAgencia::getCodigoAgencia(){
+    return numeroAgencia;
+}
+
+inline int CodigoAgencia::getQuantidadeAgencias(){
+    return quantidadeAgencias;
+}
 
 class codigoDeAplicacao{
 private:

@@ -52,6 +52,28 @@ public:
     int run();
 };
 
+class TesteUnitarioCodigoAgencia{
+private:
+    const static string CODIGO_AGENCIA_VALIDO;
+    const static string CODIGO_AGENCIA_INVALIDO;
+
+    // Ponteiro para o Classe classe que será criado
+    CodigoAgencia *codigoAgencia;
+
+    // Estado de teste
+    int estado;
+
+    //Declaração de métodos
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+public:
+    const static int SUCESSO = 1;
+    const static int FALHA = -1;
+
+    int run();
+};
 
 
 #endif // TESTESUNITARIOS_H

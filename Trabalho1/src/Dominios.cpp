@@ -24,6 +24,10 @@ string Cep::locaisCepsPossiveis[7] = {"São Paulo",
 int Classe::quantidadeClasses = Classe::QUANTIDADE_CLASSES_DEFAULT;
 string Classe::classesPossiveis = "CDB LCA LCI LF LC";
 
+// -> Codigo de Agencia <- //
+int CodigoAgencia::quantidadeAgencias = CodigoAgencia::QUANTIDADE_AGENCIAS_DEFAULT;
+string CodigoAgencia::agenciaNaoPossivel = "0000";
+
 
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
@@ -69,4 +73,23 @@ void Classe::setClasse(string nomeClasse){
 
 Classe::~Classe(){
     quantidadeClasses--;
+}
+
+// -> Código Agência <- //
+CodigoAgencia::CodigoAgencia(){
+    quantidadeAgencias++;
+}
+
+void CodigoAgencia::validar(string numeroAgencia){
+    if(numeroAgencia.size() != 4 || atoi(numeroAgencia.c_str()) == 0)
+        throw invalid_argument("Argumento Inválido.");
+}
+
+void CodigoAgencia::setCodigoAgencia(string numeroAgencia){
+    validar(numeroAgencia);
+    this->numeroAgencia = numeroAgencia;
+}
+
+CodigoAgencia::~CodigoAgencia(){
+    quantidadeAgencias--;
 }
