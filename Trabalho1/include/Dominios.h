@@ -81,12 +81,30 @@ inline int CodigoAgencia::getQuantidadeAgencias(){
     return quantidadeAgencias;
 }
 
-class codigoDeAplicacao{
+class CodigoAplicacao{
 private:
+    const static int QUANTIDADE_APLICACOES_DEFAULT = 0;
+    static string numeroAplicacaoNaoPossivel;
+    string numeroAplicacao;
+    static int quantidadeAplicacoes;
+    void validar(string);
 public:
+    CodigoAplicacao();
+    void setCodigoAplicacao(string);
+    string getCodigoAplicacao();
+    static int getQuantidadeAplicacoes();
+    virtual ~CodigoAplicacao();
 };
 
-class CodigoDeBanco{
+inline string CodigoAplicacao::getCodigoAplicacao(){
+    return numeroAplicacao;
+}
+
+inline int CodigoAplicacao::getQuantidadeAplicacoes(){
+    return quantidadeAplicacoes;
+}
+
+class CodigoBanco{
 private:
 public:
 };

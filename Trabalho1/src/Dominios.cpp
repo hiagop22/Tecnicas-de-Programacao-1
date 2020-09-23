@@ -28,6 +28,9 @@ string Classe::classesPossiveis = "CDB LCA LCI LF LC";
 int CodigoAgencia::quantidadeAgencias = CodigoAgencia::QUANTIDADE_AGENCIAS_DEFAULT;
 string CodigoAgencia::agenciaNaoPossivel = "0000";
 
+// -> Codigo de Aplicação <- //
+int CodigoAplicacao::quantidadeAplicacoes = CodigoAplicacao::QUANTIDADE_APLICACOES_DEFAULT;
+string CodigoAplicacao::numeroAplicacaoNaoPossivel = "00000";
 
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
@@ -81,8 +84,15 @@ CodigoAgencia::CodigoAgencia(){
 }
 
 void CodigoAgencia::validar(string numeroAgencia){
+    int i;
+
     if(numeroAgencia.size() != 4 || atoi(numeroAgencia.c_str()) == 0)
         throw invalid_argument("Argumento Inválido.");
+
+    for(i = 0; i < (int)numeroAgencia.size(); ++i){
+        if(!isdigit(numeroAgencia[i]))
+            throw invalid_argument("Argumento Inválido.");
+    }
 }
 
 void CodigoAgencia::setCodigoAgencia(string numeroAgencia){
@@ -92,4 +102,30 @@ void CodigoAgencia::setCodigoAgencia(string numeroAgencia){
 
 CodigoAgencia::~CodigoAgencia(){
     quantidadeAgencias--;
+}
+
+// -> Código Aplicacão <- //
+CodigoAplicacao::CodigoAplicacao(){
+    quantidadeAplicacoes++;
+}
+
+void CodigoAplicacao::validar(string numeroAplicacao){
+    int i;
+
+    if(numeroAplicacao.size() != 5 || atoi(numeroAplicacao.c_str()) == 0)
+        throw invalid_argument("Argumento Inválido.");
+
+    for(i = 0; i < (int)numeroAplicacao.size(); ++i){
+        if(!isdigit(numeroAplicacao[i]))
+            throw invalid_argument("Argumento Inválido.");
+    }
+}
+
+void CodigoAplicacao::setCodigoAplicacao(string numeroAplicacao){
+    validar(numeroAplicacao);
+    this->numeroAplicacao = numeroAplicacao;
+}
+
+CodigoAplicacao::~CodigoAplicacao(){
+    quantidadeAplicacoes--;
 }
