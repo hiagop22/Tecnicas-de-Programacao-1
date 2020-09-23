@@ -18,6 +18,10 @@ const string TesteUnitarioCodigoAplicacao::CODIGO_APLICACAO_INVALIDO = "00000";
 const string TesteUnitarioCodigoBanco::CODIGO_BANCO_VALIDO = "033";
 const string TesteUnitarioCodigoBanco::CODIGO_BANCO_INVALIDO = "003";
 
+// -> Código de Produto <- //
+const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_VALIDO = "033";
+const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_INVALIDO = "000";
+
 
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
@@ -213,6 +217,46 @@ void TesteUnitarioCodigoBanco::testarCenarioFalha(){
 }
 
 int TesteUnitarioCodigoBanco::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+
+    return estado;
+}
+
+// -> Código de Produto <- //
+void TesteUnitarioCodigoProduto::setUp(){
+    codigoProduto = new CodigoProduto();
+    estado = SUCESSO;
+}
+
+void TesteUnitarioCodigoProduto::tearDown(){
+    delete codigoProduto;
+}
+
+void TesteUnitarioCodigoProduto::testarCenarioSucesso(){
+    try{
+        codigoProduto->setCodigoProduto(CODIGO_PRODUTO_VALIDO);
+        if(codigoProduto->getCodigoProduto() != CODIGO_PRODUTO_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        estado = FALHA;
+    }
+}
+
+void TesteUnitarioCodigoProduto::testarCenarioFalha(){
+    try{
+        codigoProduto->setCodigoProduto(CODIGO_PRODUTO_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        return;
+    }
+}
+
+int TesteUnitarioCodigoProduto::run(){
     setUp();
     testarCenarioSucesso();
     testarCenarioFalha();

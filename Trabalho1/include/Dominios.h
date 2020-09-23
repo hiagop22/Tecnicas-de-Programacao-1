@@ -61,6 +61,8 @@ inline int Classe::getQuantidadeClasses(){
 class CodigoAgencia{
 private:
     const static int QUANTIDADE_AGENCIAS_DEFAULT = 0;
+    const static int QUANTIDADE_DIGITOS_CODIGO_AGENCIA = 4;
+    const static string NUMERO_AGENCIA_INVALIDO;
     static string agenciaNaoPossivel;
     string numeroAgencia;
     static int quantidadeAgencias;
@@ -84,7 +86,8 @@ inline int CodigoAgencia::getQuantidadeAgencias(){
 class CodigoAplicacao{
 private:
     const static int QUANTIDADE_APLICACOES_DEFAULT = 0;
-    static string numeroAplicacaoNaoPossivel;
+    const static int QUANTIDADE_DIGITOS_CODIGO_APLICACAO = 5;
+    const static string NUMERO_APLICACAO_INVALIDO;
     string numeroAplicacao;
     static int quantidadeAplicacoes;
     void validar(string);
@@ -107,6 +110,7 @@ inline int CodigoAplicacao::getQuantidadeAplicacoes(){
 class CodigoBanco{
 private:
     const static int QUANTIDADE_BANCOS_DEFAULT = 0;
+    const static int QUANTIDADE_DIGITOS_CODIGO_BANCO = 3;
     static string codigosBancosPossiveis[5][2];
     string numeroBanco;
     static int quantidadeCodigosBancos;
@@ -127,10 +131,30 @@ inline int CodigoBanco::getQuantidadeCodigosBancos(){
     return quantidadeCodigosBancos;
 }
 
-class CodigoDeProduto{
+class CodigoProduto{
 private:
+    const static int QUANTIDADE_CODIGOS_PRODUTOS_DEFAULT = 0;
+    const static int QUANTIDADE_DIGITOS_CODIGO_PRODUTO = 3;
+    const static string NUMERO_PRODUTO_INVALIDO;
+    static string codigoProdutoNaoPossivel;
+    string numeroCodigoProduto;
+    static int quantidadeCodigosProdutos;
+    void validar(string);
 public:
+    CodigoProduto();
+    void setCodigoProduto(string);
+    string getCodigoProduto();
+    static int getQuantidadeCodigosProdutos();
+    virtual ~CodigoProduto();
 };
+
+inline string CodigoProduto::getCodigoProduto(){
+    return numeroCodigoProduto;
+}
+
+inline int CodigoProduto::getQuantidadeCodigosProdutos(){
+    return quantidadeCodigosProdutos;
+}
 
 class Cpf{
 private:

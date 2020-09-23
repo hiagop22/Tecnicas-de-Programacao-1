@@ -6,7 +6,26 @@
 
 using namespace std;
 
-class TesteUnitarioCep{
+// Classe abstrata TesteUnitário
+class TesteUnitario{
+protected:
+    // Estado de teste
+    int estado;
+
+    //  Métodos virtuais puros, logo todas as classes filhas
+    //  devem implementá-los
+    virtual void setUp() = 0;
+    virtual void tearDown() = 0;
+    virtual void testarCenarioSucesso() = 0;
+    virtual void testarCenarioFalha() = 0;
+public:
+    const static int SUCESSO = 1;
+    const static int FALHA = -1;
+
+    virtual int run() = 0;
+};
+
+class TesteUnitarioCep: public TesteUnitario{
 private:
     const static int NUMERO_CEP_VALIDO = 1111111;
     const static int NUMERO_CEP_INVALIDO = 0;
@@ -14,22 +33,17 @@ private:
     // Ponteiro para o Classe classe que será criado
     Cep *cep;
 
-    // Estado de teste
-    int estado;
-
     //Declaração de métodos
-    void setUp();
-    void tearDown();
-    void testarCenarioSucesso();
-    void testarCenarioFalha();
-public:
-    const static int SUCESSO = 1;
-    const static int FALHA = -1;
+    virtual void setUp();
+    virtual void tearDown();
+    virtual void testarCenarioSucesso();
+    virtual void testarCenarioFalha();
 
+public:
     int run();
 };
 
-class TesteUnitarioClasse{
+class TesteUnitarioClasse: public TesteUnitario{
 private:
     const static string NOME_CLASSE_VALIDO;
     const static string NOME_CLASSE_INVALIDO;
@@ -37,22 +51,17 @@ private:
     // Ponteiro para o Classe classe que será criado
     Classe *classe;
 
-    // Estado de teste
-    int estado;
-
     //Declaração de métodos
     void setUp();
     void tearDown();
     void testarCenarioSucesso();
     void testarCenarioFalha();
-public:
-    const static int SUCESSO = 1;
-    const static int FALHA = -1;
 
+public:
     int run();
 };
 
-class TesteUnitarioCodigoAgencia{
+class TesteUnitarioCodigoAgencia: public TesteUnitario{
 private:
     const static string CODIGO_AGENCIA_VALIDO;
     const static string CODIGO_AGENCIA_INVALIDO;
@@ -60,22 +69,17 @@ private:
     // Ponteiro para o Classe classe que será criado
     CodigoAgencia *codigoAgencia;
 
-    // Estado de teste
-    int estado;
-
     //Declaração de métodos
     void setUp();
     void tearDown();
     void testarCenarioSucesso();
     void testarCenarioFalha();
-public:
-    const static int SUCESSO = 1;
-    const static int FALHA = -1;
 
+public:
     int run();
 };
 
-class TesteUnitarioCodigoAplicacao{
+class TesteUnitarioCodigoAplicacao: public TesteUnitario{
 private:
     const static string CODIGO_APLICACAO_VALIDO;
     const static string CODIGO_APLICACAO_INVALIDO;
@@ -83,22 +87,17 @@ private:
     // Ponteiro para o Classe classe que será criado
     CodigoAplicacao *codigoAplicacao;
 
-    // Estado de teste
-    int estado;
-
     //Declaração de métodos
     void setUp();
     void tearDown();
     void testarCenarioSucesso();
     void testarCenarioFalha();
-public:
-    const static int SUCESSO = 1;
-    const static int FALHA = -1;
 
+public:
     int run();
 };
 
-class TesteUnitarioCodigoBanco{
+class TesteUnitarioCodigoBanco: public TesteUnitario{
 private:
     const static string CODIGO_BANCO_VALIDO;
     const static string CODIGO_BANCO_INVALIDO;
@@ -106,19 +105,33 @@ private:
     // Ponteiro para o Classe classe que será criado
     CodigoBanco *codigoBanco;
 
-    // Estado de teste
-    int estado;
+    //Declaração de métodos
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    int run();
+};
+
+class TesteUnitarioCodigoProduto: public TesteUnitario{
+private:
+    const static string CODIGO_PRODUTO_VALIDO;
+    const static string CODIGO_PRODUTO_INVALIDO;
+
+    // Ponteiro para o Classe classe que será criado
+    CodigoProduto *codigoProduto;
 
     //Declaração de métodos
     void setUp();
     void tearDown();
     void testarCenarioSucesso();
     void testarCenarioFalha();
-public:
-    const static int SUCESSO = 1;
-    const static int FALHA = -1;
 
+public:
     int run();
 };
+
 
 #endif // TESTESUNITARIOS_H

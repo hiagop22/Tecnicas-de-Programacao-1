@@ -12,7 +12,7 @@ int main()
     TesteUnitarioCodigoAgencia testeCodigoAgencia;
     TesteUnitarioCodigoAplicacao testeCodigoAplicacao;
     TesteUnitarioCodigoBanco testeCodigoBanco;
-
+    TesteUnitarioCodigoProduto testeCodigoProduto;
 
     switch (testeCep.run()){
         case TesteUnitarioCep::SUCESSO: cout << "Cep: SUCESSO" << endl;
@@ -31,14 +31,14 @@ int main()
     switch (testeCodigoAgencia.run()){
         case TesteUnitarioCodigoAgencia::SUCESSO: cout << "Codigo de Agencia: SUCESSO" << endl;
                                                   break;
-        case TesteUnitarioCodigoAgencia::FALHA: cout << "Código de Agencia: FALHA" << endl;
+        case TesteUnitarioCodigoAgencia::FALHA: cout << "Codigo de Agencia: FALHA" << endl;
                                                 break;
     }
 
     switch (testeCodigoAplicacao.run()){
         case TesteUnitarioCodigoAplicacao::SUCESSO: cout << "Codigo de Aplicacao: SUCESSO" << endl;
                                                     break;
-        case TesteUnitarioCodigoAplicacao::FALHA: cout << "Código de Aplicacao: FALHA" << endl;
+        case TesteUnitarioCodigoAplicacao::FALHA: cout << "Codigo de Aplicacao: FALHA" << endl;
                                                   break;
     }
 
@@ -47,6 +47,13 @@ int main()
                                                     break;
         case TesteUnitarioCodigoBanco::FALHA:   cout << "Codigo de Banco: FALHA" << endl;
                                                     break;
+    }
+
+     switch (testeCodigoProduto.run()){
+        case TesteUnitarioCodigoProduto::SUCESSO: cout << "Codigo de Produto: SUCESSO" << endl;
+                                                  break;
+        case TesteUnitarioCodigoProduto::FALHA: cout << "Codigo de Produto: FALHA" << endl;
+                                                break;
     }
 
     return 0;

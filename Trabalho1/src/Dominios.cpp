@@ -27,11 +27,11 @@ string Classe::classesPossiveis = "CDB LCA LCI LF LC";
 
 // -> Codigo de Agencia <- //
 int CodigoAgencia::quantidadeAgencias = CodigoAgencia::QUANTIDADE_AGENCIAS_DEFAULT;
-string CodigoAgencia::agenciaNaoPossivel = "0000";
+const string CodigoAgencia::NUMERO_AGENCIA_INVALIDO = "0000";
 
 // -> Codigo de Aplicação <- //
 int CodigoAplicacao::quantidadeAplicacoes = CodigoAplicacao::QUANTIDADE_APLICACOES_DEFAULT;
-string CodigoAplicacao::numeroAplicacaoNaoPossivel = "00000";
+const string CodigoAplicacao::NUMERO_APLICACAO_INVALIDO = "00000";
 
 // -> Codigo de Banco <- //
 int CodigoBanco::quantidadeCodigosBancos = CodigoBanco::QUANTIDADE_BANCOS_DEFAULT;
@@ -40,6 +40,10 @@ string CodigoBanco::codigosBancosPossiveis[5][2] = {{"341", "Banco Itau"},
                                                     {"237", "Banco Bradesco"},
                                                     {"104", "Banco Caixa Economica Federal"},
                                                     {"033", "Banco Santander"}};
+
+// -> Codigo de Produto <- //
+int CodigoProduto::quantidadeCodigosProdutos = CodigoProduto::QUANTIDADE_CODIGOS_PRODUTOS_DEFAULT;
+const string CodigoProduto::NUMERO_PRODUTO_INVALIDO = "000";
 
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
@@ -95,10 +99,11 @@ CodigoAgencia::CodigoAgencia(){
 void CodigoAgencia::validar(string numeroAgencia){
     int i;
 
-    if(numeroAgencia.size() != 4 || atoi(numeroAgencia.c_str()) == 0)
+    if(numeroAgencia.size() != QUANTIDADE_DIGITOS_CODIGO_AGENCIA || numeroAgencia.c_str() == NUMERO_AGENCIA_INVALIDO)
         throw invalid_argument("Argumento Inválido.");
 
-    for(i = 0; i < (int)numeroAgencia.size(); ++i){
+    //  Verifica se todos os índices são dígitos
+    for(i=0; i < (int) numeroAgencia.size(); ++i){
         if(!isdigit(numeroAgencia[i]))
             throw invalid_argument("Argumento Inválido.");
     }
@@ -121,9 +126,10 @@ CodigoAplicacao::CodigoAplicacao(){
 void CodigoAplicacao::validar(string numeroAplicacao){
     int i;
 
-    if(numeroAplicacao.size() != 5 || atoi(numeroAplicacao.c_str()) == 0)
+    if(numeroAplicacao.size() != QUANTIDADE_DIGITOS_CODIGO_APLICACAO || numeroAplicacao.c_str() == NUMERO_APLICACAO_INVALIDO)
         throw invalid_argument("Argumento Inválido.");
 
+    // Verifica se todos os caracteres da string numeroAplicação são números
     for(i = 0; i < (int)numeroAplicacao.size(); ++i){
         if(!isdigit(numeroAplicacao[i]))
             throw invalid_argument("Argumento Inválido.");
@@ -150,7 +156,7 @@ void CodigoBanco::validar(string numeroBanco){
     size_t found;
 
 //  Verifica o tamanho
-    if(numeroBanco.size() != 3)
+    if(numeroBanco.size() != QUANTIDADE_DIGITOS_CODIGO_BANCO )
         throw invalid_argument("Argumento Inválido.");
 
 //  Verifica se todos os índices são dígitos
@@ -178,4 +184,31 @@ void CodigoBanco::setCodigoBanco(string numeroBanco){
 
 CodigoBanco::~CodigoBanco(){
     quantidadeCodigosBancos--;
+}
+
+// -> Código Produto <- //
+CodigoProduto::CodigoProduto(){
+    quantidadeCodigosProdutos++;
+}
+
+void CodigoProduto::validar(string numeroProduto){
+    int i;
+
+    if(numeroProduto.size() != QUANTIDADE_DIGITOS_CODIGO_PRODUTO || numeroProduto.c_str() == NUMERO_PRODUTO_INVALIDO)
+        throw invalid_argument("Argumento Inválido.");
+
+    // Verifica se todos os caracteres da string numeroAplicação são números
+    for(i = 0; i < (int)numeroProduto.size(); ++i){
+        if(!isdigit(numeroProduto[i]))
+            throw invalid_argument("Argumento Inválido.");
+    }
+}
+
+void CodigoProduto::setCodigoProduto(string numeroCodigoProduto){
+    validar(numeroCodigoProduto);
+    this->numeroCodigoProduto = numeroCodigoProduto;
+}
+
+CodigoProduto::~CodigoProduto(){
+    quantidadeCodigosProdutos--;
 }
