@@ -98,4 +98,27 @@ public:
     int run();
 };
 
+class TesteUnitarioCodigoBanco{
+private:
+    const static string CODIGO_BANCO_VALIDO;
+    const static string CODIGO_BANCO_INVALIDO;
+
+    // Ponteiro para o Classe classe que será criado
+    CodigoBanco *codigoBanco;
+
+    // Estado de teste
+    int estado;
+
+    //Declaração de métodos
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+public:
+    const static int SUCESSO = 1;
+    const static int FALHA = -1;
+
+    int run();
+};
+
 #endif // TESTESUNITARIOS_H

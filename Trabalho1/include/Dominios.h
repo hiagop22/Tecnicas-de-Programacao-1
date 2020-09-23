@@ -106,8 +106,26 @@ inline int CodigoAplicacao::getQuantidadeAplicacoes(){
 
 class CodigoBanco{
 private:
+    const static int QUANTIDADE_BANCOS_DEFAULT = 0;
+    static string codigosBancosPossiveis[5][2];
+    string numeroBanco;
+    static int quantidadeCodigosBancos;
+    void validar(string);
 public:
+    CodigoBanco();
+    void setCodigoBanco(string);
+    string getCodigoBanco();
+    static int getQuantidadeCodigosBancos();
+    virtual ~CodigoBanco();
 };
+
+inline string CodigoBanco::getCodigoBanco(){
+    return numeroBanco;
+}
+
+inline int CodigoBanco::getQuantidadeCodigosBancos(){
+    return quantidadeCodigosBancos;
+}
 
 class CodigoDeProduto{
 private:

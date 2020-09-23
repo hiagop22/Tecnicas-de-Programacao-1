@@ -1,5 +1,6 @@
 #include "Dominios.h"
 #include <string>
+#include <iostream>
 #include <stdexcept>
 
 using namespace std;
@@ -31,6 +32,14 @@ string CodigoAgencia::agenciaNaoPossivel = "0000";
 // -> Codigo de Aplicação <- //
 int CodigoAplicacao::quantidadeAplicacoes = CodigoAplicacao::QUANTIDADE_APLICACOES_DEFAULT;
 string CodigoAplicacao::numeroAplicacaoNaoPossivel = "00000";
+
+// -> Codigo de Banco <- //
+int CodigoBanco::quantidadeCodigosBancos = CodigoBanco::QUANTIDADE_BANCOS_DEFAULT;
+string CodigoBanco::codigosBancosPossiveis[5][2] = {{"341", "Banco Itau"},
+                                                    {"001", "Banco do Brasil"},
+                                                    {"237", "Banco Bradesco"},
+                                                    {"104", "Banco Caixa Economica Federal"},
+                                                    {"033", "Banco Santander"}};
 
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
@@ -128,4 +137,45 @@ void CodigoAplicacao::setCodigoAplicacao(string numeroAplicacao){
 
 CodigoAplicacao::~CodigoAplicacao(){
     quantidadeAplicacoes--;
+}
+
+// -> Código Banco <- //
+CodigoBanco::CodigoBanco(){
+    quantidadeCodigosBancos++;
+}
+
+void CodigoBanco::validar(string numeroBanco){
+    int i;
+    int lengthArrayCodigoBancosPossiveis = (sizeof(codigosBancosPossiveis)/sizeof(*codigosBancosPossiveis));
+    size_t found;
+
+//  Verifica o tamanho
+    if(numeroBanco.size() != 3)
+        throw invalid_argument("Argumento Inválido.");
+
+//  Verifica se todos os índices são dígitos
+    for(i=0; i < (int)codigosBancosPossiveis[0][0].size(); ++i){
+        if(!isdigit(numeroBanco[i]))
+            throw invalid_argument("Argumento Inválido.");
+    }
+
+//  Verifica se a variável numeroBanco é um entre os
+//  possíveis, se for sai da função, caso contrário
+//  termina o loop e cai em um levantamento de excessão
+    for(i=0; i < lengthArrayCodigoBancosPossiveis; ++i){
+        found = codigosBancosPossiveis[i][0].find(numeroBanco);
+        if(found != string::npos)
+            return;
+    }
+
+    throw invalid_argument("Argumento Inválido.");
+}
+
+void CodigoBanco::setCodigoBanco(string numeroBanco){
+    validar(numeroBanco);
+    this->numeroBanco = numeroBanco;
+}
+
+CodigoBanco::~CodigoBanco(){
+    quantidadeCodigosBancos--;
 }

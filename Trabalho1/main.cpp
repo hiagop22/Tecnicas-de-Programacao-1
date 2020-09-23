@@ -11,6 +11,7 @@ int main()
     TesteUnitarioClasse testeClasse;
     TesteUnitarioCodigoAgencia testeCodigoAgencia;
     TesteUnitarioCodigoAplicacao testeCodigoAplicacao;
+    TesteUnitarioCodigoBanco testeCodigoBanco;
 
 
     switch (testeCep.run()){
@@ -28,17 +29,24 @@ int main()
     }
 
     switch (testeCodigoAgencia.run()){
-        case TesteUnitarioCodigoAgencia::SUCESSO: cout << "Codigo de Agência: SUCESSO" << endl;
+        case TesteUnitarioCodigoAgencia::SUCESSO: cout << "Codigo de Agencia: SUCESSO" << endl;
                                                   break;
-        case TesteUnitarioCodigoAgencia::FALHA: cout << "Código de Agência: FALHA" << endl;
+        case TesteUnitarioCodigoAgencia::FALHA: cout << "Código de Agencia: FALHA" << endl;
                                                 break;
     }
 
     switch (testeCodigoAplicacao.run()){
-        case TesteUnitarioCodigoAplicacao::SUCESSO: cout << "Codigo de Aplicação: SUCESSO" << endl;
+        case TesteUnitarioCodigoAplicacao::SUCESSO: cout << "Codigo de Aplicacao: SUCESSO" << endl;
                                                     break;
-        case TesteUnitarioCodigoAplicacao::FALHA: cout << "Código de Aplicação: FALHA" << endl;
+        case TesteUnitarioCodigoAplicacao::FALHA: cout << "Código de Aplicacao: FALHA" << endl;
                                                   break;
+    }
+
+    switch (testeCodigoBanco.run()){
+        case TesteUnitarioCodigoBanco::SUCESSO: cout << "Codigo de Banco: SUCESSO" << endl;
+                                                    break;
+        case TesteUnitarioCodigoBanco::FALHA:   cout << "Codigo de Banco: FALHA" << endl;
+                                                    break;
     }
 
     return 0;
