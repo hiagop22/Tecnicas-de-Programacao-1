@@ -35,8 +35,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Dominios.h" />
+		<Unit filename="include/TestesUnitarios.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Dominios.cpp" />
+		<Unit filename="src/TestesUnitarios.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

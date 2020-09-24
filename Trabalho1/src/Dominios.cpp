@@ -1,14 +1,77 @@
 #include "Dominios.h"
 #include <string>
+#include <iostream>
 #include <stdexcept>
 
 using namespace std;
 
-// Inicialização de atributos estáticos
+// ----------------- Inicialização de atributos estáticos ----------------- //
+// -> Cep <- //
+int Cep::quantidadeCeps = Cep::QUANTIDADE_CEPS_DEFAULT;
+int Cep::minMaxCepsPossiveis[6][2] = {{1000000,5999999},
+                                      {8000000,8499999},
+                                      {20000000,26600999},
+                                      {70000000,70999999},
+                                      {40000000,41999999},
+                                      {60000000,60999999}};
+string Cep::locaisCepsPossiveis[7] = {"São Paulo",
+                                      "São Paulo",
+                                      "Rio de Janeiro",
+                                      "Brasília",
+                                      "Salvador",
+                                      "Fortaleza"};
+
+// -> Classe <- //
 int Classe::quantidadeClasses = Classe::QUANTIDADE_CLASSES_DEFAULT;
 string Classe::classesPossiveis = "CDB LCA LCI LF LC";
 
-// Definição de métodos
+// -> Codigo de Agencia <- //
+int CodigoAgencia::quantidadeAgencias = CodigoAgencia::QUANTIDADE_AGENCIAS_DEFAULT;
+const string CodigoAgencia::NUMERO_AGENCIA_INVALIDO = "0000";
+
+// -> Codigo de Aplicação <- //
+int CodigoAplicacao::quantidadeAplicacoes = CodigoAplicacao::QUANTIDADE_APLICACOES_DEFAULT;
+const string CodigoAplicacao::NUMERO_APLICACAO_INVALIDO = "00000";
+
+// -> Codigo de Banco <- //
+int CodigoBanco::quantidadeCodigosBancos = CodigoBanco::QUANTIDADE_BANCOS_DEFAULT;
+string CodigoBanco::codigosBancosPossiveis[5][2] = {{"341", "Banco Itau"},
+                                                    {"001", "Banco do Brasil"},
+                                                    {"237", "Banco Bradesco"},
+                                                    {"104", "Banco Caixa Economica Federal"},
+                                                    {"033", "Banco Santander"}};
+
+// -> Codigo de Produto <- //
+int CodigoProduto::quantidadeCodigosProdutos = CodigoProduto::QUANTIDADE_CODIGOS_PRODUTOS_DEFAULT;
+const string CodigoProduto::NUMERO_PRODUTO_INVALIDO = "000";
+
+// ----------------- Definição de métodos ----------------- //
+// -> Cep <- //
+Cep::Cep(){
+    quantidadeCeps++;
+}
+
+void Cep::validarNumeroCep(int numeroCep){
+    int i;
+    int lengthArrayCeps = (sizeof(minMaxCepsPossiveis)/sizeof(*minMaxCepsPossiveis));
+
+    for(i=0; i<lengthArrayCeps; ++i){
+        if(numeroCep>=minMaxCepsPossiveis[i][0] && numeroCep<=minMaxCepsPossiveis[i][1])
+            return;
+    }
+    throw invalid_argument("Argumento inválido.");
+}
+
+void Cep::setCep(int numeroCep){
+    validarNumeroCep(numeroCep);
+    this->numeroCep = numeroCep;
+}
+
+Cep::~Cep(){
+    quantidadeCeps--;
+}
+
+// -> Classe <- //
 Classe::Classe(){
     quantidadeClasses++;
 }
@@ -26,4 +89,126 @@ void Classe::setClasse(string nomeClasse){
 
 Classe::~Classe(){
     quantidadeClasses--;
+}
+
+// -> Código Agência <- //
+CodigoAgencia::CodigoAgencia(){
+    quantidadeAgencias++;
+}
+
+void CodigoAgencia::validar(string numeroAgencia){
+    int i;
+
+    if(numeroAgencia.size() != QUANTIDADE_DIGITOS_CODIGO_AGENCIA || numeroAgencia.c_str() == NUMERO_AGENCIA_INVALIDO)
+        throw invalid_argument("Argumento Inválido.");
+
+    //  Verifica se todos os índices são dígitos
+    for(i=0; i < (int) numeroAgencia.size(); ++i){
+        if(!isdigit(numeroAgencia[i]))
+            throw invalid_argument("Argumento Inválido.");
+    }
+}
+
+void CodigoAgencia::setCodigoAgencia(string numeroAgencia){
+    validar(numeroAgencia);
+    this->numeroAgencia = numeroAgencia;
+}
+
+CodigoAgencia::~CodigoAgencia(){
+    quantidadeAgencias--;
+}
+
+// -> Código Aplicacão <- //
+CodigoAplicacao::CodigoAplicacao(){
+    quantidadeAplicacoes++;
+}
+
+void CodigoAplicacao::validar(string numeroAplicacao){
+    int i;
+
+    if(numeroAplicacao.size() != QUANTIDADE_DIGITOS_CODIGO_APLICACAO || numeroAplicacao.c_str() == NUMERO_APLICACAO_INVALIDO)
+        throw invalid_argument("Argumento Inválido.");
+
+    // Verifica se todos os caracteres da string numeroAplicação são números
+    for(i = 0; i < (int)numeroAplicacao.size(); ++i){
+        if(!isdigit(numeroAplicacao[i]))
+            throw invalid_argument("Argumento Inválido.");
+    }
+}
+
+void CodigoAplicacao::setCodigoAplicacao(string numeroAplicacao){
+    validar(numeroAplicacao);
+    this->numeroAplicacao = numeroAplicacao;
+}
+
+CodigoAplicacao::~CodigoAplicacao(){
+    quantidadeAplicacoes--;
+}
+
+// -> Código Banco <- //
+CodigoBanco::CodigoBanco(){
+    quantidadeCodigosBancos++;
+}
+
+void CodigoBanco::validar(string numeroBanco){
+    int i;
+    int lengthArrayCodigoBancosPossiveis = (sizeof(codigosBancosPossiveis)/sizeof(*codigosBancosPossiveis));
+    size_t found;
+
+//  Verifica o tamanho
+    if(numeroBanco.size() != QUANTIDADE_DIGITOS_CODIGO_BANCO )
+        throw invalid_argument("Argumento Inválido.");
+
+//  Verifica se todos os índices são dígitos
+    for(i=0; i < (int)codigosBancosPossiveis[0][0].size(); ++i){
+        if(!isdigit(numeroBanco[i]))
+            throw invalid_argument("Argumento Inválido.");
+    }
+
+//  Verifica se a variável numeroBanco é um entre os
+//  possíveis, se for sai da função, caso contrário
+//  termina o loop e cai em um levantamento de excessão
+    for(i=0; i < lengthArrayCodigoBancosPossiveis; ++i){
+        found = codigosBancosPossiveis[i][0].find(numeroBanco);
+        if(found != string::npos)
+            return;
+    }
+
+    throw invalid_argument("Argumento Inválido.");
+}
+
+void CodigoBanco::setCodigoBanco(string numeroBanco){
+    validar(numeroBanco);
+    this->numeroBanco = numeroBanco;
+}
+
+CodigoBanco::~CodigoBanco(){
+    quantidadeCodigosBancos--;
+}
+
+// -> Código Produto <- //
+CodigoProduto::CodigoProduto(){
+    quantidadeCodigosProdutos++;
+}
+
+void CodigoProduto::validar(string numeroProduto){
+    int i;
+
+    if(numeroProduto.size() != QUANTIDADE_DIGITOS_CODIGO_PRODUTO || numeroProduto.c_str() == NUMERO_PRODUTO_INVALIDO)
+        throw invalid_argument("Argumento Inválido.");
+
+    // Verifica se todos os caracteres da string numeroAplicação são números
+    for(i = 0; i < (int)numeroProduto.size(); ++i){
+        if(!isdigit(numeroProduto[i]))
+            throw invalid_argument("Argumento Inválido.");
+    }
+}
+
+void CodigoProduto::setCodigoProduto(string numeroCodigoProduto){
+    validar(numeroCodigoProduto);
+    this->numeroCodigoProduto = numeroCodigoProduto;
+}
+
+CodigoProduto::~CodigoProduto(){
+    quantidadeCodigosProdutos--;
 }
