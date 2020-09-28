@@ -25,9 +25,18 @@ const string TesteUnitarioCodigoBanco::CODIGO_BANCO_INVALIDO = "003";
 const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_VALIDO = "033";
 const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_INVALIDO = "000";
 
-// -> Código de Produto <- //
-const string TesteUnitarioCpf::CODIGO_CPF_VALIDO = "529.982.247-25";
-const string TesteUnitarioCpf::CODIGO_CPF_INVALIDO = "000.000.000-00";
+// -> CPF <- //
+const string TesteUnitarioCpf::NUMERO_CPF_VALIDO = "529.982.247-25";
+const string TesteUnitarioCpf::NUMERO_CPF_INVALIDO = "000.000.000-00";
+
+// -> Data <- //
+const string TesteUnitarioData::NUMERO_DATA_VALIDO = "10/10/2020";
+const string TesteUnitarioData::NUMERO_DATA_INVALIDO = "32/13/2010";
+
+// -> Emissor <- //
+//const string TesteUnitarioEmissor::NOME_EMISSOR_VALIDO = "Hiago16012";
+//const string TesteUnitarioEmissor::NOME_EMISSOR_INVALIDO = "hi..";
+//
 
 
 // ----------------- Definição de métodos ----------------- //
@@ -273,7 +282,6 @@ int TesteUnitarioCodigoProduto::run(){
     return estado;
 }
 
-
 // -> Cpf <- //
 void TesteUnitarioCpf::setUp(){
     cpf = new Cpf();
@@ -286,8 +294,8 @@ void TesteUnitarioCpf::tearDown(){
 
 void TesteUnitarioCpf::testarCenarioSucesso(){
     try{
-        cpf->setNumeroCpf(CODIGO_CPF_VALIDO);
-        if(cpf->getNumeroCpf() != CODIGO_CPF_VALIDO)
+        cpf->setNumeroCpf(NUMERO_CPF_VALIDO);
+        if(cpf->getNumeroCpf() != NUMERO_CPF_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -297,7 +305,7 @@ void TesteUnitarioCpf::testarCenarioSucesso(){
 
 void TesteUnitarioCpf::testarCenarioFalha(){
     try{
-        cpf->setNumeroCpf(CODIGO_CPF_INVALIDO);
+        cpf->setNumeroCpf(NUMERO_CPF_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -313,3 +321,44 @@ int TesteUnitarioCpf::run(){
 
     return estado;
 }
+
+// -> Data <- //
+void TesteUnitarioData::setUp(){
+    data = new Data();
+    estado = SUCESSO;
+}
+
+void TesteUnitarioData::tearDown(){
+    delete data;
+}
+
+void TesteUnitarioData::testarCenarioSucesso(){
+    try{
+        data->setNumeroData(NUMERO_DATA_VALIDO);
+        if(data->getNumeroData() != NUMERO_DATA_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        estado = FALHA;
+    }
+}
+
+void TesteUnitarioData::testarCenarioFalha(){
+    try{
+        data->setNumeroData(NUMERO_DATA_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        return;
+    }
+}
+
+int TesteUnitarioData::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+
+    return estado;
+}
+

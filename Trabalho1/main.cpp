@@ -14,6 +14,8 @@ int main()
     TesteUnitarioCodigoBanco testeCodigoBanco;
     TesteUnitarioCodigoProduto testeCodigoProduto;
     TesteUnitarioCpf testeCpf;
+    TesteUnitarioData testeData;
+//    TesteUnitarioEmissor testeEmissor;
 
     switch (testeCep.run()){
         case TesteUnitarioCep::SUCESSO: cout << "Cep: SUCESSO" << endl;
@@ -50,19 +52,33 @@ int main()
                                                     break;
     }
 
-     switch (testeCodigoProduto.run()){
+    switch (testeCodigoProduto.run()){
         case TesteUnitarioCodigoProduto::SUCESSO: cout << "Codigo de Produto: SUCESSO" << endl;
                                                   break;
         case TesteUnitarioCodigoProduto::FALHA: cout << "Codigo de Produto: FALHA" << endl;
                                                 break;
     }
 
-      switch (testeCpf.run()){
+    switch (testeCpf.run()){
         case TesteUnitarioCpf::SUCESSO: cout << "CPF: SUCESSO" << endl;
                                         break;
         case TesteUnitarioCpf::FALHA: cout << "CPF: FALHA" << endl;
                                       break;
     }
+
+    switch (testeData.run()){
+        case TesteUnitarioData::SUCESSO: cout << "Data: SUCESSO" << endl;
+                                         break;
+        case TesteUnitarioData::FALHA: cout << "Data: FALHA" << endl;
+                                       break;
+    }
+
+//    switch (testeEmissor.run()){
+//        case TesteUnitarioEmissor::SUCESSO: cout << "Emissor: SUCESSO" << endl;
+//                                            break;
+//        case TesteUnitarioEmissor::FALHA: cout << "Emissor: FALHA" << endl;
+//                                          break;
+//    }
 
     return 0;
 }

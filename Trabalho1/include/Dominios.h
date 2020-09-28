@@ -184,8 +184,32 @@ inline int Cpf::getQuantidadeCPFs(){
 
 class Data{
 private:
+    const static int QUANTIDADE_DATAS_DEFAULT = 0;
+    const static string REPRESENTACAO_NUMERO;
+    const static string FORMATO_STRING_VALIDO;
+    static int minMaxDiasPossiveisAnosNaoBissextos[2];
+    static int minMaxDiasPossiveisAnosBissextos[2];
+    static int minMaxMesesPossiveis[2];
+    static int minMaxAnosPossiveis[2];
+    static int anosBissextos[20];
+    string numeroData;
+    static int quantidadeDatas;
+    void validar(string);
 public:
+    Data();
+    void setNumeroData(string);
+    string getNumeroData();
+    static int getQuantidadeDatas();
+    virtual ~Data();
 };
+
+inline string Data::getNumeroData(){
+    return numeroData;
+}
+
+inline int Data::getQuantidadeDatas(){
+    return quantidadeDatas;
+}
 
 class Emissor{
 private:

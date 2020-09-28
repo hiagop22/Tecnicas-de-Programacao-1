@@ -52,6 +52,18 @@ const string Cpf::REPRESENTACAO_NUMERO = "X";
 const int Cpf::POSICAO_PRIMEIRO_DIGITO_VERIFICADOR = Cpf::FORMATO_STRING_VALIDO.size() -2;
 const int Cpf::POSICAO_SEGUNDO_DIGITO_VERIFICADOR = Cpf::FORMATO_STRING_VALIDO.size() -1;
 
+// -> Data <- //
+int Data::quantidadeDatas = Data::QUANTIDADE_DATAS_DEFAULT;
+const string Data::FORMATO_STRING_VALIDO = "XX/XX/XXXX";
+const string Data::REPRESENTACAO_NUMERO = "X";
+int Data::minMaxDiasPossiveisAnosNaoBissextos[2] = {1, 31};
+int Data::minMaxDiasPossiveisAnosBissextos[2] = {1, 32};
+int Data::minMaxMesesPossiveis[2] = {1, 12};
+int Data::minMaxAnosPossiveis[2] = {2020, 2099};
+int Data::anosBissextos[20] = {2020,2024,2028,2032,2036,2040,2044,2048,2052,2056,2060,
+                               2064,2068,2072,2076,2080,2084,2088,2092,2096};
+
+
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
 Cep::Cep(){
@@ -309,4 +321,67 @@ void Cpf::setNumeroCpf(string numeroCpf){
 
 Cpf::~Cpf(){
     quantidadeCPFs--;
+}
+
+
+// -> Datas <- //
+Data::Data(){
+    quantidadeDatas++;
+}
+
+void Data::validar(string numeroData){
+    int i, j;
+    int aux;
+
+    // Verifica os simbolos separadores e se todos os caracteres restantes são números
+    try{
+    for(i=0; i< (int)Data::FORMATO_STRING_VALIDO.size(); ++i){
+        if(FORMATO_STRING_VALIDO[i] != REPRESENTACAO_NUMERO[0] && numeroData.c_str()[i] != FORMATO_STRING_VALIDO[i])
+            throw invalid_argument("Argumento inválido");
+        if(FORMATO_STRING_VALIDO[i] == REPRESENTACAO_NUMERO[0] && !isdigit(numeroData[i]))
+            throw invalid_argument("Argumento inválido");
+    }
+    }
+    catch(...){
+        //provavelmente o tamanho da string recebida foi menor que a string default e nisso houve uma tentativa
+        // não permitida de acesso de espaço de memória
+        throw invalid_argument("Argumento inválido");
+    }
+
+
+    int valor;
+    string dia = {numeroData[0], numeroData[1]};
+    string mes = {numeroData[3],numeroData[4]};
+    string ano = {numeroData[6], numeroData[7], numeroData[8], numeroData[9]};
+
+    if(!(minMaxAnosPossiveis[0] <= atoi(ano.c_str()) && atoi(ano.c_str()) <= minMaxAnosPossiveis[1]))
+        throw invalid_argument("Argumento inválido");
+
+    if(!(minMaxMesesPossiveis[0] <= atoi(mes.c_str()) && atoi(mes.c_str()) <= minMaxMesesPossiveis[1]))
+        throw invalid_argument("Argumento inválido");
+
+    // Verifica dias nos anos bissextos
+    int lengthArrayAnosBissextoss = (sizeof(anosBissextos)/sizeof(*anosBissextos));
+
+    for(i=0; i < lengthArrayAnosBissextoss; ++i){
+        if(atoi(ano.c_str()) == anosBissextos[i]){
+            if(minMaxDiasPossiveisAnosBissextos[0] <= atoi(dia.c_str()) && atoi(dia.c_str()) <= minMaxDiasPossiveisAnosBissextos[1])
+                return;
+            else
+                throw invalid_argument("Argumento inválido");
+        }
+    }
+
+    // Verifica dias nos anos não bissextos
+    if(!(minMaxDiasPossiveisAnosNaoBissextos[0] <= atoi(dia.c_str()) && atoi(dia.c_str()) <= minMaxDiasPossiveisAnosNaoBissextos[1]))
+        throw invalid_argument("Argumento inválido");
+}
+
+void Data::setNumeroData(string numeroData){
+    validar(numeroData);
+    this->numeroData = numeroData;
+}
+
+Data::~Data(){
+    quantidadeDatas--;
 }

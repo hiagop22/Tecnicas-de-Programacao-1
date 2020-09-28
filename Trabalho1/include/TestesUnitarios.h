@@ -135,8 +135,8 @@ public:
 
 class TesteUnitarioCpf: public TesteUnitario{
 private:
-    const static string CODIGO_CPF_VALIDO;
-    const static string CODIGO_CPF_INVALIDO;
+    const static string NUMERO_CPF_VALIDO;
+    const static string NUMERO_CPF_INVALIDO;
 
     // Ponteiro para o Classe classe que será criado
     Cpf *cpf;
@@ -150,5 +150,41 @@ private:
 public:
     int run();
 };
+
+class TesteUnitarioData: public TesteUnitario{
+private:
+    const static string NUMERO_DATA_VALIDO;
+    const static string NUMERO_DATA_INVALIDO;
+
+    // Ponteiro para o Classe classe que será criado
+    Data *data;
+
+    //Declaração de métodos
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    int run();
+};
+
+//class TesteUnitarioEmissor: public TesteUnitario{
+//private:
+//    const static string NOME_EMISSOR_VALIDO;
+//    const static string NOME_EMISSOR_INVALIDO;
+//
+//    // Ponteiro para o Classe classe que será criado
+//    Emissor *emissor;
+//
+//    //Declaração de métodos
+//    void setUp();
+//    void tearDown();
+//    void testarCenarioSucesso();
+//    void testarCenarioFalha();
+//
+//public:
+//    int run();
+//};
 
 #endif // TESTESUNITARIOS_H
