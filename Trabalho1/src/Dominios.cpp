@@ -45,6 +45,13 @@ string CodigoBanco::codigosBancosPossiveis[5][2] = {{"341", "Banco Itau"},
 int CodigoProduto::quantidadeCodigosProdutos = CodigoProduto::QUANTIDADE_CODIGOS_PRODUTOS_DEFAULT;
 const string CodigoProduto::NUMERO_PRODUTO_INVALIDO = "000";
 
+// -> CPF <- //
+int Cpf::quantidadeCPFs = Cpf::QUANTIDADE_CPFS_DEFAULT;
+const string Cpf::FORMATO_STRING_VALIDO = "XXX.XXX.XXX-XX";
+const string Cpf::REPRESENTACAO_NUMERO = "X";
+const int Cpf::POSICAO_PRIMEIRO_DIGITO_VERIFICADOR = Cpf::FORMATO_STRING_VALIDO.size() -2;
+const int Cpf::POSICAO_SEGUNDO_DIGITO_VERIFICADOR = Cpf::FORMATO_STRING_VALIDO.size() -1;
+
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
 Cep::Cep(){
@@ -211,4 +218,95 @@ void CodigoProduto::setCodigoProduto(string numeroCodigoProduto){
 
 CodigoProduto::~CodigoProduto(){
     quantidadeCodigosProdutos--;
+}
+
+// -> CPF <- //
+Cpf::Cpf(){
+    quantidadeCPFs++;
+}
+
+void Cpf::validar(string numeroCpf){
+// Utilizado o conteúdo de:
+// https://dicasdeprogramacao.com.br/algoritmo-para-validar-cpf/
+
+    int i, j;
+    int aux;
+    int primeiroDigitoValidoAposSinal;
+
+    // Verifica os pontos, o hífen no númeroCpf e se todos os caracteres restantes são números
+    try{
+    for(i=0; i< (int)Cpf::FORMATO_STRING_VALIDO.size(); ++i){
+        if(FORMATO_STRING_VALIDO[i] != REPRESENTACAO_NUMERO[0] && numeroCpf.c_str()[i] != FORMATO_STRING_VALIDO[i])
+            throw invalid_argument("Argumento inválido");
+        if(FORMATO_STRING_VALIDO[i] == REPRESENTACAO_NUMERO[0] && !isdigit(numeroCpf[i]))
+            throw invalid_argument("Argumento inválido");
+    }
+    }
+    catch(...){
+        //provavelmente o tamanho da string recebida foi menor que a string default e nisso houve uma tentativa
+        // não permitida de acesso de espaço de memória
+        throw invalid_argument("Argumento inválido");
+    }
+
+    // Validação do primeiro dígito verificador após o sinal
+    aux = 0;
+    for(i=0, j=10; i< (int)Cpf::FORMATO_STRING_VALIDO.size(); ++i){
+        if(FORMATO_STRING_VALIDO[i] == REPRESENTACAO_NUMERO[0]){
+            aux += (((int)numeroCpf[i] -48)*j);
+            if(j == 2)
+                break;
+            --j;
+        }
+    }
+
+    primeiroDigitoValidoAposSinal = (aux*10)%11;
+    if(primeiroDigitoValidoAposSinal==10)
+        primeiroDigitoValidoAposSinal = 0;
+
+    if(primeiroDigitoValidoAposSinal != ((int)numeroCpf[POSICAO_PRIMEIRO_DIGITO_VERIFICADOR] - 48))
+        throw invalid_argument("Argumento inválido");
+
+    // Verifica o segundo digito verificador após o sinal
+    aux = 0;
+    for(i=0, j=11; i< (int)Cpf::FORMATO_STRING_VALIDO.size(); ++i){
+        if(FORMATO_STRING_VALIDO[i] == REPRESENTACAO_NUMERO[0]){
+            aux += (((int)numeroCpf[i] - 48)*j);
+            if(j == 2)
+                break;
+            --j;
+        }
+    }
+
+    primeiroDigitoValidoAposSinal = (aux*10)%11;
+    if(primeiroDigitoValidoAposSinal==10)
+        primeiroDigitoValidoAposSinal = 0;
+
+    if(primeiroDigitoValidoAposSinal != ((int)numeroCpf[POSICAO_SEGUNDO_DIGITO_VERIFICADOR] - 48))
+        throw invalid_argument("Argumento inválido");
+
+    // Levantamento de excessões para cpf's inválidos, ou seja, que possuem todos os dígitos repetidos.
+    int numeroAnterior = -1;
+
+    for(i=0; i < (int)Cpf::FORMATO_STRING_VALIDO.size(); ++i){
+        if(FORMATO_STRING_VALIDO[i] == REPRESENTACAO_NUMERO[0]){
+            if(numeroAnterior == -1){
+                numeroAnterior = ((int)numeroCpf[i] - 48);
+            }
+            else{
+                if(numeroAnterior != ((int)numeroCpf[i] - 48))
+                    return;
+            }
+        }
+    }
+
+    throw invalid_argument("Argumento inválido");
+}
+
+void Cpf::setNumeroCpf(string numeroCpf){
+    validar(numeroCpf);
+    this->numeroCpf = numeroCpf;
+}
+
+Cpf::~Cpf(){
+    quantidadeCPFs--;
 }

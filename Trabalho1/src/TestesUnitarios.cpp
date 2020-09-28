@@ -1,5 +1,8 @@
 #include "TestesUnitarios.h"
+#include <iostream>
 #include <stdexcept>
+
+using namespace std;
 
 // ----------------- Inicialização de atributos estáticos ----------------- //
 // -> Classe <- //
@@ -22,8 +25,13 @@ const string TesteUnitarioCodigoBanco::CODIGO_BANCO_INVALIDO = "003";
 const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_VALIDO = "033";
 const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_INVALIDO = "000";
 
+// -> Código de Produto <- //
+const string TesteUnitarioCpf::CODIGO_CPF_VALIDO = "529.982.247-25";
+const string TesteUnitarioCpf::CODIGO_CPF_INVALIDO = "000.000.000-00";
+
 
 // ----------------- Definição de métodos ----------------- //
+
 // -> Cep <- //
 void TesteUnitarioCep::setUp(){
     cep = new Cep();
@@ -257,6 +265,47 @@ void TesteUnitarioCodigoProduto::testarCenarioFalha(){
 }
 
 int TesteUnitarioCodigoProduto::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+
+    return estado;
+}
+
+
+// -> Cpf <- //
+void TesteUnitarioCpf::setUp(){
+    cpf = new Cpf();
+    estado = SUCESSO;
+}
+
+void TesteUnitarioCpf::tearDown(){
+    delete cpf;
+}
+
+void TesteUnitarioCpf::testarCenarioSucesso(){
+    try{
+        cpf->setNumeroCpf(CODIGO_CPF_VALIDO);
+        if(cpf->getNumeroCpf() != CODIGO_CPF_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        estado = FALHA;
+    }
+}
+
+void TesteUnitarioCpf::testarCenarioFalha(){
+    try{
+        cpf->setNumeroCpf(CODIGO_CPF_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        return;
+    }
+}
+
+int TesteUnitarioCpf::run(){
     setUp();
     testarCenarioSucesso();
     testarCenarioFalha();

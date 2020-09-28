@@ -158,8 +158,29 @@ inline int CodigoProduto::getQuantidadeCodigosProdutos(){
 
 class Cpf{
 private:
+    const static int QUANTIDADE_CPFS_DEFAULT = 0;
+    const static string REPRESENTACAO_NUMERO;
+    const static string FORMATO_STRING_VALIDO;
+    const static int POSICAO_PRIMEIRO_DIGITO_VERIFICADOR;
+    const static int POSICAO_SEGUNDO_DIGITO_VERIFICADOR;
+    string numeroCpf;
+    static int quantidadeCPFs;
+    void validar(string);
 public:
+    Cpf();
+    void setNumeroCpf(string);
+    string getNumeroCpf();
+    static int getQuantidadeCPFs();
+    virtual ~Cpf();
 };
+
+inline string Cpf::getNumeroCpf(){
+    return numeroCpf;
+}
+
+inline int Cpf::getQuantidadeCPFs(){
+    return quantidadeCPFs;
+}
 
 class Data{
 private:

@@ -133,5 +133,22 @@ public:
     int run();
 };
 
+class TesteUnitarioCpf: public TesteUnitario{
+private:
+    const static string CODIGO_CPF_VALIDO;
+    const static string CODIGO_CPF_INVALIDO;
+
+    // Ponteiro para o Classe classe que será criado
+    Cpf *cpf;
+
+    //Declaração de métodos
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    int run();
+};
 
 #endif // TESTESUNITARIOS_H
