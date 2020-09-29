@@ -6,15 +6,20 @@
 
 using namespace std;
 
-// Classe abstrata TesteUnitário
 class TesteUnitario{
 protected:
     // Estado de teste
     int estado;
 
+/// \param
+///
+/// \throw invalid argument
+
+    virtual void setUp() = 0;
     //  Métodos virtuais puros, logo todas as classes filhas
     //  devem implementá-los
-    virtual void setUp() = 0;
+/// Retorna a quantidade de alunos cadastrados.
+/// \return Quantidade de alunos cadastrados.
     virtual void tearDown() = 0;
     virtual void testarCenarioSucesso() = 0;
     virtual void testarCenarioFalha() = 0;

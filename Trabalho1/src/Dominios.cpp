@@ -376,8 +376,7 @@ Data::Data(){
 }
 
 void Data::validar(string numeroData){
-    int i, j;
-    int aux;
+    int i;
 
     // Verifica os simbolos separadores e se todos os caracteres restantes são números
     try{
@@ -394,8 +393,6 @@ void Data::validar(string numeroData){
         throw invalid_argument("Argumento inválido");
     }
 
-
-    int valor;
     string dia = {numeroData[0], numeroData[1]};
     string mes = {numeroData[3],numeroData[4]};
     string ano = {numeroData[6], numeroData[7], numeroData[8], numeroData[9]};
@@ -440,17 +437,17 @@ Emissor::Emissor(){
 
 void Emissor::validar(string nomeEmissor){
     int i, j;
-    int aux;
+
     bool caractereEspecial;
     int lengthArrayCaracteresEspeciaisPossiveis = (sizeof(caracteresEspeciaisPossiveis)/sizeof(*caracteresEspeciaisPossiveis));
 
-    if(!(minMaxCaracteresPossiveis[0] <= nomeEmissor.size()  && nomeEmissor.size() <= minMaxCaracteresPossiveis[1]))
+    if(!(minMaxCaracteresPossiveis[0] <= (int)nomeEmissor.size()  && (int)nomeEmissor.size() <= minMaxCaracteresPossiveis[1]))
         throw invalid_argument("Argumento inválido");
 
     if(isdigit(nomeEmissor[0]) && !isupper(nomeEmissor[0]))
         throw invalid_argument("Argumento inválido");
 
-    for(i=0; i< nomeEmissor.size(); ++i){
+    for(i=0; i< (int)nomeEmissor.size(); ++i){
         if(isalnum(nomeEmissor[i]))
             continue;
         for(j=0, caractereEspecial = false; j < lengthArrayCaracteresEspeciaisPossiveis; ++j){
@@ -463,7 +460,7 @@ void Emissor::validar(string nomeEmissor){
         if(!caractereEspecial)
             throw invalid_argument("Argumento inválido");
 
-        if(i!=(nomeEmissor.size() -2)){
+        if(i!= (int)(nomeEmissor.size() -2)){
             if(!isalpha(nomeEmissor[i]) && !isalpha(nomeEmissor[i+1]))
                 throw invalid_argument("Argumento inválido");
         }
@@ -490,7 +487,7 @@ Endereco::Endereco(){
 void Endereco::validar(string endereco){
     int i;
 
-    if(endereco.size() < minCaracteresPossiveis || endereco.size() > maxCaracteresPossiveis){
+    if((int)endereco.size() < minCaracteresPossiveis || (int)endereco.size() > maxCaracteresPossiveis){
         throw invalid_argument("Argumento inválido. ");
     }
     if(isalpha(endereco[0]) && !isupper(endereco[0])){
@@ -576,7 +573,7 @@ void Nome::validar(string nome){
     int i;
     int contLetras = 0;
 
-    if(nome.size() < minCaracteresPossiveis || nome.size() > maxCaracteresPossiveis){
+    if((int)nome.size() < (int)minCaracteresPossiveis || (int)nome.size() > maxCaracteresPossiveis){
         throw invalid_argument("Argumento inválido. ");
     }
 
@@ -636,7 +633,7 @@ void Numero::validar(string numero){
     }
     i++;
 
-    for(j = 0; j < sizeof(digitosVerificadoresPossiveis)/sizeof(*digitosVerificadoresPossiveis); j++){
+    for(j = 0; j < (int)(sizeof(digitosVerificadoresPossiveis)/sizeof(*digitosVerificadoresPossiveis)); j++){
         if(numero[i] == digitosVerificadoresPossiveis[j][0]){
             cont++;
         }
@@ -683,7 +680,7 @@ void Prazo::validar(int prazo){
     int i;
     int cont = 0;
 
-    for(i = 0; i < sizeof(prazosPossiveis)/sizeof(*prazosPossiveis); i++){
+    for(i = 0; i < (int)(sizeof(prazosPossiveis)/sizeof(*prazosPossiveis)); i++){
         if(prazo == prazosPossiveis[i]){
             cont++;
             return;
@@ -790,7 +787,7 @@ void ValorMinimo::validar(int minimo){
     int i;
     int cont = 0;
 
-    for(i = 0; i < sizeof(valoresMinimosPossiveis)/sizeof(*valoresMinimosPossiveis); i++){
+    for(i = 0; i < (int)(sizeof(valoresMinimosPossiveis)/sizeof(*valoresMinimosPossiveis)); i++){
         if(minimo == valoresMinimosPossiveis[i]){
             cont++;
         }
