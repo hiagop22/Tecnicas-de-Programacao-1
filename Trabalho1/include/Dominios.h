@@ -213,7 +213,26 @@ inline int Data::getQuantidadeDatas(){
 
 class Emissor{
 private:
+    const static int QUANTIDADE_EMISSORES_DEFAULT = 0;
+    static int minMaxCaracteresPossiveis[2];
+    static char caracteresEspeciaisPossiveis[3];
+    string nomeEmissor;
+    static int quantidadeEmissores;
+    void validar(string);
 public:
+    Emissor();
+    void setNomeEmissor(string);
+    string getNomeEmissor();
+    static int getQuantidadeEmissores();
+    virtual ~Emissor();
 };
+
+inline string Emissor::getNomeEmissor(){
+    return nomeEmissor;
+}
+
+inline int Emissor::getQuantidadeEmissores(){
+    return quantidadeEmissores;
+}
 
 #endif // DOMINIOS_H

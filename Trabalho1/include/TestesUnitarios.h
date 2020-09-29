@@ -169,22 +169,22 @@ public:
     int run();
 };
 
-//class TesteUnitarioEmissor: public TesteUnitario{
-//private:
-//    const static string NOME_EMISSOR_VALIDO;
-//    const static string NOME_EMISSOR_INVALIDO;
-//
-//    // Ponteiro para o Classe classe que será criado
-//    Emissor *emissor;
-//
-//    //Declaração de métodos
-//    void setUp();
-//    void tearDown();
-//    void testarCenarioSucesso();
-//    void testarCenarioFalha();
-//
-//public:
-//    int run();
-//};
+class TesteUnitarioEmissor: public TesteUnitario{
+private:
+    const static string NOME_EMISSOR_VALIDO;
+    const static string NOME_EMISSOR_INVALIDO;
+
+    // Ponteiro para o Classe classe que será criado
+    Emissor *emissor;
+
+    //Declaração de métodos
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    int run();
+};
 
 #endif // TESTESUNITARIOS_H

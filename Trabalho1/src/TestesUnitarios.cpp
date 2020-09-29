@@ -34,9 +34,8 @@ const string TesteUnitarioData::NUMERO_DATA_VALIDO = "10/10/2020";
 const string TesteUnitarioData::NUMERO_DATA_INVALIDO = "32/13/2010";
 
 // -> Emissor <- //
-//const string TesteUnitarioEmissor::NOME_EMISSOR_VALIDO = "Hiago16012";
-//const string TesteUnitarioEmissor::NOME_EMISSOR_INVALIDO = "hi..";
-//
+const string TesteUnitarioEmissor::NOME_EMISSOR_VALIDO = "Hiago16012";
+const string TesteUnitarioEmissor::NOME_EMISSOR_INVALIDO = "hi..";
 
 
 // ----------------- Definição de métodos ----------------- //
@@ -362,3 +361,42 @@ int TesteUnitarioData::run(){
     return estado;
 }
 
+// -> Emissor <- //
+void TesteUnitarioEmissor::setUp(){
+    emissor = new Emissor();
+    estado = SUCESSO;
+}
+
+void TesteUnitarioEmissor::tearDown(){
+    delete emissor;
+}
+
+void TesteUnitarioEmissor::testarCenarioSucesso(){
+    try{
+        emissor->setNomeEmissor(NOME_EMISSOR_VALIDO);
+        if(emissor->getNomeEmissor() != NOME_EMISSOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        estado = FALHA;
+    }
+}
+
+void TesteUnitarioEmissor::testarCenarioFalha(){
+    try{
+        emissor->setNomeEmissor(NOME_EMISSOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument excessao){
+        return;
+    }
+}
+
+int TesteUnitarioEmissor::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+
+    return estado;
+}

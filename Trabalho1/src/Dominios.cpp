@@ -63,6 +63,11 @@ int Data::minMaxAnosPossiveis[2] = {2020, 2099};
 int Data::anosBissextos[20] = {2020,2024,2028,2032,2036,2040,2044,2048,2052,2056,2060,
                                2064,2068,2072,2076,2080,2084,2088,2092,2096};
 
+// -> Emissor <- //
+int Emissor::quantidadeEmissores = Emissor::QUANTIDADE_EMISSORES_DEFAULT;
+int Emissor::minMaxCaracteresPossiveis[2] = {5, 30};
+char Emissor::caracteresEspeciaisPossiveis[3] = {'-', '.', ' '};
+
 
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
@@ -384,4 +389,54 @@ void Data::setNumeroData(string numeroData){
 
 Data::~Data(){
     quantidadeDatas--;
+}
+
+
+// -> Emissor <- //
+Emissor::Emissor(){
+    quantidadeEmissores++;
+}
+
+void Emissor::validar(string nomeEmissor){
+    int i, j;
+    int aux;
+    bool caractereEspecial;
+    int lengthArrayCaracteresEspeciaisPossiveis = (sizeof(caracteresEspeciaisPossiveis)/sizeof(*caracteresEspeciaisPossiveis));
+
+    if(!(minMaxCaracteresPossiveis[0] <= nomeEmissor.size()  && nomeEmissor.size() <= minMaxCaracteresPossiveis[1]))
+        throw invalid_argument("Argumento inválido");
+
+    if(isdigit(nomeEmissor[0]) && !isupper(nomeEmissor[0]))
+        throw invalid_argument("Argumento inválido");
+
+    for(i=0; i< nomeEmissor.size(); ++i){
+        if(isalnum(nomeEmissor[i]))
+            continue;
+        for(j=0, caractereEspecial = false; j < lengthArrayCaracteresEspeciaisPossiveis; ++j){
+            if(nomeEmissor[j] == caracteresEspeciaisPossiveis[j]){
+                caractereEspecial = true;
+                break;
+            }
+        }
+
+        if(!caractereEspecial)
+            throw invalid_argument("Argumento inválido");
+
+        if(i!=(nomeEmissor.size() -2)){
+            if(!isalpha(nomeEmissor[i]) && !isalpha(nomeEmissor[i+1]))
+                throw invalid_argument("Argumento inválido");
+        }
+
+    }
+
+
+}
+
+void Emissor::setNomeEmissor(string nomeEmissor){
+    validar(nomeEmissor);
+    this->nomeEmissor = nomeEmissor;
+}
+
+Emissor::~Emissor(){
+    quantidadeEmissores--;
 }

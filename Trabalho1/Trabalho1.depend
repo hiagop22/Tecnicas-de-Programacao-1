@@ -1,24 +1,24 @@
 # depslib dependency file v1.0
-1601333413 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\main.cpp
+1601334785 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\main.cpp
 	<iostream>
 	"Dominios.h"
 	"TestesUnitarios.h"
 	<string>
 
-1601334497 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\include\dominios.h
+1601335303 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\include\dominios.h
 	<string>
 
-1601333352 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\src\dominios.cpp
+1601337415 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\src\dominios.cpp
 	"Dominios.h"
 	<string>
 	<iostream>
 	<stdexcept>
 
-1601333405 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\include\testesunitarios.h
+1601335317 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\include\testesunitarios.h
 	<string>
 	"Dominios.h"
 
-1601333420 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\src\testesunitarios.cpp
+1601337296 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho1\src\testesunitarios.cpp
 	"TestesUnitarios.h"
 	<iostream>
 	<stdexcept>
