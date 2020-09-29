@@ -68,21 +68,26 @@ $(document).ready(function(){initNavTree('class_teste_unitario.html',''); initRe
 <div class="title">TesteUnitario Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Padrão para codificação de testes unitários das classes dominios.  
+ <a href="class_teste_unitario.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_testes_unitarios_8h_source.html">TestesUnitarios.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for TesteUnitario:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_teste_unitario.png" usemap="#TesteUnitario_map" alt=""/>
   <map id="TesteUnitario_map" name="TesteUnitario_map">
-<area href="class_teste_unitario_cep.html" alt="TesteUnitarioCep" shape="rect" coords="192,56,374,80"/>
-<area href="class_teste_unitario_classe.html" alt="TesteUnitarioClasse" shape="rect" coords="192,112,374,136"/>
-<area href="class_teste_unitario_codigo_agencia.html" alt="TesteUnitarioCodigoAgencia" shape="rect" coords="192,168,374,192"/>
-<area href="class_teste_unitario_codigo_aplicacao.html" alt="TesteUnitarioCodigoAplicacao" shape="rect" coords="192,224,374,248"/>
-<area href="class_teste_unitario_codigo_banco.html" alt="TesteUnitarioCodigoBanco" shape="rect" coords="192,280,374,304"/>
-<area href="class_teste_unitario_codigo_produto.html" alt="TesteUnitarioCodigoProduto" shape="rect" coords="192,336,374,360"/>
-<area href="class_teste_unitario_cpf.html" alt="TesteUnitarioCpf" shape="rect" coords="192,392,374,416"/>
-<area href="class_teste_unitario_data.html" alt="TesteUnitarioData" shape="rect" coords="192,448,374,472"/>
-<area href="class_teste_unitario_emissor.html" alt="TesteUnitarioEmissor" shape="rect" coords="192,504,374,528"/>
+<area href="class_teste_unitario_cep.html" title="Padrão para codificação de teste unitário referente a classe Cep." alt="TesteUnitarioCep" shape="rect" coords="192,56,374,80"/>
+<area href="class_teste_unitario_classe.html" title="Padrão para codificação de teste unitário referente a classe Classe." alt="TesteUnitarioClasse" shape="rect" coords="192,112,374,136"/>
+<area href="class_teste_unitario_codigo_agencia.html" title="Padrão para codificação de teste unitário referente a classe CodigoAgencia." alt="TesteUnitarioCodigoAgencia" shape="rect" coords="192,168,374,192"/>
+<area href="class_teste_unitario_codigo_aplicacao.html" title="Padrão para codificação de teste unitário referente a classe CodigoAplicacao." alt="TesteUnitarioCodigoAplicacao" shape="rect" coords="192,224,374,248"/>
+<area href="class_teste_unitario_codigo_banco.html" title="Padrão para codificação de teste unitário referente a classe CodigoBanco." alt="TesteUnitarioCodigoBanco" shape="rect" coords="192,280,374,304"/>
+<area href="class_teste_unitario_codigo_produto.html" title="Padrão para codificação de teste unitário referente a classe CodigoProduto." alt="TesteUnitarioCodigoProduto" shape="rect" coords="192,336,374,360"/>
+<area href="class_teste_unitario_cpf.html" title="Padrão para codificação de teste unitário referente a classe Cpf." alt="TesteUnitarioCpf" shape="rect" coords="192,392,374,416"/>
+<area href="class_teste_unitario_data.html" title="Padrão para codificação de teste unitário referente a classe Data." alt="TesteUnitarioData" shape="rect" coords="192,448,374,472"/>
+<area href="class_teste_unitario_emissor.html" title="Padrão para codificação de teste unitário referente a classe Emissor." alt="TesteUnitarioEmissor" shape="rect" coords="192,504,374,528"/>
 <area href="class_teste_unitario_endereco.html" alt="TesteUnitarioEndereco" shape="rect" coords="192,560,374,584"/>
 <area href="class_teste_unitario_horario.html" alt="TesteUnitarioHorario" shape="rect" coords="192,616,374,640"/>
 <area href="class_teste_unitario_nome.html" alt="TesteUnitarioNome" shape="rect" coords="192,672,374,696"/>
@@ -98,7 +103,8 @@ Inheritance diagram for TesteUnitario:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ace8b86dda9a9d3a34106cf63cfbce63f"><td class="memItemLeft" align="right" valign="top"><a id="ace8b86dda9a9d3a34106cf63cfbce63f"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()=0</td></tr>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_teste_unitario.html#ace8b86dda9a9d3a34106cf63cfbce63f">run</a> ()=0</td></tr>
+<tr class="memdesc:ace8b86dda9a9d3a34106cf63cfbce63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown. <br /></td></tr>
 <tr class="separator:ace8b86dda9a9d3a34106cf63cfbce63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -112,15 +118,17 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>FALHA</b>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:abbdb64078d43114e18adaa02b4a29f60"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_teste_unitario.html#abbdb64078d43114e18adaa02b4a29f60">setUp</a> ()=0</td></tr>
+<tr class="memitem:abbdb64078d43114e18adaa02b4a29f60"><td class="memItemLeft" align="right" valign="top"><a id="abbdb64078d43114e18adaa02b4a29f60"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_teste_unitario.html#abbdb64078d43114e18adaa02b4a29f60">setUp</a> ()=0</td></tr>
+<tr class="memdesc:abbdb64078d43114e18adaa02b4a29f60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia a classe ao qual o teste unitário está validando. <br /></td></tr>
 <tr class="separator:abbdb64078d43114e18adaa02b4a29f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9afe504b209acb3d47b9b04a84fde559"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_teste_unitario.html#a9afe504b209acb3d47b9b04a84fde559">tearDown</a> ()=0</td></tr>
+<tr class="memitem:a9afe504b209acb3d47b9b04a84fde559"><td class="memItemLeft" align="right" valign="top"><a id="a9afe504b209acb3d47b9b04a84fde559"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_teste_unitario.html#a9afe504b209acb3d47b9b04a84fde559">tearDown</a> ()=0</td></tr>
+<tr class="memdesc:a9afe504b209acb3d47b9b04a84fde559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chama o método destrutor da instancia criada. <br /></td></tr>
 <tr class="separator:a9afe504b209acb3d47b9b04a84fde559"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347bfaea8845cb45987edadbefd636ed"><td class="memItemLeft" align="right" valign="top"><a id="a347bfaea8845cb45987edadbefd636ed"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>testarCenarioSucesso</b> ()=0</td></tr>
+<tr class="memitem:a347bfaea8845cb45987edadbefd636ed"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_teste_unitario.html#a347bfaea8845cb45987edadbefd636ed">testarCenarioSucesso</a> ()=0</td></tr>
 <tr class="separator:a347bfaea8845cb45987edadbefd636ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1f38e52b5622ae4de2150010d2a1748"><td class="memItemLeft" align="right" valign="top"><a id="ac1f38e52b5622ae4de2150010d2a1748"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>testarCenarioFalha</b> ()=0</td></tr>
+<tr class="memitem:ac1f38e52b5622ae4de2150010d2a1748"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_teste_unitario.html#ac1f38e52b5622ae4de2150010d2a1748">testarCenarioFalha</a> ()=0</td></tr>
 <tr class="separator:ac1f38e52b5622ae4de2150010d2a1748"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -129,9 +137,11 @@ Protected Attributes</h2></td></tr>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>estado</b></td></tr>
 <tr class="separator:abf0a00d3844ac7065cfbde8196e7d82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="abbdb64078d43114e18adaa02b4a29f60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbdb64078d43114e18adaa02b4a29f60">&#9670;&nbsp;</a></span>setUp()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Padrão para codificação de testes unitários das classes dominios. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac1f38e52b5622ae4de2150010d2a1748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1f38e52b5622ae4de2150010d2a1748">&#9670;&nbsp;</a></span>testarCenarioFalha()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,7 +150,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>estado</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void TesteUnitario::setUp </td>
+          <td class="memname">virtual void TesteUnitario::testarCenarioFalha </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -152,17 +162,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>estado</b></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Testa um cenário em que a classe implementada deve levantar excessão.</p><ul>
+<li>Caso não seja levantada alguma excessão o valor estado será mudado para FALHA. </li>
+</ul>
 
 </div>
 </div>
-<a id="a9afe504b209acb3d47b9b04a84fde559"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9afe504b209acb3d47b9b04a84fde559">&#9670;&nbsp;</a></span>tearDown()</h2>
+<a id="a347bfaea8845cb45987edadbefd636ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a347bfaea8845cb45987edadbefd636ed">&#9670;&nbsp;</a></span>testarCenarioSucesso()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +178,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>estado</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void TesteUnitario::tearDown </td>
+          <td class="memname">virtual void TesteUnitario::testarCenarioSucesso </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -183,7 +190,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>estado</b></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Retorna a quantidade de alunos cadastrados. </p><dl class="section return"><dt>Returns</dt><dd>Quantidade de alunos cadastrados. </dd></dl>
+<p>Testa um cenário em que a classe implementada não deve levantar excessão.</p><ul>
+<li>Caso seja levantada alguma excessão o valor estado será mudado para FALHA. </li>
+</ul>
 
 </div>
 </div>

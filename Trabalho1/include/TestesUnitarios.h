@@ -6,30 +6,34 @@
 
 using namespace std;
 
+/// Padrão para codificação de testes unitários das classes dominios.
 class TesteUnitario{
 protected:
     // Estado de teste
     int estado;
 
-/// \param
-///
-/// \throw invalid argument
-
+    // \brief Define o nome do emissor como o parametro recebido caso seja possível.
+    /// Instancia a classe ao qual o teste unitário está validando.
     virtual void setUp() = 0;
     //  Métodos virtuais puros, logo todas as classes filhas
     //  devem implementá-los
-/// Retorna a quantidade de alunos cadastrados.
-/// \return Quantidade de alunos cadastrados.
+    /// Chama o método destrutor da instancia criada.
     virtual void tearDown() = 0;
+    /// Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     virtual void testarCenarioSucesso() = 0;
+    /// Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     virtual void testarCenarioFalha() = 0;
 public:
     const static int SUCESSO = 1;
     const static int FALHA = -1;
 
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     virtual int run() = 0;
 };
 
+/// Padrão para codificação de teste unitário referente a classe Cep.
 class TesteUnitarioCep: public TesteUnitario{
 private:
     const static int NUMERO_CEP_VALIDO = 1111111;
@@ -38,16 +42,24 @@ private:
     // Ponteiro para o Classe classe que será criado
     Cep *cep;
 
+    /// Instancia a classe Cep e atribue SUCESSO a variável de estado.
     //Declaração de métodos
     virtual void setUp();
+    /// Chama o método destrutor da instancia criada.
     virtual void tearDown();
+    /// Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     virtual void testarCenarioSucesso();
+    /// Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     virtual void testarCenarioFalha();
 
 public:
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     int run();
 };
 
+/// Padrão para codificação de teste unitário referente a classe Classe.
 class TesteUnitarioClasse: public TesteUnitario{
 private:
     const static string NOME_CLASSE_VALIDO;
@@ -56,16 +68,24 @@ private:
     // Ponteiro para o Classe classe que será criado
     Classe *classe;
 
+    /// Instancia a classe Classe e atribue SUCESSO a variável de estado.
     //Declaração de métodos
     void setUp();
+    /// Chama o método destrutor da instancia de Classe.
     void tearDown();
+    /// \brief Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioSucesso();
+    /// \brief Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioFalha();
 
 public:
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     int run();
 };
 
+/// Padrão para codificação de teste unitário referente a classe CodigoAgencia.
 class TesteUnitarioCodigoAgencia: public TesteUnitario{
 private:
     const static string CODIGO_AGENCIA_VALIDO;
@@ -74,16 +94,24 @@ private:
     // Ponteiro para o Classe classe que será criado
     CodigoAgencia *codigoAgencia;
 
+    /// Instancia a classe CodigoAgencia e atribue SUCESSO a variável de estado.
     //Declaração de métodos
     void setUp();
+    /// Chama o método destrutor da instancia de CodigoAgencia.
     void tearDown();
+    /// Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioSucesso();
+    /// Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioFalha();
 
 public:
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     int run();
 };
 
+/// Padrão para codificação de teste unitário referente a classe CodigoAplicacao.
 class TesteUnitarioCodigoAplicacao: public TesteUnitario{
 private:
     const static string CODIGO_APLICACAO_VALIDO;
@@ -92,16 +120,24 @@ private:
     // Ponteiro para o Classe classe que será criado
     CodigoAplicacao *codigoAplicacao;
 
+    /// Instancia a classe CodigoAplicacao e atribue SUCESSO a variável de estado.
     //Declaração de métodos
     void setUp();
+    /// Chama o método destrutor da instancia de CodigoAplicacao.
     void tearDown();
+    /// Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioSucesso();
+    /// Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioFalha();
 
 public:
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     int run();
 };
 
+/// Padrão para codificação de teste unitário referente a classe CodigoBanco.
 class TesteUnitarioCodigoBanco: public TesteUnitario{
 private:
     const static string CODIGO_BANCO_VALIDO;
@@ -110,16 +146,24 @@ private:
     // Ponteiro para o Classe classe que será criado
     CodigoBanco *codigoBanco;
 
+    /// Instancia a classe CodigoBanco e atribue SUCESSO a variável de estado.
     //Declaração de métodos
     void setUp();
+    /// Chama o método destrutor da instancia de CodigoBanco.
     void tearDown();
+    /// Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioSucesso();
+    /// Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioFalha();
 
 public:
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     int run();
 };
 
+/// Padrão para codificação de teste unitário referente a classe CodigoProduto.
 class TesteUnitarioCodigoProduto: public TesteUnitario{
 private:
     const static string CODIGO_PRODUTO_VALIDO;
@@ -128,16 +172,24 @@ private:
     // Ponteiro para o Classe classe que será criado
     CodigoProduto *codigoProduto;
 
+    /// Instancia a classe CodigoProduto e atribue SUCESSO a variável de estado.
     //Declaração de métodos
     void setUp();
+    /// Chama o método destrutor da instancia de CodigoProduto.
     void tearDown();
+    /// Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioSucesso();
+    /// Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioFalha();
 
 public:
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     int run();
 };
 
+/// Padrão para codificação de teste unitário referente a classe Cpf.
 class TesteUnitarioCpf: public TesteUnitario{
 private:
     const static string NUMERO_CPF_VALIDO;
@@ -146,16 +198,24 @@ private:
     // Ponteiro para o Classe classe que será criado
     Cpf *cpf;
 
+    /// Instancia a classe Cpf e atribue SUCESSO a variável de estado.
     //Declaração de métodos
     void setUp();
+    /// Chama o método destrutor da instancia de Cpf.
     void tearDown();
+    /// Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioSucesso();
+    /// Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioFalha();
 
 public:
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     int run();
 };
 
+/// Padrão para codificação de teste unitário referente a classe Data.
 class TesteUnitarioData: public TesteUnitario{
 private:
     const static string NUMERO_DATA_VALIDO;
@@ -164,16 +224,24 @@ private:
     // Ponteiro para o Classe classe que será criado
     Data *data;
 
+    /// Instancia a classe Data e atribue SUCESSO a variável de estado.
     //Declaração de métodos
     void setUp();
+    /// Chama o método destrutor da instancia de Data.
     void tearDown();
+    /// Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioSucesso();
+    /// Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioFalha();
 
 public:
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     int run();
 };
 
+/// Padrão para codificação de teste unitário referente a classe Emissor.
 class TesteUnitarioEmissor: public TesteUnitario{
 private:
     const static string NOME_EMISSOR_VALIDO;
@@ -182,13 +250,20 @@ private:
     // Ponteiro para o Classe classe que será criado
     Emissor *emissor;
 
+    /// Instancia a classe Emissor e atribue SUCESSO a variável de estado.
     //Declaração de métodos
     void setUp();
+    /// Chama o método destrutor da instancia de Emissor.
     void tearDown();
+    /// Testa um cenário em que a classe implementada não deve levantar excessão.
+    /// - Caso seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioSucesso();
+    /// Testa um cenário em que a classe implementada deve levantar excessão.
+    /// - Caso não seja levantada alguma excessão o valor estado será mudado para FALHA.
     void testarCenarioFalha();
 
 public:
+    /// Chama os métodos setUp, testarCenarioSucesso e testarCenarioFalha, tearDown.
     int run();
 };
 
