@@ -16,6 +16,16 @@ int main()
     TesteUnitarioCpf testeCpf;
     TesteUnitarioData testeData;
     TesteUnitarioEmissor testeEmissor;
+    TesteUnitarioEndereco testeEndereco;
+    TesteUnitarioHorario testeHorario;
+    TesteUnitarioNome testeNome;
+    TesteUnitarioNumero testeNumero;
+    TesteUnitarioPrazo testePrazo;
+    TesteUnitarioSenha testeSenha;
+    TesteUnitarioTaxa testeTaxa;
+    TesteUnitarioValorAplicacao testeValorAplicacao;
+    TesteUnitarioValorMinimo testeValorMinimo;
+
 
     switch (testeCep.run()){
         case TesteUnitarioCep::SUCESSO: cout << "Cep: SUCESSO" << endl;
@@ -78,6 +88,69 @@ int main()
                                             break;
         case TesteUnitarioEmissor::FALHA: cout << "Emissor: FALHA" << endl;
                                           break;
+    }
+
+    switch (testeEndereco.run()){
+        case TesteUnitarioEndereco::SUCESSO: cout << "Endereco: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioEndereco::FALHA: cout << "Endereco: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeHorario.run()){
+        case TesteUnitarioHorario::SUCESSO: cout << "Horario: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioHorario::FALHA: cout << "Horario: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeNome.run()){
+        case TesteUnitarioNome::SUCESSO: cout << "Nome: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioNome::FALHA: cout << "Nome: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeNumero.run()){
+        case TesteUnitarioNumero::SUCESSO: cout << "Numero: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioNumero::FALHA: cout << "Numero: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testePrazo.run()){
+        case TesteUnitarioPrazo::SUCESSO: cout << "Prazo: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioPrazo::FALHA: cout << "Prazo: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeSenha.run()){
+        case TesteUnitarioSenha::SUCESSO: cout << "Senha: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioSenha::FALHA: cout << "Senha: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeTaxa.run()){
+        case TesteUnitarioTaxa::SUCESSO: cout << "Taxa: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioTaxa::FALHA: cout << "Taxa: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeValorAplicacao.run()){
+        case TesteUnitarioValorAplicacao::SUCESSO: cout << "Valor de Aplicacao: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioValorAplicacao::FALHA: cout << "Valor de Aplicacao: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeValorMinimo.run()){
+        case TesteUnitarioValorMinimo::SUCESSO: cout << "Valor Minimo: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioValorMinimo::FALHA: cout << "Valor Minimo: FALHA" << endl;
+                                           break;
     }
 
     return 0;

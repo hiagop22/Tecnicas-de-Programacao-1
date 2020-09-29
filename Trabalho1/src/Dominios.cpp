@@ -68,7 +68,48 @@ int Emissor::quantidadeEmissores = Emissor::QUANTIDADE_EMISSORES_DEFAULT;
 int Emissor::minMaxCaracteresPossiveis[2] = {5, 30};
 char Emissor::caracteresEspeciaisPossiveis[3] = {'-', '.', ' '};
 
+// -> Endereço <- //
+int Endereco::quantidadeEnderecos = Endereco::QUANTIDADE_ENDERECOS_DEFAULT;
+int Endereco::minCaracteresPossiveis = 5;
+int Endereco::maxCaracteresPossiveis = 20;
 
+// -> Horario <- //
+int Horario::quantidadeHorarios = Horario::QUANTIDADE_HORARIOS_DEFAULT;
+
+// -> Nome <- //
+int Nome::quantidadeNomes = Nome::QUANTIDADE_NOMES_DEFAULT;
+int Nome::minCaracteresPossiveis = 5;
+int Nome::maxCaracteresPossiveis = 30;
+
+// -> Numero <- //
+int Numero::quantidadeNumeros = Numero::QUANTIDADE_NUMEROS_DEFAULT;
+string Numero::digitosVerificadoresPossiveis[11] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "X"};
+
+const string Numero::FORMATO_STRING_VALIDO = "XXXXXX-X";
+const string Numero::REPRESENTACAO_NUMERO = "X";
+const int Numero::POSICAO_PRIMEIRO_DIGITO_VERIFICADOR = Numero::FORMATO_STRING_VALIDO.size() -2;
+const int Numero::POSICAO_SEGUNDO_DIGITO_VERIFICADOR = Numero::FORMATO_STRING_VALIDO.size() -1;
+
+// -> Prazo <- //
+int Prazo::quantidadePrazos = Prazo::QUANTIDADE_PRAZOS_DEFAULT;
+int Prazo::prazosPossiveis[12] = {6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72};
+
+// -> Senha <- //
+int Senha::quantidadeSenhas = Senha::QUANTIDADE_SENHAS_DEFAULT;
+
+// -> Taxa <- //
+int Taxa::quantidadeTaxas = Taxa::QUANTIDADE_TAXAS_DEFAULT;
+int Taxa::minTaxaPossivel = 0;
+int Taxa::maxTaxaPossivel = 200;
+
+// -> Valor de Aplicação <- //
+int ValorDeAplicacao::quantidadeValoresAplicacao = ValorDeAplicacao::QUANTIDADE_VALORES_APLICACAO_DEFAULT;
+int ValorDeAplicacao::minValorAplicacaoPossivel = 0;
+int ValorDeAplicacao::maxValorAplicacaoPossivel = 1000000;
+
+// -> Valor Minimo <- //
+int ValorMinimo::quantidadeValoresMinimos = ValorMinimo::QUANTIDADE_VALORES_MINIMOS_DEFAULT;
+int ValorMinimo::valoresMinimosPossiveis[4] = {1000, 5000, 10000, 50000};
 // ----------------- Definição de métodos ----------------- //
 // -> Cep <- //
 Cep::Cep(){
@@ -439,4 +480,332 @@ void Emissor::setNomeEmissor(string nomeEmissor){
 
 Emissor::~Emissor(){
     quantidadeEmissores--;
+}
+
+// -> Endereço <- //
+Endereco::Endereco(){
+    quantidadeEnderecos++;
+}
+
+void Endereco::validar(string endereco){
+    int i;
+
+    if(endereco.size() < minCaracteresPossiveis || endereco.size() > maxCaracteresPossiveis){
+        throw invalid_argument("Argumento inválido. ");
+    }
+    if(isalpha(endereco[0]) && !isupper(endereco[0])){
+        throw invalid_argument("Argumento inválido. ");
+    }
+    for(i = 0; i < (int)endereco.size(); i++){
+        if(!isalpha(endereco[i]) && !isdigit(endereco[i]) && !ispunct(endereco[i]) && !isspace(endereco[i])){
+            throw invalid_argument("Argumento inválido. ");
+        }
+        if(isspace(endereco[i]) && isspace(endereco[i + 1])){
+            throw invalid_argument("Argumento inválido. ");
+        }
+        if(ispunct(endereco[i]) && ispunct(endereco[i + 1])){
+            throw invalid_argument("Argumento inválido. ");
+        }
+        if(isspace(endereco[i]) && isalpha(endereco[i + 1]) && !isupper(endereco[i + 1])){
+            throw invalid_argument("Argumento inválido. ");
+        }
+    }
+}
+
+void Endereco::setEndereco(string enderecoCompleto){
+    validar(enderecoCompleto);
+    this->enderecoCompleto = enderecoCompleto;
+}
+
+Endereco::~Endereco(){
+    quantidadeEnderecos--;
+}
+
+// -> Horario <- //
+Horario::Horario(){
+    quantidadeHorarios++;
+}
+
+void Horario::validar(string horaFornecida){
+    if(horaFornecida.size() != QUANTIDADE_DIGITOS_HORARIO){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    if((!isdigit(horaFornecida[0])) || (!isdigit(horaFornecida[1])) ||
+       (!isdigit(horaFornecida[3])) || (!isdigit(horaFornecida[4]))){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    if(horaFornecida[2] != ':'){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    if((horaFornecida[0] - '0') * 10 + (horaFornecida[1] - '0') < 13){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    if((horaFornecida[0] - '0') * 10 + (horaFornecida[1] - '0') > 17){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    if((horaFornecida[3] - '0') * 10 + (horaFornecida[4] - '0') > 59){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    if((horaFornecida[0] - '0') * 10 + (horaFornecida[1] - '0') == 17 &&
+        (horaFornecida[3] - '0') * 10 + (horaFornecida[4] - '0') > 0){
+        throw invalid_argument("Argumento inválido. ");
+    }
+}
+
+void Horario::setHorario(string valorHorario){
+    validar(valorHorario);
+    this->valorHorario = valorHorario;
+}
+
+Horario::~Horario(){
+    quantidadeHorarios--;
+}
+
+// -> Nome <- //
+Nome::Nome(){
+    quantidadeNomes++;
+}
+
+void Nome::validar(string nome){
+    int i;
+    int contLetras = 0;
+
+    if(nome.size() < minCaracteresPossiveis || nome.size() > maxCaracteresPossiveis){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    if(!isupper(nome[0])){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    for(i = 0; i < (int)nome.size(); i++){
+        if(!isalpha(nome[i]) && !isspace(nome[i])){
+            throw invalid_argument("Argumento inválido. ");
+        }
+
+        if(isspace(nome[i]) && !isupper(nome[i + 1])){
+            throw invalid_argument("Argumento inválido. ");
+        }
+
+        if(isalpha(nome[i])){
+            contLetras++;
+        }
+    }
+    if(contLetras < 5){
+        throw invalid_argument("Argumento inválido. ");
+    }
+}
+
+void Nome::setNome(string nomeCompleto){
+    validar(nomeCompleto);
+    this->nomeCompleto = nomeCompleto;
+}
+
+Nome::~Nome(){
+    quantidadeNomes--;
+}
+
+// -> Numero <- //
+Numero::Numero(){
+    quantidadeNumeros++;
+}
+
+void Numero::validar(string numero){
+    int i;
+    int j;
+    int cont = 0;
+
+    if(numero.size() != QUANTIDADE_DIGITOS_NUMERO){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    for(i = 0; i < (QUANTIDADE_DIGITOS_NUMERO - 2); i++){
+        if(!isdigit(numero[i])){
+            throw invalid_argument("Argumento inválido. ");
+        }
+    }
+
+    if(numero[i] != '-'){
+        throw invalid_argument("Argumento inválido. ");
+    }
+    i++;
+
+    for(j = 0; j < sizeof(digitosVerificadoresPossiveis)/sizeof(*digitosVerificadoresPossiveis); j++){
+        if(numero[i] == digitosVerificadoresPossiveis[j][0]){
+            cont++;
+        }
+    }
+
+    if(!cont){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    // Algoritmo de verificaçao do BB//
+    cont = 0;
+
+    for(i = 0, j = 7; i < (QUANTIDADE_DIGITOS_NUMERO - 2); i++,j--){
+            cont += (((int)numero[i] - '0')) * j;
+    }
+
+    if((cont % 11) == 10){
+        if(numero[QUANTIDADE_DIGITOS_NUMERO - 1] != 'X'){
+            throw invalid_argument("Argumento inválido. ");
+        }
+    }
+    else{
+        if((numero[QUANTIDADE_DIGITOS_NUMERO - 1] - '0') != (cont % 11)){
+            throw invalid_argument("Argumento inválido. ");
+        }
+    }
+}
+
+void Numero::setNumero(string numeroConta){
+    validar(numeroConta);
+    this->numeroConta = numeroConta;
+}
+
+Numero::~Numero(){
+    quantidadeNumeros--;
+}
+
+// -> Prazo <- //
+Prazo::Prazo(){
+    quantidadePrazos++;
+}
+
+void Prazo::validar(int prazo){
+    int i;
+    int cont = 0;
+
+    for(i = 0; i < sizeof(prazosPossiveis)/sizeof(*prazosPossiveis); i++){
+        if(prazo == prazosPossiveis[i]){
+            cont++;
+            return;
+        }
+    }
+
+    if(!cont){
+        throw invalid_argument("Argumento inválido. ");
+    }
+}
+
+void Prazo::setPrazo(int valorPrazo){
+    validar(valorPrazo);
+    this->valorPrazo = valorPrazo;
+}
+
+Prazo::~Prazo(){
+    quantidadePrazos--;
+}
+
+// -> Senha <- //
+Senha::Senha(){
+    quantidadeSenhas++;
+}
+
+void Senha::validar(string valorSenha){
+    int i;
+    int j;
+
+    if(valorSenha.size() != QUANTIDADE_DIGITOS_SENHA){
+        throw invalid_argument("Argumento inválido. ");
+    }
+
+    for(i = 0; i < QUANTIDADE_DIGITOS_SENHA; i++){
+        if(!isdigit(valorSenha[i])){
+            throw invalid_argument("Argumento inválido. ");
+        }
+    }
+
+    for(i = 0; i < QUANTIDADE_DIGITOS_SENHA; i++){
+        for(j = i + 1; j < QUANTIDADE_DIGITOS_SENHA; j++){
+            if(valorSenha[i] == valorSenha[j]){
+                throw invalid_argument("Argumento inválido. ");
+            }
+        }
+    }
+}
+
+void Senha::setSenha(string numeroSenha){
+    validar(numeroSenha);
+    this->numeroSenha = numeroSenha;
+}
+
+Senha::~Senha(){
+    quantidadeSenhas--;
+}
+
+// -> Taxa <- //
+Taxa::Taxa(){
+    quantidadeTaxas++;
+}
+
+void Taxa::validar(int taxa){
+    if(taxa < minTaxaPossivel || taxa > maxTaxaPossivel){
+        throw invalid_argument("Argumento inválido. ");
+    }
+}
+
+void Taxa::setTaxa(int valorTaxa){
+    validar(valorTaxa);
+    this->valorTaxa = valorTaxa;
+}
+
+Taxa::~Taxa(){
+    quantidadeTaxas--;
+}
+
+// -> Valor de Aplicação <- //
+ValorDeAplicacao::ValorDeAplicacao(){
+    quantidadeValoresAplicacao++;
+}
+
+void ValorDeAplicacao::validar(int aplicacao){
+    if(aplicacao < minValorAplicacaoPossivel || aplicacao > maxValorAplicacaoPossivel){
+        throw invalid_argument("Argumento inválido. ");
+    }
+}
+
+void ValorDeAplicacao::setValorDeAplicacao(int valorAplicacao){
+    validar(valorAplicacao);
+    this->valorAplicacao = valorAplicacao;
+}
+
+ValorDeAplicacao::~ValorDeAplicacao(){
+    quantidadeValoresAplicacao--;
+}
+
+// -> Valor Minimo <- //
+ValorMinimo::ValorMinimo(){
+    quantidadeValoresMinimos++;
+}
+
+void ValorMinimo::validar(int minimo){
+    int i;
+    int cont = 0;
+
+    for(i = 0; i < sizeof(valoresMinimosPossiveis)/sizeof(*valoresMinimosPossiveis); i++){
+        if(minimo == valoresMinimosPossiveis[i]){
+            cont++;
+        }
+    }
+
+    if(!cont){
+        throw invalid_argument("Argumento inválido. ");
+    }
+}
+
+void ValorMinimo::setValorMinimo(int valorMin){
+    validar(valorMin);
+    this->valorMin = valorMin;
+}
+
+ValorMinimo::~ValorMinimo(){
+    quantidadeValoresMinimos--;
 }
