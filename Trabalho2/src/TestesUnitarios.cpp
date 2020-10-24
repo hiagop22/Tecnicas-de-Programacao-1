@@ -4,24 +4,24 @@
 
 using namespace std;
 
-// ----------------- Inicialização de atributos estáticos ----------------- //
+// ----------------- Inicializaï¿½ï¿½o de atributos estï¿½ticos ----------------- //
 // -> Classe <- //
 const string TesteUnitarioClasse::NOME_CLASSE_VALIDO = "CDB";
 const string TesteUnitarioClasse::NOME_CLASSE_INVALIDO = "ETF";
 
-// -> Código de Agencia <- //
+// -> Cï¿½digo de Agencia <- //
 const string TesteUnitarioCodigoAgencia::CODIGO_AGENCIA_VALIDO = "1234";
 const string TesteUnitarioCodigoAgencia::CODIGO_AGENCIA_INVALIDO = "0000";
 
-// -> Código de Aplicacão <- //
+// -> Cï¿½digo de Aplicacï¿½o <- //
 const string TesteUnitarioCodigoAplicacao::CODIGO_APLICACAO_VALIDO = "12345";
 const string TesteUnitarioCodigoAplicacao::CODIGO_APLICACAO_INVALIDO = "00000";
 
-// -> Código de Banco <- //
+// -> Cï¿½digo de Banco <- //
 const string TesteUnitarioCodigoBanco::CODIGO_BANCO_VALIDO = "033";
 const string TesteUnitarioCodigoBanco::CODIGO_BANCO_INVALIDO = "003";
 
-// -> Código de Produto <- //
+// -> Cï¿½digo de Produto <- //
 const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_VALIDO = "033";
 const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_INVALIDO = "000";
 
@@ -47,7 +47,7 @@ const string TesteUnitarioHorario::HORARIO_INVALIDO = "12:00";
 
 // -> Nome <- //
 const string TesteUnitarioNome::NOME_VALIDO = "Maicon Junior";
-const string TesteUnitarioNome::NOME_INVALIDO = "joão silva";
+const string TesteUnitarioNome::NOME_INVALIDO = "joï¿½o silva";
 
 // -> Numero <- //
 const string TesteUnitarioNumero::NUMERO_VALIDO = "506323-1";
@@ -65,7 +65,7 @@ const string TesteUnitarioSenha::SENHA_INVALIDA = "abc123";
 const int TesteUnitarioTaxa::TAXA_VALIDA = 15;
 const int TesteUnitarioTaxa::TAXA_INVALIDA = 215;
 
-// -> Valor de Aplicaçao <- //
+// -> Valor de Aplicaï¿½ao <- //
 const int TesteUnitarioValorAplicacao::VALOR_APLICACAO_VALIDO = 5000;
 const int TesteUnitarioValorAplicacao::VALOR_APLICACAO_INVALIDO = 5000000;
 
@@ -73,7 +73,7 @@ const int TesteUnitarioValorAplicacao::VALOR_APLICACAO_INVALIDO = 5000000;
 const int TesteUnitarioValorMinimo::VALOR_MINIMO_VALIDO = 1000;
 const int TesteUnitarioValorMinimo::VALOR_MINIMO_INVALIDO = 2000;
 
-// ----------------- Definição de métodos ----------------- //
+// ----------------- Definiï¿½ï¿½o de mï¿½todos ----------------- //
 
 // -> Cep <- //
 void TesteUnitarioCep::setUp(){
@@ -128,8 +128,8 @@ void TesteUnitarioClasse::tearDown(){
 
 void TesteUnitarioClasse::testarCenarioSucesso(){
     try{
-        classe->setClasse(NOME_CLASSE_VALIDO);
-        if(classe->getClasse() != NOME_CLASSE_VALIDO)
+        classe->set(NOME_CLASSE_VALIDO);
+        if(classe->get() != NOME_CLASSE_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -139,7 +139,7 @@ void TesteUnitarioClasse::testarCenarioSucesso(){
 
 void TesteUnitarioClasse::testarCenarioFalha(){
     try{
-        classe->setClasse(NOME_CLASSE_INVALIDO);
+        classe->set(NOME_CLASSE_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -156,7 +156,7 @@ int TesteUnitarioClasse::run(){
     return estado;
 }
 
-// -> Código de Agencia <- //
+// -> Cï¿½digo de Agencia <- //
 void TesteUnitarioCodigoAgencia::setUp(){
     codigoAgencia = new CodigoAgencia();
     estado = SUCESSO;
@@ -168,8 +168,8 @@ void TesteUnitarioCodigoAgencia::tearDown(){
 
 void TesteUnitarioCodigoAgencia::testarCenarioSucesso(){
     try{
-        codigoAgencia->setCodigoAgencia(CODIGO_AGENCIA_VALIDO);
-        if(codigoAgencia->getCodigoAgencia() != CODIGO_AGENCIA_VALIDO)
+        codigoAgencia->set(CODIGO_AGENCIA_VALIDO);
+        if(codigoAgencia->get() != CODIGO_AGENCIA_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -179,7 +179,7 @@ void TesteUnitarioCodigoAgencia::testarCenarioSucesso(){
 
 void TesteUnitarioCodigoAgencia::testarCenarioFalha(){
     try{
-        codigoAgencia->setCodigoAgencia(CODIGO_AGENCIA_INVALIDO);
+        codigoAgencia->set(CODIGO_AGENCIA_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -196,7 +196,7 @@ int TesteUnitarioCodigoAgencia::run(){
     return estado;
 }
 
-// -> Código de Aplicação <- //
+// -> Cï¿½digo de Aplicaï¿½ï¿½o <- //
 void TesteUnitarioCodigoAplicacao::setUp(){
     codigoAplicacao = new CodigoAplicacao();
     estado = SUCESSO;
@@ -208,8 +208,8 @@ void TesteUnitarioCodigoAplicacao::tearDown(){
 
 void TesteUnitarioCodigoAplicacao::testarCenarioSucesso(){
     try{
-        codigoAplicacao->setCodigoAplicacao(CODIGO_APLICACAO_VALIDO);
-        if(codigoAplicacao->getCodigoAplicacao() != CODIGO_APLICACAO_VALIDO)
+        codigoAplicacao->set(CODIGO_APLICACAO_VALIDO);
+        if(codigoAplicacao->get() != CODIGO_APLICACAO_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -219,7 +219,7 @@ void TesteUnitarioCodigoAplicacao::testarCenarioSucesso(){
 
 void TesteUnitarioCodigoAplicacao::testarCenarioFalha(){
     try{
-        codigoAplicacao->setCodigoAplicacao(CODIGO_APLICACAO_INVALIDO);
+        codigoAplicacao->set(CODIGO_APLICACAO_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -236,7 +236,7 @@ int TesteUnitarioCodigoAplicacao::run(){
     return estado;
 }
 
-// -> Código de Banco <- //
+// -> Cï¿½digo de Banco <- //
 void TesteUnitarioCodigoBanco::setUp(){
     codigoBanco = new CodigoBanco();
     estado = SUCESSO;
@@ -248,8 +248,8 @@ void TesteUnitarioCodigoBanco::tearDown(){
 
 void TesteUnitarioCodigoBanco::testarCenarioSucesso(){
     try{
-        codigoBanco->setCodigoBanco(CODIGO_BANCO_VALIDO);
-        if(codigoBanco->getCodigoBanco() != CODIGO_BANCO_VALIDO)
+        codigoBanco->set(CODIGO_BANCO_VALIDO);
+        if(codigoBanco->get() != CODIGO_BANCO_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -259,7 +259,7 @@ void TesteUnitarioCodigoBanco::testarCenarioSucesso(){
 
 void TesteUnitarioCodigoBanco::testarCenarioFalha(){
     try{
-        codigoBanco->setCodigoBanco(CODIGO_BANCO_INVALIDO);
+        codigoBanco->set(CODIGO_BANCO_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -276,7 +276,7 @@ int TesteUnitarioCodigoBanco::run(){
     return estado;
 }
 
-// -> Código de Produto <- //
+// -> Cï¿½digo de Produto <- //
 void TesteUnitarioCodigoProduto::setUp(){
     codigoProduto = new CodigoProduto();
     estado = SUCESSO;
@@ -288,8 +288,8 @@ void TesteUnitarioCodigoProduto::tearDown(){
 
 void TesteUnitarioCodigoProduto::testarCenarioSucesso(){
     try{
-        codigoProduto->setCodigoProduto(CODIGO_PRODUTO_VALIDO);
-        if(codigoProduto->getCodigoProduto() != CODIGO_PRODUTO_VALIDO)
+        codigoProduto->set(CODIGO_PRODUTO_VALIDO);
+        if(codigoProduto->get() != CODIGO_PRODUTO_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -299,7 +299,7 @@ void TesteUnitarioCodigoProduto::testarCenarioSucesso(){
 
 void TesteUnitarioCodigoProduto::testarCenarioFalha(){
     try{
-        codigoProduto->setCodigoProduto(CODIGO_PRODUTO_INVALIDO);
+        codigoProduto->set(CODIGO_PRODUTO_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -328,8 +328,8 @@ void TesteUnitarioCpf::tearDown(){
 
 void TesteUnitarioCpf::testarCenarioSucesso(){
     try{
-        cpf->setNumeroCpf(NUMERO_CPF_VALIDO);
-        if(cpf->getNumeroCpf() != NUMERO_CPF_VALIDO)
+        cpf->set(NUMERO_CPF_VALIDO);
+        if(cpf->get() != NUMERO_CPF_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -339,7 +339,7 @@ void TesteUnitarioCpf::testarCenarioSucesso(){
 
 void TesteUnitarioCpf::testarCenarioFalha(){
     try{
-        cpf->setNumeroCpf(NUMERO_CPF_INVALIDO);
+        cpf->set(NUMERO_CPF_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -368,8 +368,8 @@ void TesteUnitarioData::tearDown(){
 
 void TesteUnitarioData::testarCenarioSucesso(){
     try{
-        data->setNumeroData(NUMERO_DATA_VALIDO);
-        if(data->getNumeroData() != NUMERO_DATA_VALIDO)
+        data->set(NUMERO_DATA_VALIDO);
+        if(data->get() != NUMERO_DATA_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -379,7 +379,7 @@ void TesteUnitarioData::testarCenarioSucesso(){
 
 void TesteUnitarioData::testarCenarioFalha(){
     try{
-        data->setNumeroData(NUMERO_DATA_INVALIDO);
+        data->set(NUMERO_DATA_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -408,8 +408,8 @@ void TesteUnitarioEmissor::tearDown(){
 
 void TesteUnitarioEmissor::testarCenarioSucesso(){
     try{
-        emissor->setNomeEmissor(NOME_EMISSOR_VALIDO);
-        if(emissor->getNomeEmissor() != NOME_EMISSOR_VALIDO)
+        emissor->set(NOME_EMISSOR_VALIDO);
+        if(emissor->get() != NOME_EMISSOR_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -419,7 +419,7 @@ void TesteUnitarioEmissor::testarCenarioSucesso(){
 
 void TesteUnitarioEmissor::testarCenarioFalha(){
     try{
-        emissor->setNomeEmissor(NOME_EMISSOR_INVALIDO);
+        emissor->set(NOME_EMISSOR_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -449,8 +449,8 @@ void TesteUnitarioEndereco::tearDown(){
 
 void TesteUnitarioEndereco::testarCenarioSucesso(){
     try{
-        endereco->setEndereco(ENDERECO_VALIDO);
-        if(endereco->getEndereco() != ENDERECO_VALIDO){
+        endereco->set(ENDERECO_VALIDO);
+        if(endereco->get() != ENDERECO_VALIDO){
             estado = FALHA;
         }
     }
@@ -461,7 +461,7 @@ void TesteUnitarioEndereco::testarCenarioSucesso(){
 
 void TesteUnitarioEndereco::testarCenarioFalha(){
     try{
-        endereco->setEndereco(ENDERECO_INVALIDO);
+        endereco->set(ENDERECO_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excecao){
@@ -490,8 +490,8 @@ void TesteUnitarioHorario::tearDown(){
 
 void TesteUnitarioHorario::testarCenarioSucesso(){
     try{
-        horario->setHorario(HORARIO_VALIDO);
-        if(horario->getHorario() != HORARIO_VALIDO){
+        horario->set(HORARIO_VALIDO);
+        if(horario->get() != HORARIO_VALIDO){
             estado = FALHA;
         }
     }
@@ -502,7 +502,7 @@ void TesteUnitarioHorario::testarCenarioSucesso(){
 
 void TesteUnitarioHorario::testarCenarioFalha(){
     try{
-        horario->setHorario(HORARIO_INVALIDO);
+        horario->set(HORARIO_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excecao){
@@ -531,8 +531,8 @@ void TesteUnitarioNome::tearDown(){
 
 void TesteUnitarioNome::testarCenarioSucesso(){
     try{
-        nome->setNome(NOME_VALIDO);
-        if(nome->getNome() != NOME_VALIDO){
+        nome->set(NOME_VALIDO);
+        if(nome->get() != NOME_VALIDO){
             estado = FALHA;
         }
     }
@@ -543,7 +543,7 @@ void TesteUnitarioNome::testarCenarioSucesso(){
 
 void TesteUnitarioNome::testarCenarioFalha(){
     try{
-        nome->setNome(NOME_INVALIDO);
+        nome->set(NOME_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excecao){
@@ -572,8 +572,8 @@ void TesteUnitarioNumero::tearDown(){
 
 void TesteUnitarioNumero::testarCenarioSucesso(){
     try{
-        numero->setNumero(NUMERO_VALIDO);
-        if(numero->getNumero() != NUMERO_VALIDO){
+        numero->set(NUMERO_VALIDO);
+        if(numero->get() != NUMERO_VALIDO){
             estado = FALHA;
         }
     }
@@ -584,7 +584,7 @@ void TesteUnitarioNumero::testarCenarioSucesso(){
 
 void TesteUnitarioNumero::testarCenarioFalha(){
     try{
-        numero->setNumero(NUMERO_INVALIDO);
+        numero->set(NUMERO_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excecao){
@@ -613,8 +613,8 @@ void TesteUnitarioPrazo::tearDown(){
 
 void TesteUnitarioPrazo::testarCenarioSucesso(){
     try{
-        prazo->setPrazo(PRAZO_VALIDO);
-        if(prazo->getPrazo() != PRAZO_VALIDO){
+        prazo->set(PRAZO_VALIDO);
+        if(prazo->get() != PRAZO_VALIDO){
             estado = FALHA;
         }
     }
@@ -625,7 +625,7 @@ void TesteUnitarioPrazo::testarCenarioSucesso(){
 
 void TesteUnitarioPrazo::testarCenarioFalha(){
     try{
-        prazo->setPrazo(PRAZO_INVALIDO);
+        prazo->set(PRAZO_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excecao){
@@ -654,8 +654,8 @@ void TesteUnitarioSenha::tearDown(){
 
 void TesteUnitarioSenha::testarCenarioSucesso(){
     try{
-        senha->setSenha(SENHA_VALIDA);
-        if(senha->getSenha() != SENHA_VALIDA){
+        senha->set(SENHA_VALIDA);
+        if(senha->get() != SENHA_VALIDA){
             estado = FALHA;
         }
     }
@@ -666,7 +666,7 @@ void TesteUnitarioSenha::testarCenarioSucesso(){
 
 void TesteUnitarioSenha::testarCenarioFalha(){
     try{
-        senha->setSenha(SENHA_INVALIDA);
+        senha->set(SENHA_INVALIDA);
         estado = FALHA;
     }
     catch(invalid_argument excecao){
@@ -695,8 +695,8 @@ void TesteUnitarioTaxa::tearDown(){
 
 void TesteUnitarioTaxa::testarCenarioSucesso(){
     try{
-        taxa->setTaxa(TAXA_VALIDA);
-        if(taxa->getTaxa() != TAXA_VALIDA){
+        taxa->set(TAXA_VALIDA);
+        if(taxa->get() != TAXA_VALIDA){
             estado = FALHA;
         }
     }
@@ -707,7 +707,7 @@ void TesteUnitarioTaxa::testarCenarioSucesso(){
 
 void TesteUnitarioTaxa::testarCenarioFalha(){
     try{
-        taxa->setTaxa(TAXA_INVALIDA);
+        taxa->set(TAXA_INVALIDA);
         estado = FALHA;
     }
     catch(invalid_argument excecao){
@@ -736,8 +736,8 @@ void TesteUnitarioValorAplicacao::tearDown(){
 
 void TesteUnitarioValorAplicacao::testarCenarioSucesso(){
     try{
-        valorDeAplicacao->setValorDeAplicacao(VALOR_APLICACAO_VALIDO);
-        if(valorDeAplicacao->getValorDeAplicacao() != VALOR_APLICACAO_VALIDO){
+        valorDeAplicacao->set(VALOR_APLICACAO_VALIDO);
+        if(valorDeAplicacao->get() != VALOR_APLICACAO_VALIDO){
             estado = FALHA;
         }
     }
@@ -748,7 +748,7 @@ void TesteUnitarioValorAplicacao::testarCenarioSucesso(){
 
 void TesteUnitarioValorAplicacao::testarCenarioFalha(){
     try{
-        valorDeAplicacao->setValorDeAplicacao(VALOR_APLICACAO_INVALIDO);
+        valorDeAplicacao->set(VALOR_APLICACAO_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excecao){
@@ -777,8 +777,8 @@ void TesteUnitarioValorMinimo::tearDown(){
 
 void TesteUnitarioValorMinimo::testarCenarioSucesso(){
     try{
-        valorMinimo->setValorMinimo(VALOR_MINIMO_VALIDO);
-        if(valorMinimo->getValorMinimo() != VALOR_MINIMO_VALIDO){
+        valorMinimo->set(VALOR_MINIMO_VALIDO);
+        if(valorMinimo->get() != VALOR_MINIMO_VALIDO){
             estado = FALHA;
         }
     }
@@ -789,7 +789,7 @@ void TesteUnitarioValorMinimo::testarCenarioSucesso(){
 
 void TesteUnitarioValorMinimo::testarCenarioFalha(){
     try{
-        valorMinimo->setValorMinimo(VALOR_MINIMO_INVALIDO);
+        valorMinimo->set(VALOR_MINIMO_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excecao){

@@ -5,7 +5,7 @@
 using std::string;
 
 
-/// Padrão para codificação de ceps.
+/// Padrï¿½o para codificaï¿½ï¿½o de ceps.
 class Cep{
 private:
     const static int QUANTIDADE_CEPS_DEFAULT = 0;
@@ -16,25 +16,25 @@ private:
     static int quantidadeCeps;
     void validarNumeroCep(int);
 public:
-    /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe Cep.
+    /// \brief Incrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Cep.
     Cep();
-    /// \brief Define o número de cep como o parâmetro recebido caso seja possível.
-    /// \param Número do cep que se deseja criar (apenas números).
+    /// \brief Define o nï¿½mero de cep como o parï¿½metro recebido caso seja possï¿½vel.
+    /// \param Nï¿½mero do cep que se deseja criar (apenas nï¿½meros).
     ///
     /// Regras de formato:
-    /// - Argumento válido caso esteja no faixas válidas para as cidades de São Paulo, Rio de Janeiro, Brasília,
+    /// - Argumento vï¿½lido caso esteja no faixas vï¿½lidas para as cidades de Sï¿½o Paulo, Rio de Janeiro, Brasï¿½lia,
     /// Salvador e Fortaleza.
-    /// \throw Argumento Inválido
+    /// \throw Argumento Invï¿½lido
     void set(int);
 //    void setLocalCep(string);
     /// \brief Retorna o cpf cadastrado, caso o mesmo tenha sido cadastrado.
-    /// \return Número de cep cadastrado.
+    /// \return Nï¿½mero de cep cadastrado.
     int get();
 //    string getLocalCep();
-    /// \brief Retorna a quantidade de instâncias da classe Cep criadas até o aquele presente momento.
-    /// \return Quantidade de instâncias da classe Cep.
+    /// \brief Retorna a quantidade de instï¿½ncias da classe Cep criadas atï¿½ o aquele presente momento.
+    /// \return Quantidade de instï¿½ncias da classe Cep.
     static int getQuantidadeInstancias();
-    /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Cep.
+    /// \brief Decrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Cep.
     virtual ~Cep();
 };
 
@@ -50,7 +50,7 @@ inline int Cep::getQuantidadeInstancias(){
     return quantidadeCeps;
 }
 
-/// Padrão para codificação de classes de ativos.
+/// Padrï¿½o para codificaï¿½ï¿½o de classes de ativos.
 class Classe{
 private:
     const static int QUANTIDADE_CLASSES_DEFAULT = 0;
@@ -59,26 +59,26 @@ private:
     static int quantidadeClasses;
     void validar(string);
 public:
-    /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe Classe.
+    /// \brief Incrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Classe.
     Classe();
-    /// \brief Define o nome da classe de ativo como o parametro recebido caso seja possível.
+    /// \brief Define o nome da classe de ativo como o parametro recebido caso seja possï¿½vel.
     /// \param Nome da classe de ativo que se deseja criar.
     ///
     /// Regras de formato:
-    /// - Argumento válido caso seja: "CDB", "LCA", "LCI", "LF" ou "LC".
-    /// \throw Argumento Inválido
+    /// - Argumento vï¿½lido caso seja: "CDB", "LCA", "LCI", "LF" ou "LC".
+    /// \throw Argumento Invï¿½lido
     void set(string);
     /// \brief Retorna o nome da classe de ativo cadastrado, caso o mesmo tenha sido cadastrado.
     /// \return Nome da classe cadastrada.
     string get();
-    /// \brief Retorna a quantidade de instâncias da classe Classe criadas até o aquele presente momento.
-    /// \return Quantidade de instâncias da classe Classe.
+    /// \brief Retorna a quantidade de instï¿½ncias da classe Classe criadas atï¿½ o aquele presente momento.
+    /// \return Quantidade de instï¿½ncias da classe Classe.
     static int getQuantidadeInstancias();
-    /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Classe.
+    /// \brief Decrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Classe.
     virtual ~Classe();
 };
 
-inline string Classe::getClasse(){
+inline string Classe::get(){
     return nomeClasse;
 }
 
@@ -86,7 +86,7 @@ inline int Classe::getQuantidadeInstancias(){
     return quantidadeClasses;
 }
 
-/// Padrão para codificação de códigos de agências.
+/// Padrï¿½o para codificaï¿½ï¿½o de cï¿½digos de agï¿½ncias.
 class CodigoAgencia{
 private:
     const static int QUANTIDADE_AGENCIAS_DEFAULT = 0;
@@ -97,22 +97,22 @@ private:
     static int quantidadeAgencias;
     void validar(string);
 public:
-    /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe CodigoAgencia.
+    /// \brief Incrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe CodigoAgencia.
     CodigoAgencia();
-    /// \brief Define o código da agência como o parametro recebido caso seja possível.
-    /// \param Código da agência que se deseja criar.
+    /// \brief Define o cï¿½digo da agï¿½ncia como o parametro recebido caso seja possï¿½vel.
+    /// \param Cï¿½digo da agï¿½ncia que se deseja criar.
     ///
     /// Regras de formato:
-    /// - Argumento válido caso seja no formato XXXXX, com X sendo valores numéricos e o código não tendo todos os valores iguais a zero.
-    /// \throw Argumento Inválido
+    /// - Argumento vï¿½lido caso seja no formato XXXXX, com X sendo valores numï¿½ricos e o cï¿½digo nï¿½o tendo todos os valores iguais a zero.
+    /// \throw Argumento Invï¿½lido
     void set(string);
-    /// \brief Retorna o código da agência, caso o mesmo tenha sido cadastrado.
-    /// \return código da agência cadastrada.
+    /// \brief Retorna o cï¿½digo da agï¿½ncia, caso o mesmo tenha sido cadastrado.
+    /// \return cï¿½digo da agï¿½ncia cadastrada.
     string get();
-    /// \brief Retorna a quantidade de instâncias da classe CodigoAgencia criadas até o aquele presente momento.
-    /// \return Quantidade de instâncias da classe CodigoAgencia.
+    /// \brief Retorna a quantidade de instï¿½ncias da classe CodigoAgencia criadas atï¿½ o aquele presente momento.
+    /// \return Quantidade de instï¿½ncias da classe CodigoAgencia.
     static int getQuantidadeInstancias();
-    /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe CodigoAgencia.
+    /// \brief Decrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe CodigoAgencia.
     virtual ~CodigoAgencia();
 };
 
@@ -124,7 +124,7 @@ inline int CodigoAgencia::getQuantidadeInstancias(){
     return quantidadeAgencias;
 }
 
-/// Padrão para codificação de códigos de aplicação.
+/// Padrï¿½o para codificaï¿½ï¿½o de cï¿½digos de aplicaï¿½ï¿½o.
 class CodigoAplicacao{
 private:
     const static int QUANTIDADE_APLICACOES_DEFAULT = 0;
@@ -134,22 +134,22 @@ private:
     static int quantidadeAplicacoes;
     void validar(string);
 public:
-    /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe CodigoAplicacao.
+    /// \brief Incrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe CodigoAplicacao.
     CodigoAplicacao();
-    /// \brief Define o código de aplicação como o parametro recebido caso seja possível.
-    /// \param Código de aplicação que se deseja realizar.
+    /// \brief Define o cï¿½digo de aplicaï¿½ï¿½o como o parametro recebido caso seja possï¿½vel.
+    /// \param Cï¿½digo de aplicaï¿½ï¿½o que se deseja realizar.
     ///
     /// Regras de formato:
-    /// - Argumento válido caso seja no formato XXXXXX, com X sendo valores numéricos e o código não tendo todos os valores iguais a zero.
-    /// \throw Argumento Inválido
+    /// - Argumento vï¿½lido caso seja no formato XXXXXX, com X sendo valores numï¿½ricos e o cï¿½digo nï¿½o tendo todos os valores iguais a zero.
+    /// \throw Argumento Invï¿½lido
     void set(string);
-    /// \brief Retorna o código da aplicação, caso o mesmo tenha sido cadastrado.
-    /// \return código da aplicação realizada.
+    /// \brief Retorna o cï¿½digo da aplicaï¿½ï¿½o, caso o mesmo tenha sido cadastrado.
+    /// \return cï¿½digo da aplicaï¿½ï¿½o realizada.
     string get();
-    /// \brief Retorna a quantidade de instâncias da classe CodigoAplicacao criadas até o aquele presente momento.
-    /// \return Quantidade de instâncias da classe CodigoAplicacao.
+    /// \brief Retorna a quantidade de instï¿½ncias da classe CodigoAplicacao criadas atï¿½ o aquele presente momento.
+    /// \return Quantidade de instï¿½ncias da classe CodigoAplicacao.
     static int getQuantidadeInstancias();
-    /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe CodigoAplicacao.
+    /// \brief Decrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe CodigoAplicacao.
     virtual ~CodigoAplicacao();
 };
 
@@ -161,7 +161,7 @@ inline int CodigoAplicacao::getQuantidadeInstancias(){
     return quantidadeAplicacoes;
 }
 
-/// Padrão para codificação de códigos de bancos.
+/// Padrï¿½o para codificaï¿½ï¿½o de cï¿½digos de bancos.
 class CodigoBanco{
 private:
     const static int QUANTIDADE_BANCOS_DEFAULT = 0;
@@ -171,35 +171,35 @@ private:
     static int quantidadeCodigosBancos;
     void validar(string);
 public:
-    /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe CodigoBanco.
+    /// \brief Incrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe CodigoBanco.
     CodigoBanco();
-    /// \brief Define o código do Banco como o parametro recebido caso seja possível.
-    /// \param Código do banco que se deseja criar.
+    /// \brief Define o cï¿½digo do Banco como o parametro recebido caso seja possï¿½vel.
+    /// \param Cï¿½digo do banco que se deseja criar.
     ///
     /// Regras de formato:
-    /// - Argumento válido caso seja no formato XXX, com X sendo valores numéricos com o código sendo considerado válido caso
-    /// seja algum dos 5 códigos do maiores bancos brasileiros por ativos totais
-    /// \throw Argumento Inválido
+    /// - Argumento vï¿½lido caso seja no formato XXX, com X sendo valores numï¿½ricos com o cï¿½digo sendo considerado vï¿½lido caso
+    /// seja algum dos 5 cï¿½digos do maiores bancos brasileiros por ativos totais
+    /// \throw Argumento Invï¿½lido
     void set(string);
-    /// \brief Retorna o código do banco, caso o mesmo tenha sido cadastrado.
-    /// \return código do banco cadastrado.
+    /// \brief Retorna o cï¿½digo do banco, caso o mesmo tenha sido cadastrado.
+    /// \return cï¿½digo do banco cadastrado.
     string get();
-    /// \brief Retorna a quantidade de instâncias da classe CodigoBanco criadas até o aquele presente momento.
-    /// \return Quantidade de instâncias da classe CodigoBanco.
-    static int getQuantidadeCodigosBancos();
-    /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe CodigoBanco.
+    /// \brief Retorna a quantidade de instï¿½ncias da classe CodigoBanco criadas atï¿½ o aquele presente momento.
+    /// \return Quantidade de instï¿½ncias da classe CodigoBanco.
+    static int getQuantidadeInstancias();
+    /// \brief Decrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe CodigoBanco.
     virtual ~CodigoBanco();
 };
 
-inline string CodigoBanco::getCodigoBanco(){
+inline string CodigoBanco::get(){
     return numeroBanco;
 }
 
-inline int CodigoBanco::getQuantidadeCodigosBancos(){
+inline int CodigoBanco::getQuantidadeInstancias(){
     return quantidadeCodigosBancos;
 }
 
-/// Padrão para codificação de códigos de produtos.
+/// Padrï¿½o para codificaï¿½ï¿½o de cï¿½digos de produtos.
 class CodigoProduto{
 private:
     const static int QUANTIDADE_CODIGOS_PRODUTOS_DEFAULT = 0;
@@ -210,34 +210,34 @@ private:
     static int quantidadeCodigosProdutos;
     void validar(string);
 public:
-    /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe CodigoProduto.
+    /// \brief Incrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe CodigoProduto.
     CodigoProduto();
-    /// \brief Define o código do produto como o parametro recebido caso seja possível.
-    /// \param Código do produto que se deseja criar.
+    /// \brief Define o cï¿½digo do produto como o parametro recebido caso seja possï¿½vel.
+    /// \param Cï¿½digo do produto que se deseja criar.
     ///
     /// Regras de formato:
-    /// - Argumento válido caso seja no formato XXX, com X sendo valores numéricos e o código não tendo todos os valores iguais a zero.
-    /// \throw Argumento Inválido
-    void setCodigoProduto(string);
-    /// \brief Retorna o código do produto, caso o mesmo tenha sido cadastrado.
-    /// \return código do produto cadastrada.
-    string getCodigoProduto();
-    /// \brief Retorna a quantidade de instâncias da classe CodigoProduto criadas até o aquele presente momento.
-    /// \return Quantidade de instâncias da classe CodigoProduto.
-    static int getQuantidadeCodigosProdutos();
-    /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe CodigoProduto.
+    /// - Argumento vï¿½lido caso seja no formato XXX, com X sendo valores numï¿½ricos e o cï¿½digo nï¿½o tendo todos os valores iguais a zero.
+    /// \throw Argumento Invï¿½lido
+    void set(string);
+    /// \brief Retorna o cï¿½digo do produto, caso o mesmo tenha sido cadastrado.
+    /// \return cï¿½digo do produto cadastrada.
+    string get();
+    /// \brief Retorna a quantidade de instï¿½ncias da classe CodigoProduto criadas atï¿½ o aquele presente momento.
+    /// \return Quantidade de instï¿½ncias da classe CodigoProduto.
+    static int getQuantidadeInstancias();
+    /// \brief Decrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe CodigoProduto.
     virtual ~CodigoProduto();
 };
 
-inline string CodigoProduto::getCodigoProduto(){
+inline string CodigoProduto::get(){
     return numeroCodigoProduto;
 }
 
-inline int CodigoProduto::getQuantidadeCodigosProdutos(){
+inline int CodigoProduto::getQuantidadeInstancias(){
     return quantidadeCodigosProdutos;
 }
 
-/// Padrão para codificação de cpfs.
+/// Padrï¿½o para codificaï¿½ï¿½o de cpfs.
 class Cpf{
 private:
     const static int QUANTIDADE_CPFS_DEFAULT = 0;
@@ -249,35 +249,35 @@ private:
     static int quantidadeCPFs;
     void validar(string);
 public:
-    /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe Cpf.
+    /// \brief Incrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Cpf.
     Cpf();
-    /// \brief Define o código do CPF como o parametro recebido caso seja possível.
-    /// \param Código do cpf que se deseja criar.
+    /// \brief Define o cï¿½digo do CPF como o parametro recebido caso seja possï¿½vel.
+    /// \param Cï¿½digo do cpf que se deseja criar.
     ///
     /// Regras de formato:
-    /// - Argumento válido caso seja no formato XXX.XXX.XXX-XX, com X sendo valores numéricos e os números atendendo
-    /// algoritmo de validação de cpf exemplificado em <a href="https://dicasdeprogramacao.com.br/algoritmo-para-validar-cpf/">link</a>.
-    /// \throw Argumento Inválido
-    void setNumeroCpf(string);
-    /// \brief Retorna o número do cpf, caso o mesmo tenha sido cadastrado.
-    /// \return número cpf.
-    string getNumeroCpf();
-    /// \brief Retorna a quantidade de instâncias da classe Cpf criadas até o aquele presente momento.
-    /// \return Quantidade de instâncias da classe Cpf.
-    static int getQuantidadeCPFs();
-    /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Cpf.
+    /// - Argumento vï¿½lido caso seja no formato XXX.XXX.XXX-XX, com X sendo valores numï¿½ricos e os nï¿½meros atendendo
+    /// algoritmo de validaï¿½ï¿½o de cpf exemplificado em <a href="https://dicasdeprogramacao.com.br/algoritmo-para-validar-cpf/">link</a>.
+    /// \throw Argumento Invï¿½lido
+    void set(string);
+    /// \brief Retorna o nï¿½mero do cpf, caso o mesmo tenha sido cadastrado.
+    /// \return nï¿½mero cpf.
+    string get();
+    /// \brief Retorna a quantidade de instï¿½ncias da classe Cpf criadas atï¿½ o aquele presente momento.
+    /// \return Quantidade de instï¿½ncias da classe Cpf.
+    static int getQuantidadeInstancias();
+    /// \brief Decrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Cpf.
     virtual ~Cpf();
 };
 
-inline string Cpf::getNumeroCpf(){
+inline string Cpf::get(){
     return numeroCpf;
 }
 
-inline int Cpf::getQuantidadeCPFs(){
+inline int Cpf::getQuantidadeInstancias(){
     return quantidadeCPFs;
 }
 
-/// Padrão para codificação de datas.
+/// Padrï¿½o para codificaï¿½ï¿½o de datas.
 class Data{
 private:
     const static int QUANTIDADE_DATAS_DEFAULT = 0;
@@ -292,36 +292,36 @@ private:
     static int quantidadeDatas;
     void validar(string);
 public:
-    /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe Data.
+    /// \brief Incrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Data.
     Data();
-    /// \brief Define uma data como o parametro recebido caso seja possível.
+    /// \brief Define uma data como o parametro recebido caso seja possï¿½vel.
     /// \param Data.
     ///
     /// Regras de formato:
-    /// - Argumento válido caso seja no formato DD/MM/AAAA, com DD representando o dia de 1 a 31,
-    /// MM representando o mês de 1 12 e AAAA o ano de 2020 a 2099.
-    /// Caso sejam inseridas datas referentes a anos bissextos não será levantada excessão.
-    /// \throw Argumento Inválido
-    void setNumeroData(string);
+    /// - Argumento vï¿½lido caso seja no formato DD/MM/AAAA, com DD representando o dia de 1 a 31,
+    /// MM representando o mï¿½s de 1 12 e AAAA o ano de 2020 a 2099.
+    /// Caso sejam inseridas datas referentes a anos bissextos nï¿½o serï¿½ levantada excessï¿½o.
+    /// \throw Argumento Invï¿½lido
+    void set(string);
     /// \brief Retorna a data, caso o mesmo tenha sido cadastrado.
     /// \return data cadastrada.
-    string getNumeroData();
-    /// \brief Retorna a quantidade de instâncias da classe Data criadas até o aquele presente momento.
-    /// \return Quantidade de instâncias da classe Data.
-    static int getQuantidadeDatas();
-    /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Data.
+    string get();
+    /// \brief Retorna a quantidade de instï¿½ncias da classe Data criadas atï¿½ o aquele presente momento.
+    /// \return Quantidade de instï¿½ncias da classe Data.
+    static int getQuantidadeInstancias();
+    /// \brief Decrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Data.
     virtual ~Data();
 };
 
-inline string Data::getNumeroData(){
+inline string Data::get(){
     return numeroData;
 }
 
-inline int Data::getQuantidadeDatas(){
+inline int Data::getQuantidadeInstancias(){
     return quantidadeDatas;
 }
 
-/// Padrão para codificação de usuários emissores.
+/// Padrï¿½o para codificaï¿½ï¿½o de usuï¿½rios emissores.
 class Emissor{
 private:
     const static int QUANTIDADE_EMISSORES_DEFAULT = 0;
@@ -331,32 +331,32 @@ private:
     static int quantidadeEmissores;
     void validar(string);
 public:
-    /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe Emissor.
+    /// \brief Incrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Emissor.
     Emissor();
-    /// \brief Define o nome do emissor como o parametro recebido caso seja possível.
+    /// \brief Define o nome do emissor como o parametro recebido caso seja possï¿½vel.
     /// \param Nome do emissor que se deseja criar.
     ///
     /// Regras de formato:
-    /// - Argumento válido caso seja um texto de 5 a 30 caracteres, caso o primeiro caractere seja letra ela deverá
-    /// maiúscula. Caracteres especiais sendo permitidos, sendo que apenas: '-', '.' e ' '(espaço em branco).
-    /// Ressalta-se que os caracteres especiais não podem estar em sequência, apenas os alfanuméricos.
-    /// \throw Argumento Inválido
-    void setNomeEmissor(string);
+    /// - Argumento vï¿½lido caso seja um texto de 5 a 30 caracteres, caso o primeiro caractere seja letra ela deverï¿½
+    /// maiï¿½scula. Caracteres especiais sendo permitidos, sendo que apenas: '-', '.' e ' '(espaï¿½o em branco).
+    /// Ressalta-se que os caracteres especiais nï¿½o podem estar em sequï¿½ncia, apenas os alfanumï¿½ricos.
+    /// \throw Argumento Invï¿½lido
+    void set(string);
     /// \brief Retorna o nome do emissor, caso o mesmo tenha sido cadastrado.
     /// \return nome do emissor cadastrada.
-    string getNomeEmissor();
-    /// \brief Retorna a quantidade de instâncias da classe Emissor criadas até o aquele presente momento.
-    /// \return Quantidade de instâncias da classe Emissor.
-    static int getQuantidadeEmissores();
-    /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Emissor.
+    string get();
+    /// \brief Retorna a quantidade de instï¿½ncias da classe Emissor criadas atï¿½ o aquele presente momento.
+    /// \return Quantidade de instï¿½ncias da classe Emissor.
+    static int getQuantidadeInstancias();
+    /// \brief Decrementa a variï¿½vel responsï¿½vel por armazenar o nï¿½mero de instancias da classe Emissor.
     virtual ~Emissor();
 };
 
-inline string Emissor::getNomeEmissor(){
+inline string Emissor::get(){
     return nomeEmissor;
 }
 
-inline int Emissor::getQuantidadeEmissores(){
+inline int Emissor::getQuantidadeInstancias(){
     return quantidadeEmissores;
 }
 
@@ -371,17 +371,17 @@ private:
     void validar(string);
 public:
     Endereco();
-    void setEndereco(string);
-    string getEndereco();
-    static int getQuantidadeEnderecos();
+    void set(string);
+    string get();
+    static int getQuantidadeInstancias();
     virtual ~Endereco();
 };
 
-inline string Endereco::getEndereco(){
+inline string Endereco::get(){
     return enderecoCompleto;
 }
 
-inline int Endereco::getQuantidadeEnderecos(){
+inline int Endereco::getQuantidadeInstancias(){
     return quantidadeEnderecos;
 }
 
@@ -394,17 +394,17 @@ private:
     void validar(string);
 public:
     Horario();
-    void setHorario(string);
-    string getHorario();
-    static int qetQuantidadeHorarios();
+    void set(string);
+    string get();
+    static int getQuantidadeInstancias();
     virtual ~Horario();
 };
 
-inline string Horario::getHorario(){
+inline string Horario::get(){
     return valorHorario;
 }
 
-inline int Horario::qetQuantidadeHorarios(){
+inline int Horario::getQuantidadeInstancias(){
     return quantidadeHorarios;
 }
 
@@ -418,17 +418,17 @@ private:
     void validar(string);
 public:
     Nome();
-    void setNome(string);
-    string getNome();
-    static int getQuantidadeNomes();
+    void set(string);
+    string get();
+    static int getQuantidadeInstancias();
     virtual ~Nome();
 };
 
-inline string Nome::getNome(){
+inline string Nome::get(){
     return nomeCompleto;
 }
 
-inline int Nome::getQuantidadeNomes(){
+inline int Nome::getQuantidadeInstancias(){
     return quantidadeNomes;
 }
 
@@ -442,23 +442,23 @@ private:
     const static string FORMATO_STRING_VALIDO;
     const static int POSICAO_PRIMEIRO_DIGITO_VERIFICADOR;
     const static int POSICAO_SEGUNDO_DIGITO_VERIFICADOR;
-       string numeroCpf;
+    string numeroCpf;
     string numeroConta;
     static int quantidadeNumeros;
     void validar(string);
 public:
     Numero();
-    void setNumero(string);
-    string getNumero();
-    static int getQuantidadeNumeros();
+    void set(string);
+    string get();
+    static int getQuantidadeInstancias();
     virtual ~Numero();
 };
 
-inline string Numero::getNumero(){
+inline string Numero::get(){
     return numeroConta;
 }
 
-inline int Numero::getQuantidadeNumeros(){
+inline int Numero::getQuantidadeInstancias(){
     return quantidadeNumeros;
 }
 
@@ -471,17 +471,17 @@ private:
     void validar(int);
 public:
     Prazo();
-    void setPrazo(int);
-    int getPrazo();
-    static int getQuantidadePrazos();
+    void set(int);
+    int get();
+    static int getQuantidadeInstancias();
     virtual ~Prazo();
 };
 
-inline int Prazo::getPrazo(){
+inline int Prazo::get(){
     return valorPrazo;
 }
 
-inline int Prazo::getQuantidadePrazos(){
+inline int Prazo::getQuantidadeInstancias(){
     return quantidadePrazos;
 }
 
@@ -494,17 +494,17 @@ private:
     void validar(string);
 public:
     Senha();
-    void setSenha(string);
-    string getSenha();
-    static int getQuantidadeSenhas();
+    void set(string);
+    string get();
+    static int getQuantidadeInstancias();
     virtual ~Senha();
 };
 
-inline string Senha::getSenha(){
+inline string Senha::get(){
     return numeroSenha;
 }
 
-inline int Senha::getQuantidadeSenhas(){
+inline int Senha::getQuantidadeInstancias(){
     return quantidadeSenhas;
 }
 
@@ -518,17 +518,17 @@ private:
     void validar(int);
 public:
     Taxa();
-    void setTaxa(int);
-    int getTaxa();
-    static int getQuantidadeTaxas();
+    void set(int);
+    int get();
+    static int getQuantidadeInstancias();
     virtual ~Taxa();
 };
 
-inline int Taxa::getTaxa(){
+inline int Taxa::get(){
     return valorTaxa;
 }
 
-inline int Taxa::getQuantidadeTaxas(){
+inline int Taxa::getQuantidadeInstancias(){
     return quantidadeTaxas;
 }
 
@@ -542,17 +542,17 @@ private:
     void validar(int);
 public:
     ValorDeAplicacao();
-    void setValorDeAplicacao(int);
-    int getValorDeAplicacao();
-    static int getQuantidadeValoresDeAplicacao();
+    void set(int);
+    int get();
+    static int getQuantidadeInstancias();
     virtual ~ValorDeAplicacao();
 };
 
-inline int ValorDeAplicacao::getValorDeAplicacao(){
+inline int ValorDeAplicacao::get(){
     return valorAplicacao;
 }
 
-inline int ValorDeAplicacao::getQuantidadeValoresDeAplicacao(){
+inline int ValorDeAplicacao::getQuantidadeInstancias(){
     return quantidadeValoresAplicacao;
 }
 
@@ -565,17 +565,17 @@ private:
     void validar(int);
 public:
     ValorMinimo();
-    void setValorMinimo(int);
-    int getValorMinimo();
-    static int getQuantidadeValoresMinimos();
+    void set(int);
+    int get();
+    static int getQuantidadeInstancias();
     virtual ~ValorMinimo();
 };
 
-inline int ValorMinimo::getValorMinimo(){
+inline int ValorMinimo::get(){
     return valorMin;
 }
 
-inline int ValorMinimo::getQuantidadeValoresMinimos(){
+inline int ValorMinimo::getQuantidadeInstancias(){
     return quantidadeValoresMinimos;
 }
 

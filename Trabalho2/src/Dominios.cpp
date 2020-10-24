@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// ----------------- Inicialização de atributos estáticos ----------------- //
+// ----------------- Inicializaï¿½ï¿½o de atributos estï¿½ticos ----------------- //
 // -> Cep <- //
 int Cep::quantidadeCeps = Cep::QUANTIDADE_CEPS_DEFAULT;
 int Cep::minMaxCepsPossiveis[6][2] = {{1000000,5999999},
@@ -14,10 +14,10 @@ int Cep::minMaxCepsPossiveis[6][2] = {{1000000,5999999},
                                       {70000000,70999999},
                                       {40000000,41999999},
                                       {60000000,60999999}};
-string Cep::locaisCepsPossiveis[7] = {"São Paulo",
-                                      "São Paulo",
+string Cep::locaisCepsPossiveis[7] = {"Sï¿½o Paulo",
+                                      "Sï¿½o Paulo",
                                       "Rio de Janeiro",
-                                      "Brasília",
+                                      "Brasï¿½lia",
                                       "Salvador",
                                       "Fortaleza"};
 
@@ -29,7 +29,7 @@ string Classe::classesPossiveis = "CDB LCA LCI LF LC";
 int CodigoAgencia::quantidadeAgencias = CodigoAgencia::QUANTIDADE_AGENCIAS_DEFAULT;
 const string CodigoAgencia::NUMERO_AGENCIA_INVALIDO = "0000";
 
-// -> Codigo de Aplicação <- //
+// -> Codigo de Aplicaï¿½ï¿½o <- //
 int CodigoAplicacao::quantidadeAplicacoes = CodigoAplicacao::QUANTIDADE_APLICACOES_DEFAULT;
 const string CodigoAplicacao::NUMERO_APLICACAO_INVALIDO = "00000";
 
@@ -68,7 +68,7 @@ int Emissor::quantidadeEmissores = Emissor::QUANTIDADE_EMISSORES_DEFAULT;
 int Emissor::minMaxCaracteresPossiveis[2] = {5, 30};
 char Emissor::caracteresEspeciaisPossiveis[3] = {'-', '.', ' '};
 
-// -> Endereço <- //
+// -> Endereï¿½o <- //
 int Endereco::quantidadeEnderecos = Endereco::QUANTIDADE_ENDERECOS_DEFAULT;
 int Endereco::minCaracteresPossiveis = 5;
 int Endereco::maxCaracteresPossiveis = 20;
@@ -102,7 +102,7 @@ int Taxa::quantidadeTaxas = Taxa::QUANTIDADE_TAXAS_DEFAULT;
 int Taxa::minTaxaPossivel = 0;
 int Taxa::maxTaxaPossivel = 200;
 
-// -> Valor de Aplicação <- //
+// -> Valor de Aplicaï¿½ï¿½o <- //
 int ValorDeAplicacao::quantidadeValoresAplicacao = ValorDeAplicacao::QUANTIDADE_VALORES_APLICACAO_DEFAULT;
 int ValorDeAplicacao::minValorAplicacaoPossivel = 0;
 int ValorDeAplicacao::maxValorAplicacaoPossivel = 1000000;
@@ -110,7 +110,7 @@ int ValorDeAplicacao::maxValorAplicacaoPossivel = 1000000;
 // -> Valor Minimo <- //
 int ValorMinimo::quantidadeValoresMinimos = ValorMinimo::QUANTIDADE_VALORES_MINIMOS_DEFAULT;
 int ValorMinimo::valoresMinimosPossiveis[4] = {1000, 5000, 10000, 50000};
-// ----------------- Definição de métodos ----------------- //
+// ----------------- Definiï¿½ï¿½o de mï¿½todos ----------------- //
 // -> Cep <- //
 Cep::Cep(){
     quantidadeCeps++;
@@ -124,7 +124,7 @@ void Cep::validarNumeroCep(int numeroCep){
         if(numeroCep>=minMaxCepsPossiveis[i][0] && numeroCep<=minMaxCepsPossiveis[i][1])
             return;
     }
-    throw invalid_argument("Argumento inválido.");
+    throw invalid_argument("Argumento invï¿½lido.");
 }
 
 void Cep::set(int numeroCep){
@@ -144,10 +144,10 @@ Classe::Classe(){
 void Classe::validar(string nomeClasse){
     size_t found = classesPossiveis.find(nomeClasse);
     if(found == string::npos)
-        throw invalid_argument("Argumento Inválido.");
+        throw invalid_argument("Argumento Invï¿½lido.");
 }
 
-void Classe::setClasse(string nomeClasse){
+void Classe::set(string nomeClasse){
     validar(nomeClasse);
     this->nomeClasse = nomeClasse;
 }
@@ -156,7 +156,7 @@ Classe::~Classe(){
     quantidadeClasses--;
 }
 
-// -> Código Agência <- //
+// -> Cï¿½digo Agï¿½ncia <- //
 CodigoAgencia::CodigoAgencia(){
     quantidadeAgencias++;
 }
@@ -165,16 +165,16 @@ void CodigoAgencia::validar(string numeroAgencia){
     int i;
 
     if(numeroAgencia.size() != QUANTIDADE_DIGITOS_CODIGO_AGENCIA || numeroAgencia.c_str() == NUMERO_AGENCIA_INVALIDO)
-        throw invalid_argument("Argumento Inválido.");
+        throw invalid_argument("Argumento Invï¿½lido.");
 
-    //  Verifica se todos os índices são dígitos
+    //  Verifica se todos os ï¿½ndices sï¿½o dï¿½gitos
     for(i=0; i < (int) numeroAgencia.size(); ++i){
         if(!isdigit(numeroAgencia[i]))
-            throw invalid_argument("Argumento Inválido.");
+            throw invalid_argument("Argumento Invï¿½lido.");
     }
 }
 
-void CodigoAgencia::setCodigoAgencia(string numeroAgencia){
+void CodigoAgencia::set(string numeroAgencia){
     validar(numeroAgencia);
     this->numeroAgencia = numeroAgencia;
 }
@@ -183,7 +183,7 @@ CodigoAgencia::~CodigoAgencia(){
     quantidadeAgencias--;
 }
 
-// -> Código Aplicacão <- //
+// -> Cï¿½digo Aplicacï¿½o <- //
 CodigoAplicacao::CodigoAplicacao(){
     quantidadeAplicacoes++;
 }
@@ -192,16 +192,16 @@ void CodigoAplicacao::validar(string numeroAplicacao){
     int i;
 
     if(numeroAplicacao.size() != QUANTIDADE_DIGITOS_CODIGO_APLICACAO || numeroAplicacao.c_str() == NUMERO_APLICACAO_INVALIDO)
-        throw invalid_argument("Argumento Inválido.");
+        throw invalid_argument("Argumento Invï¿½lido.");
 
-    // Verifica se todos os caracteres da string numeroAplicação são números
+    // Verifica se todos os caracteres da string numeroAplicaï¿½ï¿½o sï¿½o nï¿½meros
     for(i = 0; i < (int)numeroAplicacao.size(); ++i){
         if(!isdigit(numeroAplicacao[i]))
-            throw invalid_argument("Argumento Inválido.");
+            throw invalid_argument("Argumento Invï¿½lido.");
     }
 }
 
-void CodigoAplicacao::setCodigoAplicacao(string numeroAplicacao){
+void CodigoAplicacao::set(string numeroAplicacao){
     validar(numeroAplicacao);
     this->numeroAplicacao = numeroAplicacao;
 }
@@ -210,7 +210,7 @@ CodigoAplicacao::~CodigoAplicacao(){
     quantidadeAplicacoes--;
 }
 
-// -> Código Banco <- //
+// -> Cï¿½digo Banco <- //
 CodigoBanco::CodigoBanco(){
     quantidadeCodigosBancos++;
 }
@@ -222,27 +222,27 @@ void CodigoBanco::validar(string numeroBanco){
 
 //  Verifica o tamanho
     if(numeroBanco.size() != QUANTIDADE_DIGITOS_CODIGO_BANCO )
-        throw invalid_argument("Argumento Inválido.");
+        throw invalid_argument("Argumento Invï¿½lido.");
 
-//  Verifica se todos os índices são dígitos
+//  Verifica se todos os ï¿½ndices sï¿½o dï¿½gitos
     for(i=0; i < (int)codigosBancosPossiveis[0][0].size(); ++i){
         if(!isdigit(numeroBanco[i]))
-            throw invalid_argument("Argumento Inválido.");
+            throw invalid_argument("Argumento Invï¿½lido.");
     }
 
-//  Verifica se a variável numeroBanco é um entre os
-//  possíveis, se for sai da função, caso contrário
-//  termina o loop e cai em um levantamento de excessão
+//  Verifica se a variï¿½vel numeroBanco ï¿½ um entre os
+//  possï¿½veis, se for sai da funï¿½ï¿½o, caso contrï¿½rio
+//  termina o loop e cai em um levantamento de excessï¿½o
     for(i=0; i < lengthArrayCodigoBancosPossiveis; ++i){
         found = codigosBancosPossiveis[i][0].find(numeroBanco);
         if(found != string::npos)
             return;
     }
 
-    throw invalid_argument("Argumento Inválido.");
+    throw invalid_argument("Argumento Invï¿½lido.");
 }
 
-void CodigoBanco::setCodigoBanco(string numeroBanco){
+void CodigoBanco::set(string numeroBanco){
     validar(numeroBanco);
     this->numeroBanco = numeroBanco;
 }
@@ -251,7 +251,7 @@ CodigoBanco::~CodigoBanco(){
     quantidadeCodigosBancos--;
 }
 
-// -> Código Produto <- //
+// -> Cï¿½digo Produto <- //
 CodigoProduto::CodigoProduto(){
     quantidadeCodigosProdutos++;
 }
@@ -260,16 +260,16 @@ void CodigoProduto::validar(string numeroProduto){
     int i;
 
     if(numeroProduto.size() != QUANTIDADE_DIGITOS_CODIGO_PRODUTO || numeroProduto.c_str() == NUMERO_PRODUTO_INVALIDO)
-        throw invalid_argument("Argumento Inválido.");
+        throw invalid_argument("Argumento Invï¿½lido.");
 
-    // Verifica se todos os caracteres da string numeroAplicação são números
+    // Verifica se todos os caracteres da string numeroAplicaï¿½ï¿½o sï¿½o nï¿½meros
     for(i = 0; i < (int)numeroProduto.size(); ++i){
         if(!isdigit(numeroProduto[i]))
-            throw invalid_argument("Argumento Inválido.");
+            throw invalid_argument("Argumento Invï¿½lido.");
     }
 }
 
-void CodigoProduto::setCodigoProduto(string numeroCodigoProduto){
+void CodigoProduto::set(string numeroCodigoProduto){
     validar(numeroCodigoProduto);
     this->numeroCodigoProduto = numeroCodigoProduto;
 }
@@ -284,29 +284,29 @@ Cpf::Cpf(){
 }
 
 void Cpf::validar(string numeroCpf){
-// Utilizado o conteúdo de:
+// Utilizado o conteï¿½do de:
 // https://dicasdeprogramacao.com.br/algoritmo-para-validar-cpf/
 
     int i, j;
     int aux;
     int primeiroDigitoValidoAposSinal;
 
-    // Verifica os pontos, o hífen no númeroCpf e se todos os caracteres restantes são números
+    // Verifica os pontos, o hï¿½fen no nï¿½meroCpf e se todos os caracteres restantes sï¿½o nï¿½meros
     try{
     for(i=0; i< (int)Cpf::FORMATO_STRING_VALIDO.size(); ++i){
         if(FORMATO_STRING_VALIDO[i] != REPRESENTACAO_NUMERO[0] && numeroCpf.c_str()[i] != FORMATO_STRING_VALIDO[i])
-            throw invalid_argument("Argumento inválido");
+            throw invalid_argument("Argumento invï¿½lido");
         if(FORMATO_STRING_VALIDO[i] == REPRESENTACAO_NUMERO[0] && !isdigit(numeroCpf[i]))
-            throw invalid_argument("Argumento inválido");
+            throw invalid_argument("Argumento invï¿½lido");
     }
     }
     catch(...){
         //provavelmente o tamanho da string recebida foi menor que a string default e nisso houve uma tentativa
-        // não permitida de acesso de espaço de memória
-        throw invalid_argument("Argumento inválido");
+        // nï¿½o permitida de acesso de espaï¿½o de memï¿½ria
+        throw invalid_argument("Argumento invï¿½lido");
     }
 
-    // Validação do primeiro dígito verificador após o sinal
+    // Validaï¿½ï¿½o do primeiro dï¿½gito verificador apï¿½s o sinal
     aux = 0;
     for(i=0, j=10; i< (int)Cpf::FORMATO_STRING_VALIDO.size(); ++i){
         if(FORMATO_STRING_VALIDO[i] == REPRESENTACAO_NUMERO[0]){
@@ -322,9 +322,9 @@ void Cpf::validar(string numeroCpf){
         primeiroDigitoValidoAposSinal = 0;
 
     if(primeiroDigitoValidoAposSinal != ((int)numeroCpf[POSICAO_PRIMEIRO_DIGITO_VERIFICADOR] - 48))
-        throw invalid_argument("Argumento inválido");
+        throw invalid_argument("Argumento invï¿½lido");
 
-    // Verifica o segundo digito verificador após o sinal
+    // Verifica o segundo digito verificador apï¿½s o sinal
     aux = 0;
     for(i=0, j=11; i< (int)Cpf::FORMATO_STRING_VALIDO.size(); ++i){
         if(FORMATO_STRING_VALIDO[i] == REPRESENTACAO_NUMERO[0]){
@@ -340,9 +340,9 @@ void Cpf::validar(string numeroCpf){
         primeiroDigitoValidoAposSinal = 0;
 
     if(primeiroDigitoValidoAposSinal != ((int)numeroCpf[POSICAO_SEGUNDO_DIGITO_VERIFICADOR] - 48))
-        throw invalid_argument("Argumento inválido");
+        throw invalid_argument("Argumento invï¿½lido");
 
-    // Levantamento de excessões para cpf's inválidos, ou seja, que possuem todos os dígitos repetidos.
+    // Levantamento de excessï¿½es para cpf's invï¿½lidos, ou seja, que possuem todos os dï¿½gitos repetidos.
     int numeroAnterior = -1;
 
     for(i=0; i < (int)Cpf::FORMATO_STRING_VALIDO.size(); ++i){
@@ -357,10 +357,10 @@ void Cpf::validar(string numeroCpf){
         }
     }
 
-    throw invalid_argument("Argumento inválido");
+    throw invalid_argument("Argumento invï¿½lido");
 }
 
-void Cpf::setNumeroCpf(string numeroCpf){
+void Cpf::set(string numeroCpf){
     validar(numeroCpf);
     this->numeroCpf = numeroCpf;
 }
@@ -378,19 +378,19 @@ Data::Data(){
 void Data::validar(string numeroData){
     int i;
 
-    // Verifica os simbolos separadores e se todos os caracteres restantes são números
+    // Verifica os simbolos separadores e se todos os caracteres restantes sï¿½o nï¿½meros
     try{
     for(i=0; i< (int)Data::FORMATO_STRING_VALIDO.size(); ++i){
         if(FORMATO_STRING_VALIDO[i] != REPRESENTACAO_NUMERO[0] && numeroData.c_str()[i] != FORMATO_STRING_VALIDO[i])
-            throw invalid_argument("Argumento inválido");
+            throw invalid_argument("Argumento invï¿½lido");
         if(FORMATO_STRING_VALIDO[i] == REPRESENTACAO_NUMERO[0] && !isdigit(numeroData[i]))
-            throw invalid_argument("Argumento inválido");
+            throw invalid_argument("Argumento invï¿½lido");
     }
     }
     catch(...){
         //provavelmente o tamanho da string recebida foi menor que a string default e nisso houve uma tentativa
-        // não permitida de acesso de espaço de memória
-        throw invalid_argument("Argumento inválido");
+        // nï¿½o permitida de acesso de espaï¿½o de memï¿½ria
+        throw invalid_argument("Argumento invï¿½lido");
     }
 
     string dia = {numeroData[0], numeroData[1]};
@@ -398,10 +398,10 @@ void Data::validar(string numeroData){
     string ano = {numeroData[6], numeroData[7], numeroData[8], numeroData[9]};
 
     if(!(minMaxAnosPossiveis[0] <= atoi(ano.c_str()) && atoi(ano.c_str()) <= minMaxAnosPossiveis[1]))
-        throw invalid_argument("Argumento inválido");
+        throw invalid_argument("Argumento invï¿½lido");
 
     if(!(minMaxMesesPossiveis[0] <= atoi(mes.c_str()) && atoi(mes.c_str()) <= minMaxMesesPossiveis[1]))
-        throw invalid_argument("Argumento inválido");
+        throw invalid_argument("Argumento invï¿½lido");
 
     // Verifica dias nos anos bissextos
     int lengthArrayAnosBissextoss = (sizeof(anosBissextos)/sizeof(*anosBissextos));
@@ -411,16 +411,16 @@ void Data::validar(string numeroData){
             if(minMaxDiasPossiveisAnosBissextos[0] <= atoi(dia.c_str()) && atoi(dia.c_str()) <= minMaxDiasPossiveisAnosBissextos[1])
                 return;
             else
-                throw invalid_argument("Argumento inválido");
+                throw invalid_argument("Argumento invï¿½lido");
         }
     }
 
-    // Verifica dias nos anos não bissextos
+    // Verifica dias nos anos nï¿½o bissextos
     if(!(minMaxDiasPossiveisAnosNaoBissextos[0] <= atoi(dia.c_str()) && atoi(dia.c_str()) <= minMaxDiasPossiveisAnosNaoBissextos[1]))
-        throw invalid_argument("Argumento inválido");
+        throw invalid_argument("Argumento invï¿½lido");
 }
 
-void Data::setNumeroData(string numeroData){
+void Data::set(string numeroData){
     validar(numeroData);
     this->numeroData = numeroData;
 }
@@ -442,10 +442,10 @@ void Emissor::validar(string nomeEmissor){
     int lengthArrayCaracteresEspeciaisPossiveis = (sizeof(caracteresEspeciaisPossiveis)/sizeof(*caracteresEspeciaisPossiveis));
 
     if(!(minMaxCaracteresPossiveis[0] <= (int)nomeEmissor.size()  && (int)nomeEmissor.size() <= minMaxCaracteresPossiveis[1]))
-        throw invalid_argument("Argumento inválido");
+        throw invalid_argument("Argumento invï¿½lido");
 
     if(isdigit(nomeEmissor[0]) && !isupper(nomeEmissor[0]))
-        throw invalid_argument("Argumento inválido");
+        throw invalid_argument("Argumento invï¿½lido");
 
     for(i=0; i< (int)nomeEmissor.size(); ++i){
         if(isalnum(nomeEmissor[i]))
@@ -458,11 +458,11 @@ void Emissor::validar(string nomeEmissor){
         }
 
         if(!caractereEspecial)
-            throw invalid_argument("Argumento inválido");
+            throw invalid_argument("Argumento invï¿½lido");
 
         if(i!= (int)(nomeEmissor.size() -2)){
             if(!isalpha(nomeEmissor[i]) && !isalpha(nomeEmissor[i+1]))
-                throw invalid_argument("Argumento inválido");
+                throw invalid_argument("Argumento invï¿½lido");
         }
 
     }
@@ -470,7 +470,7 @@ void Emissor::validar(string nomeEmissor){
 
 }
 
-void Emissor::setNomeEmissor(string nomeEmissor){
+void Emissor::set(string nomeEmissor){
     validar(nomeEmissor);
     this->nomeEmissor = nomeEmissor;
 }
@@ -479,7 +479,7 @@ Emissor::~Emissor(){
     quantidadeEmissores--;
 }
 
-// -> Endereço <- //
+// -> Endereï¿½o <- //
 Endereco::Endereco(){
     quantidadeEnderecos++;
 }
@@ -488,28 +488,28 @@ void Endereco::validar(string endereco){
     int i;
 
     if((int)endereco.size() < minCaracteresPossiveis || (int)endereco.size() > maxCaracteresPossiveis){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
     if(isalpha(endereco[0]) && !isupper(endereco[0])){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
     for(i = 0; i < (int)endereco.size(); i++){
         if(!isalpha(endereco[i]) && !isdigit(endereco[i]) && !ispunct(endereco[i]) && !isspace(endereco[i])){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
         if(isspace(endereco[i]) && isspace(endereco[i + 1])){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
         if(ispunct(endereco[i]) && ispunct(endereco[i + 1])){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
         if(isspace(endereco[i]) && isalpha(endereco[i + 1]) && !isupper(endereco[i + 1])){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
     }
 }
 
-void Endereco::setEndereco(string enderecoCompleto){
+void Endereco::set(string enderecoCompleto){
     validar(enderecoCompleto);
     this->enderecoCompleto = enderecoCompleto;
 }
@@ -525,37 +525,37 @@ Horario::Horario(){
 
 void Horario::validar(string horaFornecida){
     if(horaFornecida.size() != QUANTIDADE_DIGITOS_HORARIO){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     if((!isdigit(horaFornecida[0])) || (!isdigit(horaFornecida[1])) ||
        (!isdigit(horaFornecida[3])) || (!isdigit(horaFornecida[4]))){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     if(horaFornecida[2] != ':'){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     if((horaFornecida[0] - '0') * 10 + (horaFornecida[1] - '0') < 13){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     if((horaFornecida[0] - '0') * 10 + (horaFornecida[1] - '0') > 17){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     if((horaFornecida[3] - '0') * 10 + (horaFornecida[4] - '0') > 59){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     if((horaFornecida[0] - '0') * 10 + (horaFornecida[1] - '0') == 17 &&
         (horaFornecida[3] - '0') * 10 + (horaFornecida[4] - '0') > 0){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 }
 
-void Horario::setHorario(string valorHorario){
+void Horario::set(string valorHorario){
     validar(valorHorario);
     this->valorHorario = valorHorario;
 }
@@ -574,20 +574,20 @@ void Nome::validar(string nome){
     int contLetras = 0;
 
     if((int)nome.size() < (int)minCaracteresPossiveis || (int)nome.size() > maxCaracteresPossiveis){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     if(!isupper(nome[0])){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     for(i = 0; i < (int)nome.size(); i++){
         if(!isalpha(nome[i]) && !isspace(nome[i])){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
 
         if(isspace(nome[i]) && !isupper(nome[i + 1])){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
 
         if(isalpha(nome[i])){
@@ -595,11 +595,11 @@ void Nome::validar(string nome){
         }
     }
     if(contLetras < 5){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 }
 
-void Nome::setNome(string nomeCompleto){
+void Nome::set(string nomeCompleto){
     validar(nomeCompleto);
     this->nomeCompleto = nomeCompleto;
 }
@@ -619,17 +619,17 @@ void Numero::validar(string numero){
     int cont = 0;
 
     if(numero.size() != QUANTIDADE_DIGITOS_NUMERO){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     for(i = 0; i < (QUANTIDADE_DIGITOS_NUMERO - 2); i++){
         if(!isdigit(numero[i])){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
     }
 
     if(numero[i] != '-'){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
     i++;
 
@@ -640,10 +640,10 @@ void Numero::validar(string numero){
     }
 
     if(!cont){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
-    // Algoritmo de verificaçao do BB//
+    // Algoritmo de verificaï¿½ao do BB//
     cont = 0;
 
     for(i = 0, j = 7; i < (QUANTIDADE_DIGITOS_NUMERO - 2); i++,j--){
@@ -652,17 +652,17 @@ void Numero::validar(string numero){
 
     if((cont % 11) == 10){
         if(numero[QUANTIDADE_DIGITOS_NUMERO - 1] != 'X'){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
     }
     else{
         if((numero[QUANTIDADE_DIGITOS_NUMERO - 1] - '0') != (cont % 11)){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
     }
 }
 
-void Numero::setNumero(string numeroConta){
+void Numero::set(string numeroConta){
     validar(numeroConta);
     this->numeroConta = numeroConta;
 }
@@ -688,11 +688,11 @@ void Prazo::validar(int prazo){
     }
 
     if(!cont){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 }
 
-void Prazo::setPrazo(int valorPrazo){
+void Prazo::set(int valorPrazo){
     validar(valorPrazo);
     this->valorPrazo = valorPrazo;
 }
@@ -711,25 +711,25 @@ void Senha::validar(string valorSenha){
     int j;
 
     if(valorSenha.size() != QUANTIDADE_DIGITOS_SENHA){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 
     for(i = 0; i < QUANTIDADE_DIGITOS_SENHA; i++){
         if(!isdigit(valorSenha[i])){
-            throw invalid_argument("Argumento inválido. ");
+            throw invalid_argument("Argumento invï¿½lido. ");
         }
     }
 
     for(i = 0; i < QUANTIDADE_DIGITOS_SENHA; i++){
         for(j = i + 1; j < QUANTIDADE_DIGITOS_SENHA; j++){
             if(valorSenha[i] == valorSenha[j]){
-                throw invalid_argument("Argumento inválido. ");
+                throw invalid_argument("Argumento invï¿½lido. ");
             }
         }
     }
 }
 
-void Senha::setSenha(string numeroSenha){
+void Senha::set(string numeroSenha){
     validar(numeroSenha);
     this->numeroSenha = numeroSenha;
 }
@@ -745,11 +745,11 @@ Taxa::Taxa(){
 
 void Taxa::validar(int taxa){
     if(taxa < minTaxaPossivel || taxa > maxTaxaPossivel){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 }
 
-void Taxa::setTaxa(int valorTaxa){
+void Taxa::set(int valorTaxa){
     validar(valorTaxa);
     this->valorTaxa = valorTaxa;
 }
@@ -758,18 +758,18 @@ Taxa::~Taxa(){
     quantidadeTaxas--;
 }
 
-// -> Valor de Aplicação <- //
+// -> Valor de Aplicaï¿½ï¿½o <- //
 ValorDeAplicacao::ValorDeAplicacao(){
     quantidadeValoresAplicacao++;
 }
 
 void ValorDeAplicacao::validar(int aplicacao){
     if(aplicacao < minValorAplicacaoPossivel || aplicacao > maxValorAplicacaoPossivel){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 }
 
-void ValorDeAplicacao::setValorDeAplicacao(int valorAplicacao){
+void ValorDeAplicacao::set(int valorAplicacao){
     validar(valorAplicacao);
     this->valorAplicacao = valorAplicacao;
 }
@@ -794,11 +794,11 @@ void ValorMinimo::validar(int minimo){
     }
 
     if(!cont){
-        throw invalid_argument("Argumento inválido. ");
+        throw invalid_argument("Argumento invï¿½lido. ");
     }
 }
 
-void ValorMinimo::setValorMinimo(int valorMin){
+void ValorMinimo::set(int valorMin){
     validar(valorMin);
     this->valorMin = valorMin;
 }
