@@ -22,7 +22,20 @@ class Conta{
         virtual ~Conta();
 };
 
-
+class Produto{
+    private:
+        CodigoProduto codigo;
+        Classe classe;
+        Emissor emissor;
+        Prazo prazo;
+        Data vencimento;
+        Taxa taxa;
+        Horario horario;
+        ValorMinimo valor;
+    public:
+        Produto();
+        virtual ~Produto;
+};
 
 class Usuario{
     private:
