@@ -25,20 +25,20 @@ public:
     /// - Argumento válido caso esteja no faixas válidas para as cidades de São Paulo, Rio de Janeiro, Brasília,
     /// Salvador e Fortaleza.
     /// \throw Argumento Inválido
-    void setCep(int);
+    void set(int);
 //    void setLocalCep(string);
     /// \brief Retorna o cpf cadastrado, caso o mesmo tenha sido cadastrado.
     /// \return Número de cep cadastrado.
-    int getCep();
+    int get();
 //    string getLocalCep();
     /// \brief Retorna a quantidade de instâncias da classe Cep criadas até o aquele presente momento.
     /// \return Quantidade de instâncias da classe Cep.
-    static int getQuantidadeCeps();
+    static int getQuantidadeInstancias();
     /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Cep.
     virtual ~Cep();
 };
 
-inline int Cep::getCep(){
+inline int Cep::get(){
     return numeroCep;
 }
 
@@ -46,7 +46,7 @@ inline int Cep::getCep(){
 //    return localCep;
 //}
 
-inline int Cep::getQuantidadeCeps(){
+inline int Cep::getQuantidadeInstancias(){
     return quantidadeCeps;
 }
 
@@ -67,13 +67,13 @@ public:
     /// Regras de formato:
     /// - Argumento válido caso seja: "CDB", "LCA", "LCI", "LF" ou "LC".
     /// \throw Argumento Inválido
-    void setClasse(string);
+    void set(string);
     /// \brief Retorna o nome da classe de ativo cadastrado, caso o mesmo tenha sido cadastrado.
     /// \return Nome da classe cadastrada.
-    string getClasse();
+    string get();
     /// \brief Retorna a quantidade de instâncias da classe Classe criadas até o aquele presente momento.
     /// \return Quantidade de instâncias da classe Classe.
-    static int getQuantidadeClasses();
+    static int getQuantidadeInstancias();
     /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Classe.
     virtual ~Classe();
 };
@@ -82,7 +82,7 @@ inline string Classe::getClasse(){
     return nomeClasse;
 }
 
-inline int Classe::getQuantidadeClasses(){
+inline int Classe::getQuantidadeInstancias(){
     return quantidadeClasses;
 }
 
@@ -105,22 +105,22 @@ public:
     /// Regras de formato:
     /// - Argumento válido caso seja no formato XXXXX, com X sendo valores numéricos e o código não tendo todos os valores iguais a zero.
     /// \throw Argumento Inválido
-    void setCodigoAgencia(string);
+    void set(string);
     /// \brief Retorna o código da agência, caso o mesmo tenha sido cadastrado.
     /// \return código da agência cadastrada.
-    string getCodigoAgencia();
+    string get();
     /// \brief Retorna a quantidade de instâncias da classe CodigoAgencia criadas até o aquele presente momento.
     /// \return Quantidade de instâncias da classe CodigoAgencia.
-    static int getQuantidadeAgencias();
+    static int getQuantidadeInstancias();
     /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe CodigoAgencia.
     virtual ~CodigoAgencia();
 };
 
-inline string CodigoAgencia::getCodigoAgencia(){
+inline string CodigoAgencia::get(){
     return numeroAgencia;
 }
 
-inline int CodigoAgencia::getQuantidadeAgencias(){
+inline int CodigoAgencia::getQuantidadeInstancias(){
     return quantidadeAgencias;
 }
 
@@ -142,22 +142,22 @@ public:
     /// Regras de formato:
     /// - Argumento válido caso seja no formato XXXXXX, com X sendo valores numéricos e o código não tendo todos os valores iguais a zero.
     /// \throw Argumento Inválido
-    void setCodigoAplicacao(string);
+    void set(string);
     /// \brief Retorna o código da aplicação, caso o mesmo tenha sido cadastrado.
     /// \return código da aplicação realizada.
-    string getCodigoAplicacao();
+    string get();
     /// \brief Retorna a quantidade de instâncias da classe CodigoAplicacao criadas até o aquele presente momento.
     /// \return Quantidade de instâncias da classe CodigoAplicacao.
-    static int getQuantidadeAplicacoes();
+    static int getQuantidadeInstancias();
     /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe CodigoAplicacao.
     virtual ~CodigoAplicacao();
 };
 
-inline string CodigoAplicacao::getCodigoAplicacao(){
+inline string CodigoAplicacao::get(){
     return numeroAplicacao;
 }
 
-inline int CodigoAplicacao::getQuantidadeAplicacoes(){
+inline int CodigoAplicacao::getQuantidadeInstancias(){
     return quantidadeAplicacoes;
 }
 
@@ -180,10 +180,10 @@ public:
     /// - Argumento válido caso seja no formato XXX, com X sendo valores numéricos com o código sendo considerado válido caso
     /// seja algum dos 5 códigos do maiores bancos brasileiros por ativos totais
     /// \throw Argumento Inválido
-    void setCodigoBanco(string);
+    void set(string);
     /// \brief Retorna o código do banco, caso o mesmo tenha sido cadastrado.
     /// \return código do banco cadastrado.
-    string getCodigoBanco();
+    string get();
     /// \brief Retorna a quantidade de instâncias da classe CodigoBanco criadas até o aquele presente momento.
     /// \return Quantidade de instâncias da classe CodigoBanco.
     static int getQuantidadeCodigosBancos();

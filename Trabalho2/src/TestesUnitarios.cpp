@@ -87,8 +87,8 @@ void TesteUnitarioCep::tearDown(){
 
 void TesteUnitarioCep::testarCenarioSucesso(){
     try{
-        cep->setCep(NUMERO_CEP_VALIDO);
-        if(cep->getCep() != NUMERO_CEP_VALIDO)
+        cep->set(NUMERO_CEP_VALIDO);
+        if(cep->get() != NUMERO_CEP_VALIDO)
             estado = FALHA;
     }
     catch(invalid_argument excessao){
@@ -98,7 +98,7 @@ void TesteUnitarioCep::testarCenarioSucesso(){
 
 void TesteUnitarioCep::testarCenarioFalha(){
     try{
-    cep->setCep(NUMERO_CEP_INVALIDO);
+    cep->set(NUMERO_CEP_INVALIDO);
         estado = FALHA;
     }
     catch(invalid_argument excessao){

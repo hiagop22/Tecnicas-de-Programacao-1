@@ -127,7 +127,7 @@ void Cep::validarNumeroCep(int numeroCep){
     throw invalid_argument("Argumento inválido.");
 }
 
-void Cep::setCep(int numeroCep){
+void Cep::set(int numeroCep){
     validarNumeroCep(numeroCep);
     this->numeroCep = numeroCep;
 }
