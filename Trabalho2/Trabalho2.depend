@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1603561468 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\main.cpp
+	<iostream>
+	"Dominios.h"
+	"TestesUnitarios.h"
+	<string>
+
+1603561478 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\dominios.h
+	<string>
+
+1603561493 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\testesunitarios.h
+	<string>
+	"Dominios.h"
+
+1603561427 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\dominios.cpp
+	"Dominios.h"
+	<string>
+	<iostream>
+	<stdexcept>
+
+1603561453 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\testesunitarios.cpp
+	"TestesUnitarios.h"
+	<iostream>
+	<stdexcept>
+
