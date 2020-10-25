@@ -109,6 +109,7 @@ inline Numero Conta::getNumero() const{
     return numero;
 }
 
+/// Padrão para codificação de produtos.
 class Produto{
     private:
         CodigoProduto codigo;
@@ -121,25 +122,50 @@ class Produto{
         ValorMinimo valor;
         static int quantidadeInstancias;
     public:
+        /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe Produto.
         Produto();
+        /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Produto.
         virtual ~Produto();
+        /// \return Quantidade de instâncias da classe Produto.
         static int getQuantidadeInstancias();
 
+        /// \brief Define o codigo como o parâmetro recebido.
         void setCodigo(const CodigoProduto&);
+        /// \brief Retorna o codigo, caso o mesmo tenha sido passado para o método set.
+        /// \return codigo cadastrado.
         CodigoProduto getCodigo() const;
+        /// \brief Define a classe como o parâmetro recebido.
         void setClasse(const Classe&);
+        /// \brief Retorna a classe, caso o mesmo tenha sido passado para o método set.
+        /// \return classe cadastrado.
         Classe getClasse() const;
+        /// \brief Define o emissor como o parâmetro recebido.
         void setEmissor(const Emissor&);
+        /// \brief Retorna a classe, caso o mesmo tenha sido passado para o método set.
+        /// \return classe cadastrado.
         Emissor getEmissor() const;
+        /// \brief Define o prazo como o parâmetro recebido.
         void setPrazo(const Prazo&);
+        /// \brief Retorna a classe, caso o mesmo tenha sido passado para o método set.
+        /// \return classe cadastrado.
         Prazo getPrazo() const;
+        /// \brief Define o vencimento como o parâmetro recebido.
         void setVencimento(const Data&);
+        /// \brief Retorna o vencimento, caso o mesmo tenha sido passado para o método set.
+        /// \return vencimento cadastrado.
         Data getVencimento() const;
+        /// \brief Define a taxa como o parâmetro recebido.
         void setTaxa(const Taxa&);
+        /// \brief Retorna a taxa, caso o mesmo tenha sido passado para o método set.
+        /// \return taxa cadastrado.
         Taxa getTaxa() const;
+        /// \brief Define o horário como o parâmetro recebido.
         void setHorario(const Horario&);
         Horario getHorario() const;
+        /// \brief Define o valor como o parâmetro recebido.
         void setValor(const ValorMinimo&);
+        /// \brief Retorna o valor, caso o mesmo tenha sido passado para o método set.
+        /// \return valor cadastrado.
         ValorMinimo getValor() const;
 };
 
