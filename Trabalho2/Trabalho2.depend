@@ -6,14 +6,14 @@
 	"TestesUnitariosEntidades.h"
 	<string>
 
-1603637333 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\dominios.h
+1603653912 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\dominios.h
 	<string>
 
 1603637112 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\testesunitarios.h
 	<string>
 	"Dominios.h"
 
-1603636942 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\dominios.cpp
+1603653500 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\dominios.cpp
 	"Dominios.h"
 	<string>
 	<iostream>
@@ -34,7 +34,7 @@
 	"TestesUnitariosEntidades.h"
 	<iostream>
 
-1603648658 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\testesunitariosentidades.h
+1603648735 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\testesunitariosentidades.h
 	"Entidades.h"
 	"Dominios.h"
 
