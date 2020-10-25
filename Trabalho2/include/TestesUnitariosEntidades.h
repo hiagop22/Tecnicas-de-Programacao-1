@@ -10,16 +10,14 @@ class TesteUnitarioEntidade{
 protected:
     int estado;
 
-//    virtual void setUp() = 0;
-//    virtual void tearDown() = 0;
-//    virtual void testarCenarioSucesso() = 0;
+    virtual void setUp() = 0;
+    virtual void tearDown() = 0;
+    virtual void testarCenarioSucesso() = 0;
 public:
-//    TesteUnitarioEntidade();
-//    virtual ~TesteUnitarioEntidade();
 
     const static int SUCESSO = 1;
     const static int FALHA = 0;
-//    virtual int run() = 0;
+    virtual int run() = 0;
 };
 
 class TesteUnitarioAplicacao: public TesteUnitarioEntidade{
