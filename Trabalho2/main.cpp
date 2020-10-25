@@ -1,12 +1,17 @@
 #include <iostream>
 #include "Dominios.h"
 #include "TestesUnitarios.h"
+#include "TestesUnitariosEntidades.h"
 #include <string>
 
 using namespace std;
 
+
 int main()
 {
+
+    // TESTES UNITARIOS DOMINIOS //
+
     TesteUnitarioCep testeCep;
     TesteUnitarioClasse testeClasse;
     TesteUnitarioCodigoAgencia testeCodigoAgencia;
@@ -26,6 +31,7 @@ int main()
     TesteUnitarioValorAplicacao testeValorAplicacao;
     TesteUnitarioValorMinimo testeValorMinimo;
 
+    cout << ">>> TESTES UNITARIOS: DOMINIOS " << endl;
 
     switch (testeCep.run()){
         case TesteUnitarioCep::SUCESSO: cout << "Cep: SUCESSO" << endl;
@@ -150,6 +156,43 @@ int main()
         case TesteUnitarioValorMinimo::SUCESSO: cout << "Valor Minimo: SUCESSO" << endl;
                                            break;
         case TesteUnitarioValorMinimo::FALHA: cout << "Valor Minimo: FALHA" << endl;
+                                           break;
+    }
+
+    // TESTES UNITARIOS ENTIDADES //
+
+    TesteUnitarioAplicacao testeAplicacao;
+    TesteUnitarioConta testeConta;
+    TesteUnitarioProduto testeProduto;
+    TesteUnitarioUsuario testeUsuario;
+
+    cout << endl << ">>> TESTES UNITARIOS: ENTIDADES " << endl;
+
+    switch (testeAplicacao.run()){
+        case TesteUnitarioAplicacao::SUCESSO: cout << "Aplicacao: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioAplicacao::FALHA: cout << "Aplicacao: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeConta.run()){
+        case TesteUnitarioConta::SUCESSO: cout << "Conta: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioConta::FALHA: cout << "Conta: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeProduto.run()){
+        case TesteUnitarioProduto::SUCESSO: cout << "Produto: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioProduto::FALHA: cout << "Produto: FALHA" << endl;
+                                           break;
+    }
+
+    switch (testeUsuario.run()){
+        case TesteUnitarioUsuario::SUCESSO: cout << "Usuario: SUCESSO" << endl;
+                                           break;
+        case TesteUnitarioUsuario::FALHA: cout << "Usuario: FALHA" << endl;
                                            break;
     }
 

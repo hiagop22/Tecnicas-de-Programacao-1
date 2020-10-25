@@ -37,10 +37,12 @@
 		<Unit filename="include/Dominios.h" />
 		<Unit filename="include/Entidades.h" />
 		<Unit filename="include/TestesUnitarios.h" />
+		<Unit filename="include/TestesUnitariosEntidades.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Dominios.cpp" />
 		<Unit filename="src/Entidades.cpp" />
 		<Unit filename="src/TestesUnitarios.cpp" />
+		<Unit filename="src/TestesUnitariosEntidades.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
