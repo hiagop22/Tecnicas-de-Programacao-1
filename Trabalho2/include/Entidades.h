@@ -2,6 +2,7 @@
 #define ENTIDADES_H
 #include "Dominios.h"
 
+/// Padrão para codificação de aplicações.
 class Aplicacao{
     private:
         CodigoAplicacao codigo;
@@ -9,15 +10,27 @@ class Aplicacao{
         Data data;
         static int quantidadeInstancias;
     public:
+        /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe Aplicacao.
         Aplicacao();
+        /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Aplicacao.
         virtual ~Aplicacao();
+        /// \return Quantidade de instâncias da classe Aplicacao.
         static int getQuantidadeInstancias();
 
+        /// \brief Define o código como o parâmetro recebido.
         void setCodigo(const CodigoAplicacao&);
+        /// \brief Retorna o código, caso o mesmo tenha sido passado para o método set.
+        /// \return código cadastrado.
         CodigoAplicacao getCodigo() const;
+        /// \brief Define o valor de aplicação como o parâmetro recebido.
         void setValor(const ValorDeAplicacao&);
+        /// \brief Retorna o valor de aplicação, caso o mesmo tenha sido passado para o método set.
+        /// \return valor de aplicação cadastrado.
         ValorDeAplicacao getValor() const;
+        /// \brief Define a data como o parâmetro recebido.
         void setData(const Data&);
+        /// \brief Retorna a data, caso a mesma tenha sido passada para o método set.
+        /// \return data cadastrada.
         Data getData() const;
 };
 inline Aplicacao::Aplicacao(){
@@ -55,6 +68,7 @@ inline Data Aplicacao::getData() const{
     return data;
 }
 
+/// Padrão para codificação de contas.
 class Conta{
     private:
         CodigoBanco banco;
@@ -62,15 +76,27 @@ class Conta{
         Numero numero;
         static int quantidadeInstancias;
     public:
+        /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe Conta.
         Conta();
+        /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Conta.
         virtual ~Conta();
+        /// \return Quantidade de instâncias da classe Conta.
         static int getQuantidadeInstancias();
 
+        /// \brief Define o banco como o parâmetro recebido.
         void setBanco(const CodigoBanco&);
+        /// \brief Retorna o banco, caso o mesmo tenha sido passado para o método set.
+        /// \return banco cadastrado.
         CodigoBanco getBanco() const;
+        /// \brief Define a agência como o parâmetro recebido.
         void setAgencia(const CodigoAgencia&);
+        /// \brief Retorna a agência, caso a mesma tenha sido passada para o método set.
+        /// \return agência cadastrada.
         CodigoAgencia getAgencia() const;
+        /// \brief Define o número como o parâmetro recebido.
         void setNumero(const Numero&);
+        /// \brief Retorna o número, caso o mesmo tenha sido passado para o método set.
+        /// \return número cadastrado.
         Numero getNumero() const;
 };
 
