@@ -1,5 +1,25 @@
 #include "TestesUnitariosEntidades.h"
 
+// ----------------- Inicializacao de Constantes ----------------- //
+const string TesteUnitarioAplicacao::CODIGO_APLICACAO_VALIDO = "12345";
+const string TesteUnitarioAplicacao::DATA_VALIDA = "10/10/2020";
+
+const string TesteUnitarioConta::CODIGO_BANCO_VALIDO = "033";
+const string TesteUnitarioConta::CODIGO_AGENCIA_VALIDO = "1234";
+const string TesteUnitarioConta::NUMERO_VALIDO = "506323-1";
+
+const string TesteUnitarioProduto::CODIGO_PRODUTO_VALIDO = "033";
+const string TesteUnitarioProduto::CLASSE_VALIDA = "CDB";
+const string TesteUnitarioProduto::EMISSOR_VALIDO = "Hiago16012";
+const string TesteUnitarioProduto::VENCIMENTO_VALIDO = "10/10/2020";
+const string TesteUnitarioProduto::HORARIO_VALIDO = "14:45";
+
+const string TesteUnitarioUsuario::NOME_VALIDO = "Maicon Junior";
+const string TesteUnitarioUsuario::ENDERECO_VALIDO = "Rua 01 Numero 15";
+const string TesteUnitarioUsuario::CPF_VALIDO = "529.982.247-25";
+const string TesteUnitarioUsuario::SENHA_VALIDA = "012345";
+
+
 
 void TesteUnitarioAplicacao::setUp(){
     aplicacao = new Aplicacao;
@@ -157,25 +177,25 @@ void TesteUnitarioProduto::testarCenarioSucesso(){
         estado = FALHA;
 
     Taxa taxa;
-    prazo.set(TAXA_VALIDA);
+    taxa.set(TAXA_VALIDA);
     produto->setTaxa(taxa);
     if(produto->getTaxa().get() != TAXA_VALIDA)
         estado = FALHA;
 
     Horario horario;
-    prazo.set(HORARIO_VALIDO);
+    horario.set(HORARIO_VALIDO);
     produto->setHorario(horario);
     if(produto->getHorario().get() != HORARIO_VALIDO)
         estado = FALHA;
 
     ValorMinimo valor;
-    prazo.set(VALOR_MINIMO_VALIDO);
-    produto->setValor(prazo);
+    valor.set(VALOR_MINIMO_VALIDO);
+    produto->setValor(valor);
     if(produto->getValor().get() != VALOR_MINIMO_VALIDO)
         estado = FALHA;
 }
 
-void TesteUnitarioProduto::run(){
+int TesteUnitarioProduto::run(){
     setUp();
     testarCenarioSucesso();
     tearDown();

@@ -3,17 +3,22 @@
 #include "Entidades.h"
 #include "Dominios.h"
 
+using namespace std;
+
+
 class TesteUnitarioEntidade{
 protected:
     int estado;
 
-    virtual void setUp() = 0;
-    virtual void tearDown() = 0;
-    virtual void testarCenarioSucesso();
+//    virtual void setUp() = 0;
+//    virtual void tearDown() = 0;
+//    virtual void testarCenarioSucesso() = 0;
 public:
+//    TesteUnitarioEntidade();
+//    virtual ~TesteUnitarioEntidade();
+
     const static int SUCESSO = 1;
     const static int FALHA = 0;
-
 //    virtual int run() = 0;
 };
 
@@ -21,14 +26,15 @@ class TesteUnitarioAplicacao: public TesteUnitarioEntidade{
 private:
     Aplicacao* aplicacao;
 
-    const string CODIGO_APLICACAO_VALIDO;
-    const int VALOR_APLICACAO_VALIDO = 500;
-    const string DATA_VALIDA;
+    const static string CODIGO_APLICACAO_VALIDO;
+    const static int VALOR_APLICACAO_VALIDO = 500;
+    const static string DATA_VALIDA;
 
     void setUp();
     void tearDown();
     void testarCenarioSucesso();
 public:
+
     int run();
 };
 
@@ -36,9 +42,9 @@ class TesteUnitarioConta: public TesteUnitarioEntidade{
 private:
     Conta* conta;
 
-    const string CODIGO_BANCO_VALIDO;
-    const string CODIGO_AGENCIA_VALIDO;
-    const string NUMERO_VALIDO;
+    const static string CODIGO_BANCO_VALIDO;
+    const static string CODIGO_AGENCIA_VALIDO;
+    const static string NUMERO_VALIDO;
 
     void setUp();
     void tearDown();
@@ -51,14 +57,14 @@ class TesteUnitarioProduto: public TesteUnitarioEntidade{
 private:
     Produto* produto;
 
-    const string CODIGO_PRODUTO_VALIDO;
-    const string CLASSE_VALIDA;
-    const string EMISSOR_VALIDO;
-    const int PRAZO_VALIDO = 24;
-    const string VENCIMENTO_VALIDO;
-    const int TAXA_VALIDA = 15;
-    const string HORARIO_VALIDO;
-    const int VALOR_MINIMO_VALIDO = 100;
+    const static string CODIGO_PRODUTO_VALIDO;
+    const static string CLASSE_VALIDA;
+    const static string EMISSOR_VALIDO;
+    const static int PRAZO_VALIDO = 24;
+    const static string VENCIMENTO_VALIDO;
+    const static int TAXA_VALIDA = 15;
+    const static string HORARIO_VALIDO;
+    const static int VALOR_MINIMO_VALIDO = 100;
 
     void setUp();
     void tearDown();
@@ -71,11 +77,11 @@ class TesteUnitarioUsuario: public TesteUnitarioEntidade{
 private:
     Usuario* usuario;
 
-    const string NOME_VALIDO;
-    const string ENDERECO_VALIDO;
-    const int CEP_VALIDO = 1111111;
-    const string CPF_VALIDO;
-    const string SENHA_VALIDA;
+    const static string NOME_VALIDO;
+    const static string ENDERECO_VALIDO;
+    const static int CEP_VALIDO = 1111111;
+    const static string CPF_VALIDO;
+    const static string SENHA_VALIDA;
 
     void setUp();
     void tearDown();
