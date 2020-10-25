@@ -14,7 +14,7 @@ public:
     const static int SUCESSO = 1;
     const static int FALHA = 0;
 
-    virtual int run() = 0;
+//    virtual int run() = 0;
 };
 
 class TesteUnitarioAplicacao: public TesteUnitarioEntidade{
