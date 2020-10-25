@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603637587 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\main.cpp
+1603637774 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\main.cpp
 	<iostream>
 	"Dominios.h"
 	"TestesUnitarios.h"
@@ -27,11 +27,11 @@
 1603564787 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\entidades.cpp
 	"Entidades.h"
 
-1603566777 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\entidades.h
+1603639326 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\entidades.h
 	"Dominios.h"
 
-1603637459 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\testesunitariosentidades.cpp
+1603637783 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\testesunitariosentidades.cpp
 	"TestesUnitariosEntidades.h"
 
-1603637432 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\testesunitariosentidades.h
+1603638748 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\testesunitariosentidades.h
 
