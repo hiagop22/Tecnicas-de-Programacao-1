@@ -94,7 +94,7 @@ class Produto{
         ValorMinimo valor;
     public:
         Produto();
-        virtual ~Produto;
+        virtual ~Produto();
 
         void setCodigo(const CodigoProduto&);
         CodigoProduto getCodigo() const;
@@ -197,7 +197,7 @@ class Usuario{
         void setCpf(const Cpf&);
         Cpf getCpf() const;
         void setSenha(const Senha&);
-        senha getSenha() const;
+        Senha getSenha() const;
 };
 
 inline void Usuario::setNome(const Nome &nome){
@@ -209,14 +209,14 @@ inline Nome Usuario::getNome() const{
 }
 
 inline void Usuario::setEndereco(const Endereco &endereco){
-    this->endereco = endereco
+    this->endereco = endereco;
 }
 
-inline Endereco Usuario;:getEndereco() const{
+inline Endereco Usuario::getEndereco() const{
     return endereco;
 }
 
-inline void Usuario::setCep(const Cep &cep)´{
+inline void Usuario::setCep(const Cep &cep){
     this->cep = cep;
 }
 
