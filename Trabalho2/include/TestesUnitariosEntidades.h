@@ -64,7 +64,7 @@ private:
     const static string VENCIMENTO_VALIDO;
     const static int TAXA_VALIDA = 15;
     const static string HORARIO_VALIDO;
-    const static int VALOR_MINIMO_VALIDO = 100;
+    const static int VALOR_MINIMO_VALIDO = 1000;
 
     void setUp();
     void tearDown();
