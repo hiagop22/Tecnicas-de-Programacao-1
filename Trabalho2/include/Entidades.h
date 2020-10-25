@@ -218,6 +218,7 @@ inline ValorMinimo Produto::getValor() const{
     return valor;
 }
 
+/// Padrão para codificação de usuários.
 class Usuario{
     private:
         Nome nome;
@@ -227,19 +228,37 @@ class Usuario{
         Senha senha;
         static int quantidadeInstancias;
     public:
+        /// \brief Incrementa a variável responsável por armazenar o número de instancias da classe Usuario.
         Usuario();
+        /// \brief Decrementa a variável responsável por armazenar o número de instancias da classe Usuario.
         virtual ~Usuario();
+        /// \return Quantidade de instâncias da classe Usuario.
         static int getQuantidadeInstancias();
 
+        /// \brief Define o nome como o parâmetro recebido.
         void setNome(const Nome&);
+        /// \brief Retorna o nome, caso o mesmo tenha sido passado para o método set.
+        /// \return nome cadastrado.
         Nome getNome() const;
+        /// \brief Define o endereco como o parâmetro recebido
         void setEndereco(const Endereco&);
+        /// \brief Retorna o endereco, caso o mesmo tenha sido passado para o método set.
+        /// \return endereco cadastrado.
         Endereco getEndereco() const;
+        /// \brief Define o cep como o parâmetro recebido
         void setCep(const Cep&);
+        /// \brief Retorna o cep, caso o mesmo tenha sido passado para o método set.
+        /// \return cep cadastrado.
         Cep getCep() const;
+        /// \brief Define o cpf como o parâmetro recebido
         void setCpf(const Cpf&);
+        /// \brief Retorna o cpf, caso o mesmo tenha sido passado para o método set.
+        /// \return cpf cadastrado.
         Cpf getCpf() const;
+        /// \brief Define a senha como o parâmetro recebido
         void setSenha(const Senha&);
+        /// \brief Retorna a senha, caso o mesmo tenha sido passado para o método set.
+        /// \return senha cadastrado.
         Senha getSenha() const;
 };
 
