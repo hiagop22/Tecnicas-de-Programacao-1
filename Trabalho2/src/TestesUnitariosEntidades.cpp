@@ -1,4 +1,7 @@
 #include "TestesUnitariosEntidades.h"
+#include <iostream>
+
+using namespace std;
 
 // ----------------- Inicializacao de Constantes ----------------- //
 const string TesteUnitarioAplicacao::CODIGO_APLICACAO_VALIDO = "12345";
@@ -193,6 +196,7 @@ void TesteUnitarioProduto::testarCenarioSucesso(){
     produto->setValor(valor);
     if(produto->getValor().get() != VALOR_MINIMO_VALIDO)
         estado = FALHA;
+
 }
 
 int TesteUnitarioProduto::run(){

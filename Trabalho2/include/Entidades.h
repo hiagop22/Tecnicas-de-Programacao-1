@@ -7,9 +7,12 @@ class Aplicacao{
         CodigoAplicacao codigo;
         ValorDeAplicacao valor;
         Data data;
+        static int quantidadeInstancias;
     public:
-//        Aplicacao();
-//        virtual ~Aplicacao();
+        Aplicacao();
+        virtual ~Aplicacao();
+        static int getQuantidadeInstancias();
+
         void setCodigo(const CodigoAplicacao&);
         CodigoAplicacao getCodigo() const;
         void setValor(const ValorDeAplicacao&);
@@ -17,6 +20,16 @@ class Aplicacao{
         void setData(const Data&);
         Data getData() const;
 };
+inline Aplicacao::Aplicacao(){
+    quantidadeInstancias++;
+}
+inline Aplicacao::~Aplicacao(){
+    quantidadeInstancias--;
+}
+
+inline Aplicacao::getQuantidadeInstancias(){
+    return quantidadeInstancias;
+}
 
 inline void Aplicacao::setCodigo(const CodigoAplicacao &codigo){
     this->codigo = codigo;
@@ -47,9 +60,12 @@ class Conta{
         CodigoBanco banco;
         CodigoAgencia agencia;
         Numero numero;
+        static int quantidadeInstancias;
     public:
-//        Conta();
-//        virtual ~Conta();
+        Conta();
+        virtual ~Conta();
+        static int getQuantidadeInstancias();
+
         void setBanco(const CodigoBanco&);
         CodigoBanco getBanco() const;
         void setAgencia(const CodigoAgencia&);
@@ -57,6 +73,17 @@ class Conta{
         void setNumero(const Numero&);
         Numero getNumero() const;
 };
+
+inline Conta::Conta(){
+    quantidadeInstancias++;
+}
+inline Conta::~Conta(){
+    quantidadeInstancias--;
+}
+
+inline Conta::getQuantidadeInstancias(){
+    return quantidadeInstancias;
+}
 
 inline void Conta::setBanco(const CodigoBanco &banco){
     this->banco = banco;
@@ -92,9 +119,11 @@ class Produto{
         Taxa taxa;
         Horario horario;
         ValorMinimo valor;
+        static int quantidadeInstancias;
     public:
-//        Produto();
-//        virtual ~Produto();
+        Produto();
+        virtual ~Produto();
+        static int getQuantidadeInstancias();
 
         void setCodigo(const CodigoProduto&);
         CodigoProduto getCodigo() const;
@@ -113,6 +142,17 @@ class Produto{
         void setValor(const ValorMinimo&);
         ValorMinimo getValor() const;
 };
+
+inline Produto::Produto(){
+    quantidadeInstancias++;
+}
+inline Produto::~Produto(){
+    quantidadeInstancias--;
+}
+
+inline Produto::getQuantidadeInstancias(){
+    return quantidadeInstancias;
+}
 
 inline void Produto::setCodigo(const CodigoProduto &codigo){
     this->codigo = codigo;
@@ -185,9 +225,12 @@ class Usuario{
         Cep cep;
         Cpf cpf;
         Senha senha;
+        static int quantidadeInstancias;
     public:
-//        Usuario();
-//        virtual ~Usuario();
+        Usuario();
+        virtual ~Usuario();
+        static int getQuantidadeInstancias();
+
         void setNome(const Nome&);
         Nome getNome() const;
         void setEndereco(const Endereco&);
@@ -199,6 +242,17 @@ class Usuario{
         void setSenha(const Senha&);
         Senha getSenha() const;
 };
+
+inline Usuario::Usuario(){
+    quantidadeInstancias++;
+}
+inline Usuario::~Usuario(){
+    quantidadeInstancias--;
+}
+
+inline Usuario::getQuantidadeInstancias(){
+    return quantidadeInstancias;
+}
 
 inline void Usuario::setNome(const Nome &nome){
     this->nome = nome;
