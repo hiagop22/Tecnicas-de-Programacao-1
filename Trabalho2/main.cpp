@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 int main()
 {
 
@@ -29,6 +30,8 @@ int main()
     TesteUnitarioTaxa testeTaxa;
     TesteUnitarioValorAplicacao testeValorAplicacao;
     TesteUnitarioValorMinimo testeValorMinimo;
+
+    cout << ">>> TESTES UNITARIOS: DOMINIOS " << endl;
 
     switch (testeCep.run()){
         case TesteUnitarioCep::SUCESSO: cout << "Cep: SUCESSO" << endl;
@@ -162,6 +165,8 @@ int main()
     TesteUnitarioConta testeConta;
     TesteUnitarioProduto testeProduto;
     TesteUnitarioUsuario testeUsuario;
+
+    cout << endl << ">>> TESTES UNITARIOS: ENTIDADES " << endl;
 
     switch (testeAplicacao.run()){
         case TesteUnitarioAplicacao::SUCESSO: cout << "Aplicacao: SUCESSO" << endl;

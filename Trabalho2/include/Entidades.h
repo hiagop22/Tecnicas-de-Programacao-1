@@ -8,8 +8,8 @@ class Aplicacao{
         ValorDeAplicacao valor;
         Data data;
     public:
-        Aplicacao();
-        virtual ~Aplicacao();
+//        Aplicacao();
+//        virtual ~Aplicacao();
         void setCodigo(const CodigoAplicacao&);
         CodigoAplicacao getCodigo() const;
         void setValor(const ValorDeAplicacao&);
@@ -48,8 +48,8 @@ class Conta{
         CodigoAgencia agencia;
         Numero numero;
     public:
-        Conta();
-        virtual ~Conta();
+//        Conta();
+//        virtual ~Conta();
         void setBanco(const CodigoBanco&);
         CodigoBanco getBanco() const;
         void setAgencia(const CodigoAgencia&);
@@ -93,8 +93,8 @@ class Produto{
         Horario horario;
         ValorMinimo valor;
     public:
-        Produto();
-        virtual ~Produto();
+//        Produto();
+//        virtual ~Produto();
 
         void setCodigo(const CodigoProduto&);
         CodigoProduto getCodigo() const;
@@ -186,8 +186,8 @@ class Usuario{
         Cpf cpf;
         Senha senha;
     public:
-        Usuario();
-        virtual ~Usuario();
+//        Usuario();
+//        virtual ~Usuario();
         void setNome(const Nome&);
         Nome getNome() const;
         void setEndereco(const Endereco&);
