@@ -1,5 +1,6 @@
 #ifndef TESTESUNITARIOSENTIDADES_H
 #define TESTESUNITARIOSENTIDADES_H
+#include "Entidades.h"
 #include "Dominios.h"
 
 class TesteUnitarioEntidade{
@@ -18,9 +19,7 @@ public:
 
 class TesteUnitarioAplicacao: public TesteUnitarioEntidade{
 private:
-    CodigoAplicacao* codigo;
-    ValorDeAplicacao* valor;
-    Data* data;
+    Aplicacao* aplicacao;
 
     const string CODIGO_APLICACAO_VALIDO;
     const int VALOR_APLICACAO_VALIDO = 500;
@@ -35,9 +34,7 @@ public:
 
 class TesteUnitarioConta: public TesteUnitarioEntidade{
 private:
-    CodigoBanco* banco;
-    CodigoAgencia* agencia;
-    Numero* numero;
+    Conta* conta;
 
     const string CODIGO_BANCO_VALIDO;
     const string CODIGO_AGENCIA_VALIDO;
@@ -52,20 +49,13 @@ public:
 
 class TesteUnitarioProduto: public TesteUnitarioEntidade{
 private:
-    CodigoProduto* codigo;
-    Classe* classe;
-    Emissor* emissor;
-    Prazo* prazo;
-    Data* vencimento;
-    Taxa* taxa;
-    Horario* horario;
-    ValorMinimo* valor;
+    Produto* produto;
 
     const string CODIGO_PRODUTO_VALIDO;
-    const string NOME_CLASSE_VALIDO;
-    const string NOME_EMISSOR_VALIDO;
+    const string CLASSE_VALIDA;
+    const string EMISSOR_VALIDO;
     const int PRAZO_VALIDO = 24;
-    const string DATA_VENCIMENTO_VALIDO;
+    const string VENCIMENTO_VALIDO;
     const int TAXA_VALIDA = 15;
     const string HORARIO_VALIDO;
     const int VALOR_MINIMO_VALIDO = 100;
@@ -79,11 +69,7 @@ public:
 
 class TesteUnitarioUsuario: public TesteUnitarioEntidade{
 private:
-    Nome* nome;
-    Endereco* endereco;
-    Cep* cep;
-    Cpf* cpf;
-    Senha* senha;
+    Usuario* usuario;
 
     const string NOME_VALIDO;
     const string ENDERECO_VALIDO;
