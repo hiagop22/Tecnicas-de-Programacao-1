@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Dominios.h"
 #include "TestesUnitarios.h"
+#include "TestesUnitariosEntidades.h"
 #include <string>
 
 using namespace std;
@@ -25,7 +26,6 @@ int main()
     TesteUnitarioTaxa testeTaxa;
     TesteUnitarioValorAplicacao testeValorAplicacao;
     TesteUnitarioValorMinimo testeValorMinimo;
-
 
     switch (testeCep.run()){
         case TesteUnitarioCep::SUCESSO: cout << "Cep: SUCESSO" << endl;

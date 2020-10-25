@@ -1,31 +1,37 @@
 # depslib dependency file v1.0
-1603563488 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\main.cpp
+1603637587 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\main.cpp
 	<iostream>
 	"Dominios.h"
 	"TestesUnitarios.h"
+	"TestesUnitariosEntidades.h"
 	<string>
 
-1603564604 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\dominios.h
+1603637333 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\dominios.h
 	<string>
 
-1603561493 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\testesunitarios.h
+1603637112 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\testesunitarios.h
 	<string>
 	"Dominios.h"
 
-1603564253 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\dominios.cpp
+1603636942 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\dominios.cpp
 	"Dominios.h"
 	<string>
 	<iostream>
 	<stdexcept>
 
-1603564554 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\testesunitarios.cpp
+1603564787 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\testesunitarios.cpp
 	"TestesUnitarios.h"
 	<iostream>
 	<stdexcept>
 
-1603563570 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\entidades.cpp
+1603564787 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\entidades.cpp
 	"Entidades.h"
 
-1603562882 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\entidades.h
+1603566777 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\entidades.h
 	"Dominios.h"
+
+1603637459 source:c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\src\testesunitariosentidades.cpp
+	"TestesUnitariosEntidades.h"
+
+1603637432 c:\users\hiury\downloads\disciplinas\tp1\trabalhos\tecnicas-de-programacao-1\trabalho2\include\testesunitariosentidades.h
 

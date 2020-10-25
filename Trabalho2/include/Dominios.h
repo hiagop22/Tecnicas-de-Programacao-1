@@ -4,7 +4,6 @@
 
 using std::string;
 
-
 /// Padr�o para codifica��o de ceps.
 class Cep{
 private:
