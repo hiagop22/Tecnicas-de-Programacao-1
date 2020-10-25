@@ -224,7 +224,7 @@ inline Cep Usuario::getCep() const{
     return cep;
 }
 
-inline void Usuario::setCpf(const Cpf *cpf){
+inline void Usuario::setCpf(const Cpf &cpf){
     this->cpf = cpf;
 }
 
