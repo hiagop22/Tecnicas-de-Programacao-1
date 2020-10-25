@@ -12,19 +12,21 @@ void TesteUnitarioAplicacao::tearDown(){
 
 void TesteUnitarioAplicacao::testarCenarioSucesso(){
     CodigoAplicacao codigo;
-    codigo.setCodigo(VALOR_VALIDO);
+    codigo.set(CODIGO_APLICACAO_VALIDO);
     aplicacao->setCodigo(codigo);
-    if(aplicacao->getCodigo().getCodigo() != VALOR_VALIDO)
+    if(aplicacao->getCodigo().get() != CODIGO_APLICACAO_VALIDO)
         estado = FALHA;
+
     ValorDeAplicacao valor;
-    valor.setValor(VALOR_VALIDO);
+    valor.set(VALOR_APLICACAO_VALIDO);
     aplicacao->setValor(valor);
-    if(aplicacao->getValor().getValor() != VALOR_VALIDO)
+    if(aplicacao->getValor().get() != VALOR_APLICACAO_VALIDO)
         estado = FALHA;
+
     Data data;
-    data.setData(VALOR_VALIDO);
+    data.set(DATA_VALIDA);
     aplicacao->setData(data);
-    if(aplicacao->getData().getData() != VALOR_VALIDO)
+    if(aplicacao->getData().get() != DATA_VALIDA)
         estado = FALHA;
 }
 
@@ -37,7 +39,7 @@ int TesteUnitarioAplicacao::run(){
 
 void TesteUnitarioConta::setUp(){
     conta = new Conta;
-    estado = sucesso;
+    estado = SUCESSO;
 }
 
 void TesteUnitarioConta::tearDown(){
@@ -46,14 +48,15 @@ void TesteUnitarioConta::tearDown(){
 
 void TesteUnitarioConta::testarCenarioSucesso(){
     CodigoBanco banco;
-    banco.setBanco(VALOR_VALIDO);
+    banco.set(CODIGO_BANCO_VALIDO);
     conta->setBanco(banco);
-    if(conta->getBanco().getBanco() != VALOR_VALIDO)
+    if(conta->getBanco().get() != CODIGO_BANCO_VALIDO)
         estado = FALHA;
+
     CodigoAgencia agencia;
-    agencia.setAgencia(VALOR_VALIDO);
-    conta->setAgencia(banco);
-    if(conta->getAgencia().getAgencia() != VALOR_VALIDO)
+    agencia.set(CODIGO_AGENCIA_VALIDO);
+    conta->setAgencia(agencia);
+    if(conta->getAgencia().get() != CODIGO_AGENCIA_VALIDO)
         estado = FALHA;
 }
 
@@ -75,29 +78,33 @@ void TesteUnitarioUsuario::tearDown(){
 
 void TesteUnitarioUsuario::testarCenarioSucesso(){
     Nome nome;
-    nome.setNome(VALOR_VALIDO);
+    nome.set(NOME_VALIDO);
     usuario->setNome(nome);
-    if(usuario->getNome().getNome() != VALOR_VALIDO)
+    if(usuario->getNome().get() != NOME_VALIDO)
         estado = FALHA;
+
     Endereco endereco;
-    endereco.setEndereco(VALOR_VALIDO);
+    endereco.set(ENDERECO_VALIDO);
     usuario->setEndereco(endereco);
-    if(usuario->getEndereco().getEndereco() != VALOR_VALIDO)
+    if(usuario->getEndereco().get() != ENDERECO_VALIDO)
         estado = FALHA;
+
     Cep cep;
-    cep.setCep(VALOR_VALIDO);
+    cep.set(CEP_VALIDO);
     usuario->setCep(cep);
-    if(usuario->getCep().getCep() != VALOR_VALIDO)
+    if(usuario->getCep().get() != CEP_VALIDO)
         estado = FALHA;
+
     Cpf cpf;
-    cpf.setCpf(VALOR_VALIDO);
+    cpf.set(CPF_VALIDO);
     usuario->setCpf(cpf);
-    if(usuario->getCpf().getCpf() != VALOR_VALIDO)
+    if(usuario->getCpf().get() != CPF_VALIDO)
         estado = FALHA;
+
     Senha senha;
-    senha.setSenha(VALOR_VALIDO);
+    senha.set(SENHA_VALIDA);
     usuario->setSenha(senha);
-    if(usuario->getSenha().getSenha() != VALOR_VALIDO)
+    if(usuario->getSenha().get() != SENHA_VALIDA)
         estado = FALHA;
 }
 
