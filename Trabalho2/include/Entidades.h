@@ -2,7 +2,7 @@
 #define ENTIDADES_H
 #include "Dominios.h"
 
-/// Padr„o para codificaÁ„o de aplicaÁıes.
+/// Padr√£o para codifica√ß√£o de aplica√ß√µes.
 class Aplicacao{
     private:
         CodigoAplicacao codigo;
@@ -10,26 +10,26 @@ class Aplicacao{
         Data data;
         static int quantidadeInstancias;
     public:
-        /// \brief Incrementa a vari·vel respons·vel por armazenar o n˙mero de instancias da classe Aplicacao.
+        /// \brief Incrementa a vari√°vel respons√°vel por armazenar o n√∫mero de instancias da classe Aplicacao.
         Aplicacao();
-        /// \brief Decrementa a vari·vel respons·vel por armazenar o n˙mero de instancias da classe Aplicacao.
+        /// \brief Decrementa a vari√°vel respons√°vel por armazenar o n√∫mero de instancias da classe Aplicacao.
         virtual ~Aplicacao();
-        /// \return Quantidade de inst‚ncias da classe Aplicacao.
+        /// \return Quantidade de inst√¢ncias da classe Aplicacao.
         static int getQuantidadeInstancias();
 
-        /// \brief Define o cÛdigo como o par‚metro recebido.
+        /// \brief Define o c√≥digo como o par√¢metro recebido.
         void setCodigo(const CodigoAplicacao&);
-        /// \brief Retorna o cÛdigo, caso o mesmo tenha sido passado para o mÈtodo set.
-        /// \return cÛdigo cadastrado.
+        /// \brief Retorna o c√≥digo, caso o mesmo tenha sido passado para o m√©todo set.
+        /// \return c√≥digo cadastrado.
         CodigoAplicacao getCodigo() const;
-        /// \brief Define o valor de aplicaÁ„o como o par‚metro recebido.
+        /// \brief Define o valor de aplica√ß√£o como o par√¢metro recebido.
         void setValor(const ValorDeAplicacao&);
-        /// \brief Retorna o valor de aplicaÁ„o, caso o mesmo tenha sido passado para o mÈtodo set.
-        /// \return valor de aplicaÁ„o cadastrado.
+        /// \brief Retorna o valor de aplica√ß√£o, caso o mesmo tenha sido passado para o m√©todo set.
+        /// \return valor de aplica√ß√£o cadastrado.
         ValorDeAplicacao getValor() const;
-        /// \brief Define a data como o par‚metro recebido.
+        /// \brief Define a data como o par√¢metro recebido.
         void setData(const Data&);
-        /// \brief Retorna a data, caso a mesma tenha sido passada para o mÈtodo set.
+        /// \brief Retorna a data, caso a mesma tenha sido passada para o m√©todo set.
         /// \return data cadastrada.
         Data getData() const;
 };
@@ -68,7 +68,7 @@ inline Data Aplicacao::getData() const{
     return data;
 }
 
-/// Padr„o para codificaÁ„o de contas.
+/// Padr√£o para codifica√ß√£o de contas.
 class Conta{
     private:
         CodigoBanco banco;
@@ -76,27 +76,27 @@ class Conta{
         Numero numero;
         static int quantidadeInstancias;
     public:
-        /// \brief Incrementa a vari·vel respons·vel por armazenar o n˙mero de instancias da classe Conta.
+        /// \brief Incrementa a vari√°vel respons√°vel por armazenar o n√∫mero de instancias da classe Conta.
         Conta();
-        /// \brief Decrementa a vari·vel respons·vel por armazenar o n˙mero de instancias da classe Conta.
+        /// \brief Decrementa a vari√°vel respons√°vel por armazenar o n√∫mero de instancias da classe Conta.
         virtual ~Conta();
-        /// \return Quantidade de inst‚ncias da classe Conta.
+        /// \return Quantidade de inst√¢ncias da classe Conta.
         static int getQuantidadeInstancias();
 
-        /// \brief Define o banco como o par‚metro recebido.
+        /// \brief Define o banco como o par√¢metro recebido.
         void setBanco(const CodigoBanco&);
-        /// \brief Retorna o banco, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna o banco, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return banco cadastrado.
         CodigoBanco getBanco() const;
-        /// \brief Define a agÍncia como o par‚metro recebido.
+        /// \brief Define a ag√™ncia como o par√¢metro recebido.
         void setAgencia(const CodigoAgencia&);
-        /// \brief Retorna a agÍncia, caso a mesma tenha sido passada para o mÈtodo set.
-        /// \return agÍncia cadastrada.
+        /// \brief Retorna a ag√™ncia, caso a mesma tenha sido passada para o m√©todo set.
+        /// \return ag√™ncia cadastrada.
         CodigoAgencia getAgencia() const;
-        /// \brief Define o n˙mero como o par‚metro recebido.
+        /// \brief Define o n√∫mero como o par√¢metro recebido.
         void setNumero(const Numero&);
-        /// \brief Retorna o n˙mero, caso o mesmo tenha sido passado para o mÈtodo set.
-        /// \return n˙mero cadastrado.
+        /// \brief Retorna o n√∫mero, caso o mesmo tenha sido passado para o m√©todo set.
+        /// \return n√∫mero cadastrado.
         Numero getNumero() const;
 };
 

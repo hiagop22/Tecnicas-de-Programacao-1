@@ -4,24 +4,24 @@
 
 using namespace std;
 
-// ----------------- Inicializa��o de atributos est�ticos ----------------- //
+// ----------------- Inicialização de atributos estáticos ----------------- //
 // -> Classe <- //
 const string TesteUnitarioClasse::NOME_CLASSE_VALIDO = "CDB";
 const string TesteUnitarioClasse::NOME_CLASSE_INVALIDO = "ETF";
 
-// -> C�digo de Agencia <- //
+// -> Código de Agencia <- //
 const string TesteUnitarioCodigoAgencia::CODIGO_AGENCIA_VALIDO = "1234";
 const string TesteUnitarioCodigoAgencia::CODIGO_AGENCIA_INVALIDO = "0000";
 
-// -> C�digo de Aplicac�o <- //
+// -> Código de Aplicacão <- //
 const string TesteUnitarioCodigoAplicacao::CODIGO_APLICACAO_VALIDO = "12345";
 const string TesteUnitarioCodigoAplicacao::CODIGO_APLICACAO_INVALIDO = "00000";
 
-// -> C�digo de Banco <- //
+// -> Código de Banco <- //
 const string TesteUnitarioCodigoBanco::CODIGO_BANCO_VALIDO = "033";
 const string TesteUnitarioCodigoBanco::CODIGO_BANCO_INVALIDO = "003";
 
-// -> C�digo de Produto <- //
+// -> Código de Produto <- //
 const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_VALIDO = "033";
 const string TesteUnitarioCodigoProduto::CODIGO_PRODUTO_INVALIDO = "000";
 
@@ -73,7 +73,7 @@ const int TesteUnitarioValorAplicacao::VALOR_APLICACAO_INVALIDO = 5000000;
 const int TesteUnitarioValorMinimo::VALOR_MINIMO_VALIDO = 1000;
 const int TesteUnitarioValorMinimo::VALOR_MINIMO_INVALIDO = 2000;
 
-// ----------------- Defini��o de m�todos ----------------- //
+// ----------------- Definição de métodos ----------------- //
 
 // -> Cep <- //
 void TesteUnitarioCep::setUp(){
@@ -156,7 +156,7 @@ int TesteUnitarioClasse::run(){
     return estado;
 }
 
-// -> C�digo de Agencia <- //
+// -> Código de Agencia <- //
 void TesteUnitarioCodigoAgencia::setUp(){
     codigoAgencia = new CodigoAgencia();
     estado = SUCESSO;
@@ -196,7 +196,7 @@ int TesteUnitarioCodigoAgencia::run(){
     return estado;
 }
 
-// -> C�digo de Aplica��o <- //
+// -> Código de Aplicação <- //
 void TesteUnitarioCodigoAplicacao::setUp(){
     codigoAplicacao = new CodigoAplicacao();
     estado = SUCESSO;
@@ -236,7 +236,7 @@ int TesteUnitarioCodigoAplicacao::run(){
     return estado;
 }
 
-// -> C�digo de Banco <- //
+// -> Código de Banco <- //
 void TesteUnitarioCodigoBanco::setUp(){
     codigoBanco = new CodigoBanco();
     estado = SUCESSO;
@@ -276,7 +276,7 @@ int TesteUnitarioCodigoBanco::run(){
     return estado;
 }
 
-// -> C�digo de Produto <- //
+// -> Código de Produto <- //
 void TesteUnitarioCodigoProduto::setUp(){
     codigoProduto = new CodigoProduto();
     estado = SUCESSO;
