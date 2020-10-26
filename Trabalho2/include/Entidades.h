@@ -135,7 +135,7 @@ inline Numero Conta::getNumero() const{
     return numero;
 }
 
-/// Padr„o para codificaÁ„o de produtos.
+/// Padr√£o para codifica√ß√£o de produtos.
 class Produto{
     private:
         CodigoProduto codigo;
@@ -148,49 +148,49 @@ class Produto{
         ValorMinimo valor;
         static int quantidadeInstancias;
     public:
-        /// \brief Incrementa a vari·vel respons·vel por armazenar o n˙mero de instancias da classe Produto.
+        /// \brief Incrementa a vari√°vel respons√°vel por armazenar o n√∫mero de instancias da classe Produto.
         Produto();
-        /// \brief Decrementa a vari·vel respons·vel por armazenar o n˙mero de instancias da classe Produto.
+        /// \brief Decrementa a vari√°vel respons√°vel por armazenar o n√∫mero de instancias da classe Produto.
         virtual ~Produto();
-        /// \return Quantidade de inst‚ncias da classe Produto.
+        /// \return Quantidade de inst√¢ncias da classe Produto.
         static int getQuantidadeInstancias();
 
-        /// \brief Define o codigo como o par‚metro recebido.
+        /// \brief Define o codigo como o par√¢metro recebido.
         void setCodigo(const CodigoProduto&);
-        /// \brief Retorna o codigo, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna o codigo, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return codigo cadastrado.
         CodigoProduto getCodigo() const;
-        /// \brief Define a classe como o par‚metro recebido.
+        /// \brief Define a classe como o par√¢metro recebido.
         void setClasse(const Classe&);
-        /// \brief Retorna a classe, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna a classe, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return classe cadastrado.
         Classe getClasse() const;
-        /// \brief Define o emissor como o par‚metro recebido.
+        /// \brief Define o emissor como o par√¢metro recebido.
         void setEmissor(const Emissor&);
-        /// \brief Retorna a classe, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna a classe, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return classe cadastrado.
         Emissor getEmissor() const;
-        /// \brief Define o prazo como o par‚metro recebido.
+        /// \brief Define o prazo como o par√¢metro recebido.
         void setPrazo(const Prazo&);
-        /// \brief Retorna a classe, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna a classe, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return classe cadastrado.
         Prazo getPrazo() const;
-        /// \brief Define o vencimento como o par‚metro recebido.
+        /// \brief Define o vencimento como o par√¢metro recebido.
         void setVencimento(const Data&);
-        /// \brief Retorna o vencimento, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna o vencimento, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return vencimento cadastrado.
         Data getVencimento() const;
-        /// \brief Define a taxa como o par‚metro recebido.
+        /// \brief Define a taxa como o par√¢metro recebido.
         void setTaxa(const Taxa&);
-        /// \brief Retorna a taxa, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna a taxa, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return taxa cadastrado.
         Taxa getTaxa() const;
-        /// \brief Define o hor·rio como o par‚metro recebido.
+        /// \brief Define o hor√°rio como o par√¢metro recebido.
         void setHorario(const Horario&);
         Horario getHorario() const;
-        /// \brief Define o valor como o par‚metro recebido.
+        /// \brief Define o valor como o par√¢metro recebido.
         void setValor(const ValorMinimo&);
-        /// \brief Retorna o valor, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna o valor, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return valor cadastrado.
         ValorMinimo getValor() const;
 };
@@ -270,7 +270,7 @@ inline ValorMinimo Produto::getValor() const{
     return valor;
 }
 
-/// Padr„o para codificaÁ„o de usu·rios.
+/// Padr√£o para codifica√ß√£o de usu√°rios.
 class Usuario{
     private:
         Nome nome;
@@ -280,36 +280,36 @@ class Usuario{
         Senha senha;
         static int quantidadeInstancias;
     public:
-        /// \brief Incrementa a vari·vel respons·vel por armazenar o n˙mero de instancias da classe Usuario.
+        /// \brief Incrementa a vari√°vel respons√°vel por armazenar o n√∫mero de instancias da classe Usuario.
         Usuario();
-        /// \brief Decrementa a vari·vel respons·vel por armazenar o n˙mero de instancias da classe Usuario.
+        /// \brief Decrementa a vari√°vel respons√°vel por armazenar o n√∫mero de instancias da classe Usuario.
         virtual ~Usuario();
-        /// \return Quantidade de inst‚ncias da classe Usuario.
+        /// \return Quantidade de inst√¢ncias da classe Usuario.
         static int getQuantidadeInstancias();
 
-        /// \brief Define o nome como o par‚metro recebido.
+        /// \brief Define o nome como o par√¢metro recebido.
         void setNome(const Nome&);
-        /// \brief Retorna o nome, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna o nome, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return nome cadastrado.
         Nome getNome() const;
-        /// \brief Define o endereco como o par‚metro recebido
+        /// \brief Define o endereco como o par√¢metro recebido
         void setEndereco(const Endereco&);
-        /// \brief Retorna o endereco, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna o endereco, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return endereco cadastrado.
         Endereco getEndereco() const;
-        /// \brief Define o cep como o par‚metro recebido
+        /// \brief Define o cep como o par√¢metro recebido
         void setCep(const Cep&);
-        /// \brief Retorna o cep, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna o cep, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return cep cadastrado.
         Cep getCep() const;
-        /// \brief Define o cpf como o par‚metro recebido
+        /// \brief Define o cpf como o par√¢metro recebido
         void setCpf(const Cpf&);
-        /// \brief Retorna o cpf, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna o cpf, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return cpf cadastrado.
         Cpf getCpf() const;
-        /// \brief Define a senha como o par‚metro recebido
+        /// \brief Define a senha como o par√¢metro recebido
         void setSenha(const Senha&);
-        /// \brief Retorna a senha, caso o mesmo tenha sido passado para o mÈtodo set.
+        /// \brief Retorna a senha, caso o mesmo tenha sido passado para o m√©todo set.
         /// \return senha cadastrado.
         Senha getSenha() const;
 };
